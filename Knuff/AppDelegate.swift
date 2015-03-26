@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Fabric
+import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,6 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     application.registerUserNotificationSettings(settings)
     
     application.registerForRemoteNotifications();
+
+    
+    Fabric.with([Crashlytics()])
     
     return true
   }
