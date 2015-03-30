@@ -93,7 +93,7 @@ class PushIllustrationView: UIView {
     scaleAni.springBounciness = 15;
     
     
-    alphaAni.completionBlock = { (animation:POPAnimation!, completion:Bool!) -> Void in
+    alphaAni.completionBlock = { (animation:POPAnimation!, completion:Bool!) in
       
       // Dissapear
       alphaAni = POPSpringAnimation(propertyNamed: kPOPViewAlpha)
@@ -110,7 +110,7 @@ class PushIllustrationView: UIView {
       
       // Restart, kind of ugly, but they get out of sync if we dont restart them at the same time
       if (view == self.bubble) {
-        alphaAni.completionBlock = { (animation:POPAnimation!, completion:Bool!) -> Void in
+        alphaAni.completionBlock = { (animation:POPAnimation!, completion:Bool!) in
           self.startAnimations(hiddenTime)
         }
       }

@@ -12,24 +12,32 @@ import Cartography
 
 class ViewController: UIViewController, MCNearbyServiceAdvertiserDelegate {
   var serviceAdvertiser: MCNearbyServiceAdvertiser?
-  var lol: IntoView?
-  
+  var infoView: IntoView?
+  var infoCloseButton: InfoCloseButton?
   
   override func viewDidLoad() {
     super.viewDidLoad()
 
     view.backgroundColor = UIColor(hex: 0x1F3141, alpha: 1)
     
-    lol = IntoView(frame: CGRectZero)
-    view.addSubview(lol!)
+    infoView = IntoView(frame: CGRectZero)
+    view.addSubview(infoView!)
+    
+    infoCloseButton = InfoCloseButton(frame: CGRectZero)
+    view.addSubview(infoCloseButton!)
   }
   
   override func updateViewConstraints() {
     super.updateViewConstraints()
     
-    layout(lol!) { asd in
-      asd.center == asd.superview!.center
+    layout(infoView!) { infoView in
+      infoView.center == infoView.superview!.center
       return
+    }
+    
+    layout(infoCloseButton!) { infoCloseButton in
+      infoCloseButton.top == infoCloseButton.superview!.top + self.topLayoutGuide.length + 10;
+      infoCloseButton.right == infoCloseButton.superview!.right - 10;
     }
   }
   
