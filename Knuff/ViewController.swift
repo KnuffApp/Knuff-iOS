@@ -8,16 +8,34 @@
 
 import UIKit
 import MultipeerConnectivity
+import Cartography
 
 class ViewController: UIViewController, MCNearbyServiceAdvertiserDelegate {
-  
   var serviceAdvertiser: MCNearbyServiceAdvertiser?
+  var lol: IntoView?
+  
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
+
+    view.backgroundColor = UIColor(hex: 0x1F3141, alpha: 1)
+    
+    lol = IntoView(frame: CGRectZero)
+    view.addSubview(lol!)
   }
   
+  override func updateViewConstraints() {
+    super.updateViewConstraints()
+    
+    layout(lol!) { asd in
+      asd.center == asd.superview!.center
+      return
+    }
+  }
+  
+  override func preferredStatusBarStyle() -> UIStatusBarStyle {
+    return UIStatusBarStyle.LightContent
+  }
   
   var deviceTokenString: String?
   

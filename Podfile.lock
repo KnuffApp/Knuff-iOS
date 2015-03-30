@@ -1,0 +1,13 @@
+PODS:
+  - Cartography (0.2.1)
+  - pop (1.0.7)
+
+DEPENDENCIES:
+  - Cartography
+  - pop (~> 1.0)
+
+SPEC CHECKSUMS:
+  Cartography: 9efb847f5068db052df1f8627e70382e37e17184
+  pop: 2f14a1ea61339767af9e66741b418c831b3844df
+
+COCOAPODS: 0.36.0
