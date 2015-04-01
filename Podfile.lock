@@ -1,13 +1,23 @@
 PODS:
-  - Cartography (0.2.1)
+  - Cartography (0.3.0)
   - pop (1.0.7)
 
 DEPENDENCIES:
-  - Cartography
+  - Cartography (from `https://github.com/robb/Cartography.git`, branch `xcode6-3`)
   - pop (~> 1.0)
 
+EXTERNAL SOURCES:
+  Cartography:
+    :branch: xcode6-3
+    :git: https://github.com/robb/Cartography.git
+
+CHECKOUT OPTIONS:
+  Cartography:
+    :commit: 6fd83640bf6e285e3c60a2aff91aca0c25ee2ef2
+    :git: https://github.com/robb/Cartography.git
+
 SPEC CHECKSUMS:
-  Cartography: 9efb847f5068db052df1f8627e70382e37e17184
-  pop: 2f14a1ea61339767af9e66741b418c831b3844df
+  Cartography: cfaaaa04e68ecd5566368f99f01898a8eb0819d5
+  pop: 628ffc631644601567ee8bfaaaea493ebd7d0923
 
 COCOAPODS: 0.36.0

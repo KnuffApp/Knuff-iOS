@@ -29,6 +29,7 @@ class CircleBadgeView: UIView {
   
   override func layoutSubviews() {}
   
+  var imageCircleContent: UIImage?
   var drawCircleContent: ((CGRect)->Void)?
   
   override func drawRect(rect: CGRect) {
@@ -36,7 +37,15 @@ class CircleBadgeView: UIView {
     UIColor.whiteColor().set()
     circlePath.stroke()
     
-    if let contentClosure = drawCircleContent {
+    if let contentImage = imageCircleContent {
+      let point = CGPointMake(
+        round(bounds.midX - contentImage.size.width/2),
+        round(bounds.midY - contentImage.size.height/2)
+      )
+      
+      contentImage.drawAtPoint(point)
+    }
+    else if let contentClosure = drawCircleContent {
       contentClosure(rect)
     }
   }

@@ -33,11 +33,11 @@ class InfoCloseButton: UIButton {
         
         let infoI1RotateAni = POPSpringAnimation(propertyNamed: kPOPLayerRotation)
         infoI1RotateAni.toValue = M_PI/4
-        infoI1RotateAni.completionBlock = {(animation:POPAnimation!, completion:Bool!) in
+        infoI1RotateAni.completionBlock = {(animation:POPAnimation!, completion:Bool) in
 
           let infoI1AlphaAni = POPSpringAnimation(propertyNamed: kPOPViewAlpha)
           infoI1AlphaAni.toValue = 0
-          infoI1RotateAni.completionBlock = {(animation:POPAnimation!, completion:Bool!) in
+          infoI1RotateAni.completionBlock = {(animation:POPAnimation!, completion:Bool) in
             infoI1.removeFromSuperview()
             infoI2.removeFromSuperview()
           }
