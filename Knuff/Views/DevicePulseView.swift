@@ -12,18 +12,19 @@ import pop
 class DevicePulseView: UIView {
   
   let deviceImageView: UIImageView
-  let badgeImageView: UIImageView
+  let pulseView: PulseView
   
-  override init(frame: CGRect) {
+  init(state: PulseViewState) {
     let phone = (UIDevice.currentDevice().userInterfaceIdiom == UIUserInterfaceIdiom.Phone)
     deviceImageView = UIImageView(image: UIImage(named: phone ? "Phone" : "Pad"))
+    pulseView = PulseView(state: state)
     
-    badgeImageView = UIImageView(image: UIImage(named: "PulseCenter"))
-    
-    super.init(frame: frame)
+    super.init(frame: CGRectZero)
     
     addSubview(deviceImageView)
-    addSubview(badgeImageView)
+    
+    pulseView.sizeToFit()
+    addSubview(pulseView)
   }
   
   required init(coder aDecoder: NSCoder) {
@@ -32,8 +33,8 @@ class DevicePulseView: UIView {
   
   override func sizeThatFits(size: CGSize) -> CGSize {
     return CGSizeMake(
-      deviceImageView.bounds.width + ((50 - 18) * 2),// The (pulse - badge inset)
-      deviceImageView.bounds.height + 50 // The pulse
+      deviceImageView.bounds.width + (((pulseView.bounds.width / 2) - 18) * 2),// (pulse - badge inset) * 2
+      deviceImageView.bounds.height + (pulseView.bounds.width / 2)
     )
   }
   
@@ -47,49 +48,9 @@ class DevicePulseView: UIView {
       self.bounds.height - deviceImageView.bounds.midY
     )
 
-    badgeImageView.center = CGPointMake(
+    pulseView.center = CGPointMake(
       deviceImageView.frame.maxX  - 18,
       deviceImageView.frame.minY
     )
   }
-  
-  func startAnimations() {
-    animate(0)
-    animate(0.4)
-  }
-  
-  func animate(delay: CFTimeInterval) {
-    
-    let pulseView = CircleView(frame: CGRectMake(0, 0, 24, 24))
-    pulseView.center = badgeImageView.center
-    pulseView.contentMode = UIViewContentMode.Redraw
-    
-    insertSubview(pulseView, belowSubview: badgeImageView)
-    
-    // Bounds
-    var animation = POPBasicAnimation(propertyNamed: kPOPViewBounds)
-    animation.duration = 2
-    animation.toValue = NSValue(CGRect: CGRectMake(0, 0, 100, 100))
-    animation.beginTime = CACurrentMediaTime() + delay
-    
-    animation.timingFunction = CAMediaTimingFunction(controlPoints: 0.2, 0.49, 0.37, 0.9)
-    
-    animation.completionBlock = {(animation:POPAnimation!, completion:Bool) in
-      pulseView.removeFromSuperview()
-      
-      self.animate(0)
-    }
-    
-    pulseView.pop_addAnimation(animation, forKey: "bounds")
-    
-    
-    animation = POPBasicAnimation(propertyNamed: kPOPViewAlpha)
-    animation.duration = 2
-    animation.toValue = 0
-    animation.beginTime = CACurrentMediaTime() + delay
-    animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-    
-    pulseView.pop_addAnimation(animation, forKey: "alpha2")
-  }
-  
 }

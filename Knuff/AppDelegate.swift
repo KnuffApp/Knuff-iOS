@@ -12,23 +12,37 @@ import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
   var window: UIWindow?
 
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-
-    let settings = UIUserNotificationSettings(forTypes: UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound, categories: nil);
     
-    application.registerUserNotificationSettings(settings)
-    
-    application.registerForRemoteNotifications();
-
+    window = UIWindow(frame: UIScreen.mainScreen().bounds)
+    window?.rootViewController = RootViewController()
     
     Fabric.with([Crashlytics()])
+    
+    window?.makeKeyAndVisible()
     
     return true
   }
 
+  func applicationDidBecomeActive(application: UIApplication) {
+    
+    if (application.isRegisteredForRemoteNotifications()) {
+      println("Registered")
+    } else {
+      println("Not Registered")
+    }
+    
+    let current = application.currentUserNotificationSettings()
+    
+    
+    let settings = UIUserNotificationSettings(forTypes: UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound, categories: nil);
+    
+    application.registerUserNotificationSettings(settings)
+    application.registerForRemoteNotifications();
+  }
+  
   func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
     
   }
@@ -37,13 +51,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
   }
   
-//  func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
-//    let viewController = self.window?.rootViewController as ViewController
-//    viewController.setDeviceToken(deviceToken)
-//  }
+  func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+    if let viewController = self.window?.rootViewController as? RootViewController {
+      viewController.serviceAdvertiser.setDeviceToken(deviceToken)
+      
+      
+    }
+  }
   
   func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
-    
+    if let viewController = self.window?.rootViewController as? RootViewController {
+
+      
+    }
   }
 
 }

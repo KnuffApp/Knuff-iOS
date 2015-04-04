@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Cartography
+import Snap
 
 class InstructionsView: UIView {
   let steps1View: InstructionStepView
@@ -44,19 +44,21 @@ class InstructionsView: UIView {
   override func updateConstraints() {
     super.updateConstraints()
     
-    layout(steps1View, steps2View, steps3View) { steps1View, steps2View, steps3View in
-      steps1View.top == steps1View.superview!.top
-      steps1View.left == steps1View.superview!.left
-      steps1View.superview!.width >= steps1View.width
-      
-      steps2View.top == steps1View.bottom + 20
-      steps2View.left == steps2View.superview!.left
-      steps2View.superview!.width >= steps2View.width
-      
-      steps3View.top == steps2View.bottom + 20
-      steps3View.left == steps3View.superview!.left
-      steps3View.superview!.width >= steps3View.width
-      steps3View.bottom == steps3View.superview!.bottom
-    }
+    steps1View.snp_remakeConstraints({ make in
+      make.top.left.equalTo(self)
+      make.right.lessThanOrEqualTo(self)
+    })
+    
+    steps2View.snp_remakeConstraints({ make in
+      make.left.equalTo(self)
+      make.top.equalTo(self.steps1View.snp_bottom).offset(20)
+      make.right.lessThanOrEqualTo(self)
+    })
+    
+    steps3View.snp_remakeConstraints({ make in
+      make.left.bottom.equalTo(self)
+      make.top.equalTo(self.steps2View.snp_bottom).offset(20)
+      make.right.lessThanOrEqualTo(self)
+    })
   }
 }

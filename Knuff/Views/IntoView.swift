@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Cartography
+import Snap
 
 class IntoView: UIView {
 
@@ -36,6 +36,8 @@ class IntoView: UIView {
     addSubview(illustrationView)
     
     addSubview(instructionsView)
+    
+    self.setTranslatesAutoresizingMaskIntoConstraints(false)
   }
   
   required init(coder aDecoder: NSCoder) {
@@ -45,25 +47,27 @@ class IntoView: UIView {
   override func updateConstraints() {
     super.updateConstraints()
     
-    layout(titleLabel, subtitleLabel, illustrationView) { titleLabel, subtitleLabel, illustrationView in
-      titleLabel.top == titleLabel.superview!.top
-      titleLabel.centerX == titleLabel.superview!.centerX
-      titleLabel.superview!.width >= titleLabel.width
-      
-      subtitleLabel.centerX == subtitleLabel.superview!.centerX
-      subtitleLabel.top == titleLabel.bottom + 20
-      subtitleLabel.superview!.width >= subtitleLabel.width
-      
-      illustrationView.centerX == illustrationView.superview!.centerX
-      illustrationView.top == subtitleLabel.bottom + 20
-      illustrationView.superview!.width >= illustrationView.width
-    }
+    titleLabel.snp_remakeConstraints({ make in
+      make.top.centerX.equalTo(self)
+      make.right.lessThanOrEqualTo(self)
+    })
     
-    layout(illustrationView, instructionsView) { illustrationView, instructionsView in
-      instructionsView.centerX == instructionsView.superview!.centerX
-      instructionsView.top == illustrationView.bottom + 20
-      instructionsView.superview!.width >= instructionsView.width
-      instructionsView.bottom == instructionsView.superview!.bottom
-    }
+    subtitleLabel.snp_remakeConstraints({ make in
+      make.top.equalTo(self.titleLabel.snp_bottom).offset(20)
+      make.centerX.equalTo(self)
+      make.right.lessThanOrEqualTo(self)
+    })
+    
+    illustrationView.snp_remakeConstraints({ make in
+      make.top.equalTo(self.subtitleLabel.snp_bottom).offset(20)
+      make.centerX.equalTo(self)
+      make.right.lessThanOrEqualTo(self)
+    })
+    
+    instructionsView.snp_remakeConstraints({ make in
+      make.top.equalTo(self.illustrationView.snp_bottom).offset(20)
+      make.bottom.centerX.equalTo(self)
+      make.right.lessThanOrEqualTo(self)
+    })
   }
 }

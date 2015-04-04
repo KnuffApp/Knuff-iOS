@@ -1,24 +1,24 @@
 //
-//  SuccessViewController.swift
+//  FailureViewController.swift
 //  Knuff
 //
-//  Created by Simon Blommegard on 30/03/15.
+//  Created by Simon Blommegard on 01/04/15.
 //  Copyright (c) 2015 Bowtie. All rights reserved.
 //
 
 import UIKit
 import Snap
 
-class SuccessViewController: UIViewController {
-
-  var successView: SuccessView?
+class FailureViewController: UIViewController {
+  
+  var failureView: FailureView?
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    successView = SuccessView(frame: CGRectZero)
+    failureView = FailureView(frame: CGRectZero)
     
-    view.addSubview(successView!)
+    view.addSubview(failureView!)
     
     view.setNeedsUpdateConstraints()
   }
@@ -26,13 +26,13 @@ class SuccessViewController: UIViewController {
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
     
-    successView?.pulseView.pulseView.startAnimations()
+    failureView?.pulseView.pulseView.startAnimations()
   }
-
+  
   override func updateViewConstraints() {
     super.updateViewConstraints()
     
-    successView?.snp_remakeConstraints({ make in
+    failureView?.snp_remakeConstraints({ make in
       make.center.equalTo(self.view)
       return
     })

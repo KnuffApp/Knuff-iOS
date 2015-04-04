@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Cartography
+import Snap
 
 class InstructionStepView: UIView {
 
@@ -51,9 +51,8 @@ class InstructionStepView: UIView {
     
     label.font = UIFont(name: "OpenSans", size: 12)
     label.textColor = UIColor(hex:0xF7F9FC , alpha: 1)
-
     addSubview(label)
-    
+
     addSubview(badge)
   }
 
@@ -64,15 +63,16 @@ class InstructionStepView: UIView {
   override func updateConstraints() {
     super.updateConstraints()
     
-    layout(badge, label) { badge, label in
-      badge.left == badge.superview!.left
-      badge.top == badge.superview!.top
-      badge.bottom == badge.superview!.bottom
-      
-      label.left == badge.right + 10
-      label.centerY == label.superview!.centerY
-      label.right == label.superview!.right
-    }
+    badge.snp_remakeConstraints({ make in
+      make.top.left.bottom.equalTo(self)
+      return
+    })
+    
+    label.snp_remakeConstraints({ make in
+      make.left.equalTo(self.badge.snp_right).offset(10)
+      make.centerY.equalTo(self)
+      make.right.equalTo(self)
+    })
   }
   
 }
