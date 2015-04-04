@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     
     window = UIWindow(frame: UIScreen.mainScreen().bounds)
-    window?.rootViewController = RootViewController()
+    window?.rootViewController = RootViewController(nibName: nil, bundle: nil)
     
     Fabric.with([Crashlytics()])
     
@@ -25,46 +25,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     return true
   }
-
-  func applicationDidBecomeActive(application: UIApplication) {
-    
-    if (application.isRegisteredForRemoteNotifications()) {
-      println("Registered")
-    } else {
-      println("Not Registered")
-    }
-    
-    let current = application.currentUserNotificationSettings()
-    
-    
-    let settings = UIUserNotificationSettings(forTypes: UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound, categories: nil);
-    
-    application.registerUserNotificationSettings(settings)
-    application.registerForRemoteNotifications();
-  }
-  
-  func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
-    
-  }
   
   func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
     
   }
   
   func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
-    if let viewController = self.window?.rootViewController as? RootViewController {
-      viewController.serviceAdvertiser.setDeviceToken(deviceToken)
-      
-      
+    if let vc = self.window?.rootViewController as? RootViewController {
+      vc.appDidRegisterForRemoteNotificationsWithDeviceToken(deviceToken)
     }
   }
   
   func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
-    if let viewController = self.window?.rootViewController as? RootViewController {
-
-      
+    if let vc = self.window?.rootViewController as? RootViewController {
+      vc.appDidFailToRegisterForRemoteNotificationsWithError(error)
     }
   }
-
 }
 
