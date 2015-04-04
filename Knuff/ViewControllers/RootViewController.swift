@@ -90,6 +90,8 @@ class RootViewController: UIViewController {
   // MARK: -
   
   func registerForRemoteNotifications() {
+    NSUserDefaults.standardUserDefaults().setBool(true, forKey: RootViewControllerDisplayedIntro)
+    
     let application = UIApplication.sharedApplication()
 
     let current = application.currentUserNotificationSettings()

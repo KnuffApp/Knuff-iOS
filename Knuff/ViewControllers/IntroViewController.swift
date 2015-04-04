@@ -46,9 +46,7 @@ class IntroViewController: UIViewController {
   }
   
   func register() {
-    if let vc = self.parentViewController as? RootViewController {
-      NSUserDefaults.standardUserDefaults().setBool(true, forKey: RootViewControllerDisplayedIntro)
-      
+    if let vc = self.parentViewController as? RootViewController {      
       vc.registerForRemoteNotifications()
     }
   }
