@@ -116,7 +116,7 @@ class RootViewController: UIViewController {
     
     let displayedIntro = NSUserDefaults.standardUserDefaults().boolForKey(RootViewControllerDisplayedIntro)
     
-    if (displayedIntro && (serviceAdvertiser.deviceTokenString != nil)) {
+    if (displayedIntro && (serviceAdvertiser.deviceTokenString == nil)) {
       registerForRemoteNotifications()
     }
   }
