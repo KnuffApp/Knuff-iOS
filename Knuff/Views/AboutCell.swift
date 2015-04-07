@@ -18,8 +18,6 @@ class AboutCell: UITableViewCell {
     textLabel?.textColor = UIColor(hex: 0xF7F9FC, alpha: 1)
     textLabel?.font = UIFont(name: "OpenSans", size: 12)
     
-//    selectionStyle = .None
-    
     let selectedView = UIView()
     selectedView.backgroundColor = UIColor(white: 1, alpha: 0.1)
     
