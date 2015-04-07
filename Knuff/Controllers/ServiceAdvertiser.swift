@@ -29,6 +29,11 @@ class ServiceAdvertiser: NSObject, MCNearbyServiceAdvertiserDelegate{
   }
   
   func advertise() {
+    if let advertiser = serviceAdvertiser {
+      advertiser.stopAdvertisingPeer()
+    }
+    
+    
     if let tokenString = deviceTokenString {
       let peerID = MCPeerID(displayName: UIDevice.currentDevice().name)
       
