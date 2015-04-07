@@ -116,7 +116,7 @@ class RootViewController: UIViewController {
     
     let displayedIntro = NSUserDefaults.standardUserDefaults().boolForKey(RootViewControllerDisplayedIntro)
     
-    if (displayedIntro && (serviceAdvertiser.deviceTokenString == nil)) {
+    if (displayedIntro) {
       registerForRemoteNotifications()
     }
   }
@@ -124,10 +124,21 @@ class RootViewController: UIViewController {
   func appDidRegisterForRemoteNotificationsWithDeviceToken(deviceToken: NSData) {
     serviceAdvertiser.setDeviceToken(deviceToken)
 
-    self.setContentViewController(SuccessViewController(), animated: false)
+    let isSuccess = contentViewController?.isKindOfClass(SuccessViewController)
+    
+    if let success = isSuccess {
+      if (!success) {
+        self.setContentViewController(SuccessViewController(), animated: false)
+      }
+    } else {
+      self.setContentViewController(SuccessViewController(), animated: false)
+    }
   }
   
   func appDidFailToRegisterForRemoteNotificationsWithError(error: NSError) {
+    if (!contentViewController!.isKindOfClass(SuccessViewController)) {
+      self.setContentViewController(SuccessViewController(), animated: false)
+    }
     self.setContentViewController(FailureViewController(), animated: false)
   }
 }

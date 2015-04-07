@@ -16,9 +16,13 @@
 		F4412D501ACD694F00E667F9 /* FailureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4412D4F1ACD694F00E667F9 /* FailureView.swift */; };
 		F4412D521ACEA45C00E667F9 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4412D511ACEA45C00E667F9 /* RootViewController.swift */; };
 		F4412D551ACEA9E700E667F9 /* ServiceAdvertiser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4412D541ACEA9E700E667F9 /* ServiceAdvertiser.swift */; };
+		F446CA4C1AD2BF4100082BE1 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F446CA4B1AD2BF4100082BE1 /* AboutViewController.swift */; };
+		F446CA4E1AD2C5FA00082BE1 /* AboutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F446CA4D1AD2C5FA00082BE1 /* AboutCell.swift */; };
+		F446CA501AD3D7FE00082BE1 /* AboutTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F446CA4F1AD3D7FE00082BE1 /* AboutTableHeaderView.swift */; };
 		F44BBAAC1AC4125700D23829 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F44BBAA21AC410BE00D23829 /* OpenSans-Bold.ttf */; };
 		F44BBAAD1AC4126000D23829 /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F44BBAAA1AC410BE00D23829 /* OpenSans-Semibold.ttf */; };
 		F44BBAAE1AC4126400D23829 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F44BBAA91AC410BE00D23829 /* OpenSans-Regular.ttf */; };
+		F457C5E41AD45BE500472891 /* AboutTableFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F457C5E31AD45BE500472891 /* AboutTableFooterView.swift */; };
 		F45B93B51AC943EA00DC98BF /* InfoCloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45B93B41AC943EA00DC98BF /* InfoCloseButton.swift */; };
 		F45E5D231ACBF48E00011212 /* SuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45E5D221ACBF48E00011212 /* SuccessView.swift */; };
 		F45E5D251ACC80FD00011212 /* FailureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45E5D241ACC80FD00011212 /* FailureViewController.swift */; };
@@ -58,6 +62,9 @@
 		F4412D4F1ACD694F00E667F9 /* FailureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FailureView.swift; sourceTree = "<group>"; };
 		F4412D511ACEA45C00E667F9 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		F4412D541ACEA9E700E667F9 /* ServiceAdvertiser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceAdvertiser.swift; sourceTree = "<group>"; };
+		F446CA4B1AD2BF4100082BE1 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		F446CA4D1AD2C5FA00082BE1 /* AboutCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutCell.swift; sourceTree = "<group>"; };
+		F446CA4F1AD3D7FE00082BE1 /* AboutTableHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutTableHeaderView.swift; sourceTree = "<group>"; };
 		F44BBAA21AC410BE00D23829 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		F44BBAA31AC410BE00D23829 /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
 		F44BBAA41AC410BE00D23829 /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
@@ -68,6 +75,7 @@
 		F44BBAA91AC410BE00D23829 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		F44BBAAA1AC410BE00D23829 /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
 		F44BBAAB1AC410BE00D23829 /* OpenSans-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiboldItalic.ttf"; sourceTree = "<group>"; };
+		F457C5E31AD45BE500472891 /* AboutTableFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutTableFooterView.swift; sourceTree = "<group>"; };
 		F45B93B41AC943EA00DC98BF /* InfoCloseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoCloseButton.swift; sourceTree = "<group>"; };
 		F45E5D221ACBF48E00011212 /* SuccessView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessView.swift; sourceTree = "<group>"; };
 		F45E5D241ACC80FD00011212 /* FailureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FailureViewController.swift; sourceTree = "<group>"; };
@@ -167,6 +175,9 @@
 				F45E5D221ACBF48E00011212 /* SuccessView.swift */,
 				F45E5D261ACC83E900011212 /* PulseView.swift */,
 				F4412D4F1ACD694F00E667F9 /* FailureView.swift */,
+				F446CA4D1AD2C5FA00082BE1 /* AboutCell.swift */,
+				F446CA4F1AD3D7FE00082BE1 /* AboutTableHeaderView.swift */,
+				F457C5E31AD45BE500472891 /* AboutTableFooterView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -249,6 +260,7 @@
 				F4FF1CB71AC9FD5500F08C9C /* SuccessViewController.swift */,
 				F45E5D241ACC80FD00011212 /* FailureViewController.swift */,
 				F4412D511ACEA45C00E667F9 /* RootViewController.swift */,
+				F446CA4B1AD2BF4100082BE1 /* AboutViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -423,8 +435,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F457C5E41AD45BE500472891 /* AboutTableFooterView.swift in Sources */,
 				F414D1921AC491C9000E951E /* InstructionStepView.swift in Sources */,
 				F4412D521ACEA45C00E667F9 /* RootViewController.swift in Sources */,
+				F446CA501AD3D7FE00082BE1 /* AboutTableHeaderView.swift in Sources */,
 				F4412D551ACEA9E700E667F9 /* ServiceAdvertiser.swift in Sources */,
 				F4742B921AC4DAF10004A353 /* InstructionsView.swift in Sources */,
 				F4F8C2421AC4767E0089834E /* UIColorExtensions.swift in Sources */,
@@ -432,6 +446,7 @@
 				F45E5D231ACBF48E00011212 /* SuccessView.swift in Sources */,
 				F4BFB25C1AC4304000D7086A /* PushIllustrationView.swift in Sources */,
 				F45B93B51AC943EA00DC98BF /* InfoCloseButton.swift in Sources */,
+				F446CA4C1AD2BF4100082BE1 /* AboutViewController.swift in Sources */,
 				F414D1941AC494A0000E951E /* CircleBadgeView.swift in Sources */,
 				F4EEE9E31AB8A1410049CD6C /* AppDelegate.swift in Sources */,
 				F4FB342C1ACAB206002B83BB /* DevicePulseView.swift in Sources */,
@@ -439,6 +454,7 @@
 				F45E5D251ACC80FD00011212 /* FailureViewController.swift in Sources */,
 				F4FF1CB81AC9FD5500F08C9C /* SuccessViewController.swift in Sources */,
 				F414D1961AC4A295000E951E /* IntoView.swift in Sources */,
+				F446CA4E1AD2C5FA00082BE1 /* AboutCell.swift in Sources */,
 				F45E5D271ACC83E900011212 /* PulseView.swift in Sources */,
 				F4412D501ACD694F00E667F9 /* FailureView.swift in Sources */,
 			);
