@@ -14,16 +14,21 @@ class ServiceAdvertiser: NSObject, MCNearbyServiceAdvertiserDelegate{
   var serviceAdvertiser: MCNearbyServiceAdvertiser?
   var deviceTokenString: String?
   
-  func setDeviceToken(deviceToken: NSData) {
-    let tokenChars = UnsafePointer<CChar>(deviceToken.bytes)
-    
-    var tokenString = ""
-    
-    for var i = 0; i < deviceToken.length; i++ {
-      tokenString += String(format: "%02.2hhx", arguments: [tokenChars[i]])
+  func setDeviceToken(deviceToken: NSData?) {
+    if let token = deviceToken {
+      let tokenChars = UnsafePointer<CChar>(token.bytes)
+      
+      var tokenString = ""
+      
+      for var i = 0; i < token.length; i++ {
+        tokenString += String(format: "%02.2hhx", arguments: [tokenChars[i]])
+      }
+      
+      deviceTokenString = tokenString
     }
-    
-    deviceTokenString = tokenString
+    else {
+      deviceTokenString = nil
+    }
     
     advertise()
   }

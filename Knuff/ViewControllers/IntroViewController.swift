@@ -19,7 +19,6 @@ class IntroViewController: UIViewController {
     introView = IntoView(frame: CGRectZero)
     view.addSubview(introView!)
     
-    
     registerButton = UIButton()
     registerButton?.setTitle("Register", forState: UIControlState.Normal)
     registerButton?.addTarget(self,

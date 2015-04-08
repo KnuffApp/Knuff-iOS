@@ -10,10 +10,49 @@ import UIKit
 
 let RootViewControllerDisplayedIntro = "RootViewControllerDisplayedIntro"
 
+enum RootViewControllerState {
+  case Intro
+  case Success
+  case Failure
+  
+  func viewController() -> UIViewController? {
+    switch self {
+    case .Intro:
+      return IntroViewController()
+    case .Success:
+      return SuccessViewController()
+    case .Failure:
+      return FailureViewController()
+    default:
+      return nil
+    }
+  }
+}
+
 class RootViewController: UIViewController {
   lazy var serviceAdvertiser = ServiceAdvertiser()
+
+  var state: RootViewControllerState? {
+    didSet {
+      if (state != oldValue) {
+        if (isViewLoaded()) {
+          
+          // Animate
+          if (contentViewController != nil) {}
+          
+          if let viewController = state?.viewController() {
+            setContentViewController(viewController, animated: false)
+          }
+        }
+      }
+    }
+  }
+  
   var contentViewController: UIViewController?
   
+  convenience override init() {
+    self.init(nibName: nil, bundle: nil)
+  }
   
   override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
     super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -36,17 +75,16 @@ class RootViewController: UIViewController {
     let displayedIntro = NSUserDefaults.standardUserDefaults().boolForKey(RootViewControllerDisplayedIntro)
     let application = UIApplication.sharedApplication()
     
-    // Into view
-    if (!displayedIntro && !application.isRegisteredForRemoteNotifications()) {
-      setContentViewController(IntroViewController(), animated: false)
-    }
-    // Success view
-    else if (application.isRegisteredForRemoteNotifications()) {
-      setContentViewController(SuccessViewController(), animated: false)
-    }
-    // Failure view
-    else {
-      setContentViewController(FailureViewController(), animated: false)
+    if (state == nil) {
+      if (!displayedIntro && !application.isRegisteredForRemoteNotifications()) {
+        state = .Intro
+      }
+      else if (application.isRegisteredForRemoteNotifications()) {
+        state = .Success
+      }
+      else {
+        state = .Failure
+      }
     }
   }
   
@@ -80,7 +118,7 @@ class RootViewController: UIViewController {
     
     if let vc = contentViewController {
       vc.view.frame = self.view.bounds
-      vc.view.autoresizingMask = UIViewAutoresizing.FlexibleHeight | UIViewAutoresizing.FlexibleWidth
+      vc.view.autoresizingMask = .FlexibleHeight | .FlexibleWidth
       addChildViewController(vc)
       view.addSubview(vc.view)
       vc.didMoveToParentViewController(self)
@@ -92,13 +130,10 @@ class RootViewController: UIViewController {
   func registerForRemoteNotifications() {
     NSUserDefaults.standardUserDefaults().setBool(true, forKey: RootViewControllerDisplayedIntro)
     
-    let application = UIApplication.sharedApplication()
-
-    let current = application.currentUserNotificationSettings()
-    
     let settings = UIUserNotificationSettings(forTypes: UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound, categories: nil);
     
-
+    let application = UIApplication.sharedApplication()
+    
     application.registerUserNotificationSettings(settings)
     application.registerForRemoteNotifications();
   }
@@ -123,22 +158,11 @@ class RootViewController: UIViewController {
   
   func appDidRegisterForRemoteNotificationsWithDeviceToken(deviceToken: NSData) {
     serviceAdvertiser.setDeviceToken(deviceToken)
-
-    let isSuccess = contentViewController?.isKindOfClass(SuccessViewController)
-    
-    if let success = isSuccess {
-      if (!success) {
-        self.setContentViewController(SuccessViewController(), animated: false)
-      }
-    } else {
-      self.setContentViewController(SuccessViewController(), animated: false)
-    }
+    state = .Success
   }
   
   func appDidFailToRegisterForRemoteNotificationsWithError(error: NSError) {
-    if (!contentViewController!.isKindOfClass(SuccessViewController)) {
-      self.setContentViewController(SuccessViewController(), animated: false)
-    }
-    self.setContentViewController(FailureViewController(), animated: false)
+    serviceAdvertiser.setDeviceToken(nil)
+    state = .Failure
   }
 }

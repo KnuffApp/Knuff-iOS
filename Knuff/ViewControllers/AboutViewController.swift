@@ -12,6 +12,10 @@ class AboutViewController: UIViewController, UITableViewDataSource, UITableViewD
   var tableView: UITableView?
   let tableContent: [Dictionary<String, String>]
   
+  convenience override init() {
+    self.init(nibName: nil, bundle: nil)
+  }
+  
   override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
     tableContent = [
       [
