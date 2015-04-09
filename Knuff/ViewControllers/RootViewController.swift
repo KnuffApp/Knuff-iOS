@@ -18,7 +18,7 @@ enum RootViewControllerState {
   func viewController() -> UIViewController? {
     switch self {
     case .Intro:
-      return IntroViewController()
+      return SuccessViewController()
     case .Success:
       return SuccessViewController()
     case .Failure:

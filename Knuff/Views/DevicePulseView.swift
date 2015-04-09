@@ -38,10 +38,6 @@ class DevicePulseView: UIView {
     )
   }
   
-  override func intrinsicContentSize() -> CGSize {
-    return sizeThatFits(bounds.size);
-  }
-  
   override func layoutSubviews() {
     deviceImageView.center = CGPointMake(
       self.bounds.midX,

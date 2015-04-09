@@ -11,30 +11,68 @@ import Snap
 
 class SuccessViewController: UIViewController {
 
-  var successView: SuccessView?
+  var titleLabel: UILabel?
+  var pulseView: DevicePulseView?
+  var checkView: InstructionStepView?
+  var infoLabel: UILabel?
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    successView = SuccessView(frame: CGRectZero)
+    titleLabel = UILabel()
+    titleLabel!.text = "Push galore!"
+    titleLabel!.font = UIFont(name: "OpenSans-Bold", size: 18)
+    titleLabel!.textColor = UIColor(hex: 0xF7F9FC, alpha: 1)
+    titleLabel!.sizeToFit()
+    view.addSubview(titleLabel!)
     
-    view.addSubview(successView!)
+    pulseView = DevicePulseView(state: PulseViewState.Success)
+    pulseView!.sizeToFit()
+    view.addSubview(pulseView!)
     
-    view.setNeedsUpdateConstraints()
+    checkView = InstructionStepView(title: "You are broadcasting your device", badgeString: nil)
+    checkView!.badge.imageCircleContent = UIImage(named: "Check")
+    checkView!.sizeToFit()
+    view.addSubview(checkView!)
+    
+    infoLabel = UILabel()
+    let deviceName = UIDevice.currentDevice().name
+    infoLabel!.text = "To recieve push notifications from your computer just select \"\(deviceName)\" in the device list and tap the home button."
+    infoLabel!.font = UIFont(name: "OpenSans-Light", size: 12)
+    infoLabel!.textColor = UIColor(white: 1, alpha: 1)
+    infoLabel!.textAlignment = NSTextAlignment.Center
+    infoLabel!.numberOfLines = 0
+    infoLabel!.bounds.size = infoLabel!.sizeThatFits(CGSize(width: 300, height: CGFloat.max))
+    view.addSubview(infoLabel!)
   }
   
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
     
-    successView?.pulseView.pulseView.startAnimations()
+    pulseView!.pulseView.startAnimations()
   }
-
-  override func updateViewConstraints() {
-    super.updateViewConstraints()
+  
+  override func viewDidLayoutSubviews() {
+    super.viewDidLayoutSubviews()
     
-    successView?.snp_remakeConstraints({ make in
-      make.center.equalTo(self.view)
-      return
-    })
+    titleLabel!.frame.origin = CGPoint(
+      x: round((view.bounds.width/2) - (titleLabel!.bounds.width/2)),
+      y: topLayoutGuide.length + 50
+    )
+    
+    pulseView!.frame.origin = CGPoint(
+      x: round((view.bounds.width/2) - (pulseView!.bounds.width/2)),
+      y: titleLabel!.frame.maxY + 16
+    )
+    
+    checkView!.frame.origin = CGPoint(
+      x: round((view.bounds.width/2) - (checkView!.bounds.width/2)),
+      y: pulseView!.frame.maxY + 20
+    )
+    
+    infoLabel!.frame.origin = CGPoint(
+      x: round((view.bounds.width/2) - (infoLabel!.bounds.width/2)),
+      y: checkView!.frame.maxY + 20
+    )
   }
 }
