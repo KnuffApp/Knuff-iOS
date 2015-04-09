@@ -18,6 +18,7 @@ class InstructionStepView: UIView {
     self.init(frame: CGRectZero)
 
     label.text = title
+    label.sizeToFit()
 
     if let string = badgeString {
       badge.drawCircleContent = {(rect:CGRect) in
@@ -53,6 +54,7 @@ class InstructionStepView: UIView {
     label.textColor = UIColor(hex:0xF7F9FC , alpha: 1)
     addSubview(label)
 
+    badge.sizeToFit()
     addSubview(badge)
   }
 
@@ -60,19 +62,17 @@ class InstructionStepView: UIView {
       fatalError("init(coder:) has not been implemented")
   }
   
-  override func updateConstraints() {
-    super.updateConstraints()
-    
-    badge.snp_remakeConstraints({ make in
-      make.top.left.bottom.equalTo(self)
-      return
-    })
-    
-    label.snp_remakeConstraints({ make in
-      make.left.equalTo(self.badge.snp_right).offset(10)
-      make.centerY.equalTo(self)
-      make.right.equalTo(self)
-    })
+  override func sizeThatFits(size: CGSize) -> CGSize {
+    return CGSize(
+      width: 24 + label.bounds.width,
+      height: 24
+    )
   }
   
+  override func layoutSubviews() {
+    label.frame.origin = CGPoint(
+      x: badge.frame.maxX + 10,
+      y: round((bounds.height/2) - (label.bounds.height/2))
+    )
+  }
 }

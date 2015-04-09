@@ -55,17 +55,11 @@ class PushIllustrationView: UIView {
   }
 
   override func sizeThatFits(size: CGSize) -> CGSize {
-    return CGSizeMake(
-      233, // dont use self.bubble.frame.maxX, we have scaled the bubble and therefore messed with its frame
-      self.mac.frame.maxY
+    return CGSize(
+      width: 233,// dont use self.bubble.frame.maxX, we have scaled the bubble and therefore messed with its frame
+      height: self.mac.frame.maxY
     )
   }
-  
-  override func intrinsicContentSize() -> CGSize {
-    return sizeThatFits(bounds.size);
-  }
-  
-  override func layoutSubviews() {}
   
   func startAnimations(delay:CFTimeInterval) {
     animate(arrow1, delay: delay)

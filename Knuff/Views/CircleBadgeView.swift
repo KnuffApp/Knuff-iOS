@@ -23,10 +23,6 @@ class CircleBadgeView: UIView {
     return CGSizeMake(24, 24)
   }
   
-  override func intrinsicContentSize() -> CGSize {
-    return sizeThatFits(bounds.size);
-  }
-  
   override func layoutSubviews() {}
   
   var imageCircleContent: UIImage?

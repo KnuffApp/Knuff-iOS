@@ -7,42 +7,76 @@
 //
 
 import UIKit
-import Snap
 
 class IntroViewController: UIViewController {
-  var introView: IntoView?
+  var titleLabel: UILabel?
+  var subtitleLabel: UILabel?
+  var illustrationView: PushIllustrationView?
+  var instructionsView: InstructionsView?
+  
   var registerButton: UIButton?
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    introView = IntoView(frame: CGRectZero)
-    view.addSubview(introView!)
+    titleLabel = UILabel()
+    titleLabel!.text = "Let’s get started!"
+    titleLabel!.font = UIFont(name: "OpenSans-Bold", size: 18)
+    titleLabel!.textColor = UIColor(hex: 0xF7F9FC, alpha: 1)
+    titleLabel!.sizeToFit()
+    view.addSubview(titleLabel!)
     
-    registerButton = UIButton()
-    registerButton?.setTitle("Register", forState: UIControlState.Normal)
-    registerButton?.addTarget(self,
-      action: "register",
-      forControlEvents: UIControlEvents.TouchUpInside
-    )
-    view.addSubview(registerButton!)
+    subtitleLabel = UILabel()
+    subtitleLabel!.text = "Your first push is just a few steps away."
+    subtitleLabel!.font = UIFont(name: "OpenSans-Light", size: 12)
+    subtitleLabel!.textColor = UIColor(white: 1, alpha: 1)
+    subtitleLabel!.sizeToFit()
+    view.addSubview(subtitleLabel!)
+
+    illustrationView = PushIllustrationView(frame: CGRectZero)
+    illustrationView!.sizeToFit()
+    view.addSubview(illustrationView!)
+
     
-    view.setNeedsUpdateConstraints()
+    instructionsView = InstructionsView(frame: CGRectZero)
+    instructionsView!.sizeToFit()
+    view.addSubview(instructionsView!)
+    
+    
+//    registerButton = UIButton()
+//    registerButton?.setTitle("Register", forState: .Normal)
+//    registerButton?.addTarget(
+//      self,
+//      action: "register",
+//      forControlEvents: .TouchUpInside
+//    )
+//    view.addSubview(registerButton!)
   }
   
-  override func updateViewConstraints() {
-    super.updateViewConstraints()
+  override func viewDidLayoutSubviews() {
+    super.viewDidLayoutSubviews()
     
-    introView?.snp_remakeConstraints({ make in
-      make.center.equalTo(self.view)
-      return
-    })
+    titleLabel!.frame.origin = CGPoint(
+      x: round((view.bounds.width/2) - (titleLabel!.bounds.width/2)),
+      y: topLayoutGuide.length + 50
+    )
     
-    registerButton?.snp_remakeConstraints({ make in
-      make.top.equalTo(self.view).offset(self.topLayoutGuide.length + 10)
-      make.right.equalTo(self.view).offset(-10)
-    })
+    subtitleLabel!.frame.origin = CGPoint(
+      x: round((view.bounds.width/2) - (subtitleLabel!.bounds.width/2)),
+      y: titleLabel!.frame.maxY + 16
+    )
+    
+    illustrationView!.frame.origin = CGPoint(
+      x: round((view.bounds.width/2) - (illustrationView!.bounds.width/2)),
+      y: subtitleLabel!.frame.maxY + 20
+    )
+    
+    instructionsView!.frame.origin = CGPoint(
+      x: round((view.bounds.width/2) - (instructionsView!.bounds.width/2)),
+      y: illustrationView!.frame.maxY + 20
+    )
   }
+  
   
   func register() {
     if let vc = self.parentViewController as? RootViewController {      

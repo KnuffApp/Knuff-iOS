@@ -30,35 +30,35 @@ class InstructionsView: UIView {
     
     super.init(frame: frame)
     
+    steps1View.sizeToFit()
     addSubview(steps1View)
+
+    steps2View.sizeToFit()
     addSubview(steps2View)
-    addSubview(steps3View)
     
-    self.setTranslatesAutoresizingMaskIntoConstraints(false)
+    steps3View.sizeToFit()
+    addSubview(steps3View)
   }
 
   required init(coder aDecoder: NSCoder) {
       fatalError("init(coder:) has not been implemented")
   }
   
-  override func updateConstraints() {
-    super.updateConstraints()
-    
-    steps1View.snp_remakeConstraints({ make in
-      make.top.left.equalTo(self)
-      make.right.lessThanOrEqualTo(self)
-    })
-    
-    steps2View.snp_remakeConstraints({ make in
-      make.left.equalTo(self)
-      make.top.equalTo(self.steps1View.snp_bottom).offset(20)
-      make.right.lessThanOrEqualTo(self)
-    })
-    
-    steps3View.snp_remakeConstraints({ make in
-      make.left.bottom.equalTo(self)
-      make.top.equalTo(self.steps2View.snp_bottom).offset(20)
-      make.right.lessThanOrEqualTo(self)
-    })
+  override func sizeThatFits(size: CGSize) -> CGSize {
+    return CGSize(
+      width: max(steps1View.bounds.width, steps1View.bounds.width, steps1View.bounds.width),
+      height: steps1View.bounds.width + 20 + steps1View.bounds.width + 20 + steps1View.bounds.width
+    )
+  }
+  
+  override func layoutSubviews() {
+    steps2View.frame.origin = CGPoint(
+      x: 0,
+      y: steps1View.frame.maxY + 20
+    )
+    steps3View.frame.origin = CGPoint(
+      x: 0,
+      y: steps2View.frame.maxY + 20
+    )
   }
 }

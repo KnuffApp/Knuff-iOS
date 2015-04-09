@@ -50,12 +50,14 @@ class RootViewController: UIViewController {
   
   var contentViewController: UIViewController?
   
-  convenience override init() {
+  convenience init() {
     self.init(nibName: nil, bundle: nil)
   }
   
   override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
     super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    
+    NSUserDefaults.standardUserDefaults().setBool(false, forKey: RootViewControllerDisplayedIntro)
     
     NSNotificationCenter.defaultCenter().addObserver(
       self,

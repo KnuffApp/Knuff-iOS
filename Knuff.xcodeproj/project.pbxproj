@@ -10,7 +10,6 @@
 		F414D1901AC48740000E951E /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F44BBAA71AC410BE00D23829 /* OpenSans-Light.ttf */; };
 		F414D1921AC491C9000E951E /* InstructionStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F414D1911AC491C9000E951E /* InstructionStepView.swift */; };
 		F414D1941AC494A0000E951E /* CircleBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F414D1931AC494A0000E951E /* CircleBadgeView.swift */; };
-		F414D1961AC4A295000E951E /* IntoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F414D1951AC4A295000E951E /* IntoView.swift */; };
 		F41C717A1AC22E6C00F98113 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F41C71781AC22E6C00F98113 /* Crashlytics.framework */; };
 		F41C717B1AC22E6C00F98113 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F41C71791AC22E6C00F98113 /* Fabric.framework */; };
 		F4412D501ACD694F00E667F9 /* FailureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4412D4F1ACD694F00E667F9 /* FailureView.swift */; };
@@ -56,7 +55,6 @@
 		C5C4FBD9CBEB4F4B48BDAC8E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		F414D1911AC491C9000E951E /* InstructionStepView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructionStepView.swift; sourceTree = "<group>"; };
 		F414D1931AC494A0000E951E /* CircleBadgeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleBadgeView.swift; sourceTree = "<group>"; };
-		F414D1951AC4A295000E951E /* IntoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntoView.swift; sourceTree = "<group>"; };
 		F41C71781AC22E6C00F98113 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
 		F41C71791AC22E6C00F98113 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
 		F4412D4F1ACD694F00E667F9 /* FailureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FailureView.swift; sourceTree = "<group>"; };
@@ -168,7 +166,6 @@
 				F414D1931AC494A0000E951E /* CircleBadgeView.swift */,
 				F414D1911AC491C9000E951E /* InstructionStepView.swift */,
 				F4742B911AC4DAF10004A353 /* InstructionsView.swift */,
-				F414D1951AC4A295000E951E /* IntoView.swift */,
 				F45B93B41AC943EA00DC98BF /* InfoCloseButton.swift */,
 				F4FF1CB91AC9FD6100F08C9C /* CircleView.swift */,
 				F4FB342B1ACAB206002B83BB /* DevicePulseView.swift */,
@@ -453,7 +450,6 @@
 				F4FF1CBA1AC9FD6100F08C9C /* CircleView.swift in Sources */,
 				F45E5D251ACC80FD00011212 /* FailureViewController.swift in Sources */,
 				F4FF1CB81AC9FD5500F08C9C /* SuccessViewController.swift in Sources */,
-				F414D1961AC4A295000E951E /* IntoView.swift in Sources */,
 				F446CA4E1AD2C5FA00082BE1 /* AboutCell.swift in Sources */,
 				F45E5D271ACC83E900011212 /* PulseView.swift in Sources */,
 				F4412D501ACD694F00E667F9 /* FailureView.swift in Sources */,
