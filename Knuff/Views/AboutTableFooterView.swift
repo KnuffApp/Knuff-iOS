@@ -24,14 +24,17 @@ class AboutTableFooterView: UIView {
     fatalError("init(coder:) has not been implemented")
   }
   
-  override func updateConstraints() {
-    super.updateConstraints()
-    
-    logoImageView.snp_remakeConstraints({ make in
-      make.top.equalTo(self).offset(20)
-      make.centerX.equalTo(self)
-      make.right.lessThanOrEqualTo(self)
-      make.bottom.equalTo(self).offset(-20)
-    })
+  override func sizeThatFits(size: CGSize) -> CGSize {
+    return CGSize(
+      width: logoImageView.bounds.width,
+      height: 20 + logoImageView.bounds.width + 20
+    )
+  }
+  
+  override func layoutSubviews() {
+    logoImageView.frame.origin = CGPoint(
+      x: round((bounds.width/2) - (logoImageView.bounds.width/2)),
+      y: 20
+    )
   }
 }

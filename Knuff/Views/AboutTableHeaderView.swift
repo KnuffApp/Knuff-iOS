@@ -25,13 +25,14 @@ class AboutTableHeaderView: UIView {
     titleLabel.text = "About Knuff"
     titleLabel.font = UIFont(name: "OpenSans-Bold", size: 18)
     titleLabel.textColor = UIColor(hex: 0xF7F9FC)
+    titleLabel.sizeToFit()
     addSubview(titleLabel)
     
     descriptionLabel.text = "Knuff is mainly a debug tool for iOS and Mac developers to test push notifications without a need for a proper backend. This Knuff companion app makes it even easier to test pushes with no hazzle at all. Knuff is by heart open sourced."
     descriptionLabel.font = UIFont(name: "OpenSans-Light", size: 12)
     descriptionLabel.textColor = UIColor(hex: 0xF7F9FC)
     descriptionLabel.numberOfLines = 0
-    descriptionLabel.preferredMaxLayoutWidth = 300
+    descriptionLabel.bounds.size = descriptionLabel.sizeThatFits(CGSize(width: 300, height: CGFloat.max))
     descriptionLabel.textAlignment = .Center
     
     addSubview(descriptionLabel)
@@ -40,27 +41,29 @@ class AboutTableHeaderView: UIView {
   required init(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
+
+  override func sizeThatFits(size: CGSize) -> CGSize {
+    return CGSize(
+      width: max(logoImageView.bounds.width, titleLabel.bounds.width, descriptionLabel.bounds.width),
+      height: 20 + logoImageView.bounds.height + 20 + titleLabel.bounds.height + 20 + descriptionLabel.bounds.height + 20
+    )
+  }
   
-  override func updateConstraints() {
-    super.updateConstraints()
+  override func layoutSubviews() {
     
-    logoImageView.snp_remakeConstraints({ make in
-      make.top.equalTo(self).offset(20)
-      make.centerX.equalTo(self)
-      make.right.lessThanOrEqualTo(self)
-    })
+    logoImageView.frame.origin = CGPoint(
+      x: round((bounds.width/2) - (logoImageView.bounds.width/2)),
+      y: 20
+    )
     
-    titleLabel.snp_remakeConstraints({ make in
-      make.top.equalTo(self.logoImageView.snp_bottom).offset(20)
-      make.centerX.equalTo(self)
-      make.right.lessThanOrEqualTo(self)
-    })
+    titleLabel.frame.origin = CGPoint(
+      x: round((bounds.width/2) - (titleLabel.bounds.width/2)),
+      y: logoImageView.frame.maxY + 20
+    )
     
-    descriptionLabel.snp_remakeConstraints({ make in
-      make.top.equalTo(self.titleLabel.snp_bottom).offset(20)
-      make.centerX.equalTo(self)
-      make.right.lessThanOrEqualTo(self)
-      make.bottom.equalTo(self).offset(-20)
-    })
+    descriptionLabel.frame.origin = CGPoint(
+      x: round((bounds.width/2) - (descriptionLabel.bounds.width/2)),
+      y: titleLabel.frame.maxY + 20
+    )
   }
 }

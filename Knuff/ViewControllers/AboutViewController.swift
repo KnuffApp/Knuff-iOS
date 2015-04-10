@@ -58,17 +58,11 @@ class AboutViewController: UIViewController, UITableViewDataSource, UITableViewD
     tableView?.separatorColor = UIColor(hex: 0xF7F9FC, alpha: 0.2)
     
     let headerView = AboutTableHeaderView(frame: CGRectZero)
-    headerView.setNeedsUpdateConstraints()
-    
-    let headerHeight = headerView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize).height
-    headerView.frame.size.height = headerHeight
+    headerView.sizeToFit()
     tableView?.tableHeaderView = headerView
 
     let footerView = AboutTableFooterView(frame: CGRectZero)
-    footerView.setNeedsUpdateConstraints()
-    
-    let footerHeight = footerView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize).height
-    footerView.frame.size.height = footerHeight
+    footerView.sizeToFit()
     tableView?.tableFooterView = footerView
     
     view.addSubview(tableView!)
