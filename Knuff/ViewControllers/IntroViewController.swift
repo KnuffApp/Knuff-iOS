@@ -43,14 +43,15 @@ class IntroViewController: UIViewController {
     view.addSubview(instructionsView!)
     
     
-//    registerButton = UIButton()
-//    registerButton?.setTitle("Register", forState: .Normal)
-//    registerButton?.addTarget(
-//      self,
-//      action: "register",
-//      forControlEvents: .TouchUpInside
-//    )
-//    view.addSubview(registerButton!)
+    registerButton = UIButton()
+    registerButton!.setTitle("Register", forState: .Normal)
+    registerButton!.addTarget(
+      self,
+      action: "register",
+      forControlEvents: .TouchUpInside
+    )
+    registerButton!.sizeToFit()
+    view.addSubview(registerButton!)
   }
   
   override func viewDidLayoutSubviews() {
@@ -74,6 +75,11 @@ class IntroViewController: UIViewController {
     instructionsView!.frame.origin = CGPoint(
       x: round((view.bounds.width/2) - (instructionsView!.bounds.width/2)),
       y: illustrationView!.frame.maxY + 20
+    )
+    
+    registerButton!.frame.origin = CGPoint(
+      x: round((view.bounds.width/2) - (registerButton!.bounds.width/2)),
+      y: instructionsView!.frame.maxY + 20
     )
   }
   

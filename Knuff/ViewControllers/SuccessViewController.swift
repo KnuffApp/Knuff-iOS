@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Snap
 
 class SuccessViewController: UIViewController {
 

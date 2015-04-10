@@ -12,7 +12,6 @@
 		F414D1941AC494A0000E951E /* CircleBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F414D1931AC494A0000E951E /* CircleBadgeView.swift */; };
 		F41C717A1AC22E6C00F98113 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F41C71781AC22E6C00F98113 /* Crashlytics.framework */; };
 		F41C717B1AC22E6C00F98113 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F41C71791AC22E6C00F98113 /* Fabric.framework */; };
-		F4412D501ACD694F00E667F9 /* FailureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4412D4F1ACD694F00E667F9 /* FailureView.swift */; };
 		F4412D521ACEA45C00E667F9 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4412D511ACEA45C00E667F9 /* RootViewController.swift */; };
 		F4412D551ACEA9E700E667F9 /* ServiceAdvertiser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4412D541ACEA9E700E667F9 /* ServiceAdvertiser.swift */; };
 		F446CA4C1AD2BF4100082BE1 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F446CA4B1AD2BF4100082BE1 /* AboutViewController.swift */; };
@@ -56,7 +55,6 @@
 		F414D1931AC494A0000E951E /* CircleBadgeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleBadgeView.swift; sourceTree = "<group>"; };
 		F41C71781AC22E6C00F98113 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
 		F41C71791AC22E6C00F98113 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
-		F4412D4F1ACD694F00E667F9 /* FailureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FailureView.swift; sourceTree = "<group>"; };
 		F4412D511ACEA45C00E667F9 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		F4412D541ACEA9E700E667F9 /* ServiceAdvertiser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceAdvertiser.swift; sourceTree = "<group>"; };
 		F446CA4B1AD2BF4100082BE1 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
@@ -168,7 +166,6 @@
 				F4FF1CB91AC9FD6100F08C9C /* CircleView.swift */,
 				F4FB342B1ACAB206002B83BB /* DevicePulseView.swift */,
 				F45E5D261ACC83E900011212 /* PulseView.swift */,
-				F4412D4F1ACD694F00E667F9 /* FailureView.swift */,
 				F446CA4D1AD2C5FA00082BE1 /* AboutCell.swift */,
 				F446CA4F1AD3D7FE00082BE1 /* AboutTableHeaderView.swift */,
 				F457C5E31AD45BE500472891 /* AboutTableFooterView.swift */,
@@ -448,7 +445,6 @@
 				F4FF1CB81AC9FD5500F08C9C /* SuccessViewController.swift in Sources */,
 				F446CA4E1AD2C5FA00082BE1 /* AboutCell.swift in Sources */,
 				F45E5D271ACC83E900011212 /* PulseView.swift in Sources */,
-				F4412D501ACD694F00E667F9 /* FailureView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Snap
 
 class InstructionsView: UIView {
   let steps1View: InstructionStepView
@@ -47,7 +46,7 @@ class InstructionsView: UIView {
   override func sizeThatFits(size: CGSize) -> CGSize {
     return CGSize(
       width: max(steps1View.bounds.width, steps1View.bounds.width, steps1View.bounds.width),
-      height: steps1View.bounds.width + 20 + steps1View.bounds.width + 20 + steps1View.bounds.width
+      height: steps1View.bounds.height + 20 + steps1View.bounds.height + 20 + steps1View.bounds.height
     )
   }
   

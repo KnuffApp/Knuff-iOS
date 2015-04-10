@@ -1,13 +1,10 @@
 PODS:
   - pop (1.0.7)
-  - Snap (0.9.2)
 
 DEPENDENCIES:
   - pop (~> 1.0)
-  - Snap (~> 0.9.1)
 
 SPEC CHECKSUMS:
   pop: 628ffc631644601567ee8bfaaaea493ebd7d0923
-  Snap: 7318f07bc3d43adb0706f36ede18fa18d2347037
 
 COCOAPODS: 0.36.0

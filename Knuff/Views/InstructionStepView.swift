@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Snap
 
 class InstructionStepView: UIView {
 
@@ -64,8 +63,8 @@ class InstructionStepView: UIView {
   
   override func sizeThatFits(size: CGSize) -> CGSize {
     return CGSize(
-      width: 24 + label.bounds.width,
-      height: 24
+      width: badge.bounds.width + 10 + label.bounds.width,
+      height: badge.bounds.height
     )
   }
   
