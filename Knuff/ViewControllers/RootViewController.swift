@@ -72,7 +72,7 @@ class RootViewController: UIViewController {
   }
   
   override func viewDidLoad() {
-    view.backgroundColor = UIColor(hex: 0x1F3141, alpha: 1)
+    view.backgroundColor = UIColor(hex: 0x1F3141)
     
     let displayedIntro = NSUserDefaults.standardUserDefaults().boolForKey(RootViewControllerDisplayedIntro)
     let application = UIApplication.sharedApplication()

@@ -50,7 +50,7 @@ class InstructionStepView: UIView {
     super.init(frame: frame)
     
     label.font = UIFont(name: "OpenSans", size: 12)
-    label.textColor = UIColor(hex:0xF7F9FC , alpha: 1)
+    label.textColor = UIColor(hex:0xF7F9FC)
     addSubview(label)
 
     badge.sizeToFit()

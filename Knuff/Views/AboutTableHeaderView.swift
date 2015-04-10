@@ -24,12 +24,12 @@ class AboutTableHeaderView: UIView {
     
     titleLabel.text = "About Knuff"
     titleLabel.font = UIFont(name: "OpenSans-Bold", size: 18)
-    titleLabel.textColor = UIColor(hex: 0xF7F9FC, alpha: 1)
+    titleLabel.textColor = UIColor(hex: 0xF7F9FC)
     addSubview(titleLabel)
     
     descriptionLabel.text = "Knuff is mainly a debug tool for iOS and Mac developers to test push notifications without a need for a proper backend. This Knuff companion app makes it even easier to test pushes with no hazzle at all. Knuff is by heart open sourced."
     descriptionLabel.font = UIFont(name: "OpenSans-Light", size: 12)
-    descriptionLabel.textColor = UIColor(hex: 0xF7F9FC, alpha: 1)
+    descriptionLabel.textColor = UIColor(hex: 0xF7F9FC)
     descriptionLabel.numberOfLines = 0
     descriptionLabel.preferredMaxLayoutWidth = 300
     descriptionLabel.textAlignment = .Center

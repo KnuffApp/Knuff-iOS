@@ -21,7 +21,7 @@ class CircleView: UIView {
   
   override func drawRect(rect: CGRect) {
     let circlePath = UIBezierPath(ovalInRect: bounds.rectByInsetting(dx: 1, dy: 1))
-    UIColor(hex: 0x6DB0F8, alpha: 1).set()
+    UIColor(hex: 0x6DB0F8).set()
     circlePath.stroke()
   }
 }

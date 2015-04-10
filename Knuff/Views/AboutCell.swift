@@ -13,9 +13,9 @@ class AboutCell: UITableViewCell {
   override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
 
-    backgroundColor = UIColor(hex: 0x1F3141, alpha: 1)
+    backgroundColor = UIColor(hex: 0x1F3141)
     
-    textLabel?.textColor = UIColor(hex: 0xF7F9FC, alpha: 1)
+    textLabel?.textColor = UIColor(hex: 0xF7F9FC)
     textLabel?.font = UIFont(name: "OpenSans", size: 12)
     
     let selectedView = UIView()

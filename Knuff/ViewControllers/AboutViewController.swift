@@ -54,7 +54,7 @@ class AboutViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     tableView?.tableFooterView
     
-    tableView?.backgroundColor = UIColor(hex: 0x1F3141, alpha: 1)
+    tableView?.backgroundColor = UIColor(hex: 0x1F3141)
     tableView?.separatorColor = UIColor(hex: 0xF7F9FC, alpha: 0.2)
     
     let headerView = AboutTableHeaderView(frame: CGRectZero)

@@ -22,7 +22,7 @@ class IntroViewController: UIViewController {
     titleLabel = UILabel()
     titleLabel!.text = "Let’s get started!"
     titleLabel!.font = UIFont(name: "OpenSans-Bold", size: 18)
-    titleLabel!.textColor = UIColor(hex: 0xF7F9FC, alpha: 1)
+    titleLabel!.textColor = UIColor(hex: 0xF7F9FC)
     titleLabel!.sizeToFit()
     view.addSubview(titleLabel!)
     

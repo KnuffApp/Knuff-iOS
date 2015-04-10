@@ -21,7 +21,7 @@ class FailureViewController: UIViewController {
     titleLabel = UILabel()
     titleLabel!.text = "Couldn't get a device token."
     titleLabel!.font = UIFont(name: "OpenSans-Bold", size: 18)
-    titleLabel!.textColor = UIColor(hex: 0xF7F9FC, alpha: 1)
+    titleLabel!.textColor = UIColor(hex: 0xF7F9FC)
     titleLabel!.sizeToFit()
     view.addSubview(titleLabel!)
     
@@ -32,7 +32,7 @@ class FailureViewController: UIViewController {
     infoTitleLabel = UILabel()
     infoTitleLabel!.text = "Allow Knuff to send notifications to you."
     infoTitleLabel!.font = UIFont(name: "OpenSans", size: 12)
-    infoTitleLabel!.textColor = UIColor(hex: 0xF7F9FC, alpha: 1)
+    infoTitleLabel!.textColor = UIColor(hex: 0xF7F9FC)
     infoTitleLabel!.sizeToFit()
     view.addSubview(infoTitleLabel!)
     

@@ -21,7 +21,7 @@ class SuccessViewController: UIViewController {
     titleLabel = UILabel()
     titleLabel!.text = "Push galore!"
     titleLabel!.font = UIFont(name: "OpenSans-Bold", size: 18)
-    titleLabel!.textColor = UIColor(hex: 0xF7F9FC, alpha: 1)
+    titleLabel!.textColor = UIColor(hex: 0xF7F9FC)
     titleLabel!.sizeToFit()
     view.addSubview(titleLabel!)
     
@@ -39,7 +39,7 @@ class SuccessViewController: UIViewController {
     infoLabel!.text = "To recieve push notifications from your computer just select \"\(deviceName)\" in the device list and tap the home button."
     infoLabel!.font = UIFont(name: "OpenSans-Light", size: 12)
     infoLabel!.textColor = UIColor(white: 1, alpha: 1)
-    infoLabel!.textAlignment = NSTextAlignment.Center
+    infoLabel!.textAlignment = .Center
     infoLabel!.numberOfLines = 0
     infoLabel!.bounds.size = infoLabel!.sizeThatFits(CGSize(width: 300, height: CGFloat.max))
     view.addSubview(infoLabel!)
