@@ -72,22 +72,27 @@ class InfoCloseButton: UIButton {
   override init(frame: CGRect) {
     super.init(frame: frame)
     
-    setBackgroundImage(UIImage(named: "InfoCloseBackground"), forState: UIControlState.Normal)
-    setImage(UIImage(named: "InfoI"), forState: UIControlState.Normal)
+    let image = UIImage.drawableImage(CGSize(width: 24, height: 24), draw: { size in
+      let c = UIGraphicsGetCurrentContext()
+      let rect = CGRect(
+        x: 0.5,
+        y: 0.5,
+        width: size.width - 1.0,
+        height: size.height - 1.0
+      )
+      
+      UIColor(hex: 0x6DB0F8).set()
+      UIBezierPath(ovalInRect: rect).stroke()
+    })
     
-//    addTarget(self, action: "toggle:", forControlEvents: UIControlEvents.TouchUpInside)
+    setBackgroundImage(image, forState: .Normal)
+    setImage(UIImage(named: "InfoI"), forState: .Normal)
+    
+    addTarget(self, action: "toggle:", forControlEvents: UIControlEvents.TouchUpInside)
   }
 
   required init(coder aDecoder: NSCoder) {
       fatalError("init(coder:) has not been implemented")
-  }
-  
-  override func sizeThatFits(size: CGSize) -> CGSize {
-    return CGSizeMake(24, 24)
-  }
-  
-  override func intrinsicContentSize() -> CGSize {
-    return sizeThatFits(bounds.size);
   }
   
   override func pointInside(point: CGPoint, withEvent event: UIEvent?) -> Bool {

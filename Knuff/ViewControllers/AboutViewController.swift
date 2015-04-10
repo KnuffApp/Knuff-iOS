@@ -28,7 +28,7 @@ class AboutViewController: UIViewController, UITableViewDataSource, UITableViewD
       ],
       [
         "title": "Visit the developer website",
-        "link": "http://github.com/madebybowtie",
+        "link": "http://madebybowtie.com",
       ],
       [
         "title": "View source on Github",
@@ -52,10 +52,8 @@ class AboutViewController: UIViewController, UITableViewDataSource, UITableViewD
     tableView?.dataSource = self
     tableView?.registerClass(AboutCell.self, forCellReuseIdentifier: "lol")
     
-    tableView?.tableFooterView
-    
-    tableView?.backgroundColor = UIColor(hex: 0x1F3141)
     tableView?.separatorColor = UIColor(hex: 0xF7F9FC, alpha: 0.2)
+    tableView?.backgroundColor = UIColor.clearColor()
     
     let headerView = AboutTableHeaderView(frame: CGRectZero)
     headerView.sizeToFit()
@@ -97,9 +95,4 @@ class AboutViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
   }
-  
-  func tableView(tableView: UITableView, accessoryTypeForRowWithIndexPath indexPath: NSIndexPath!) -> UITableViewCellAccessoryType {
-    return .DisclosureIndicator
-  }
-  
 }

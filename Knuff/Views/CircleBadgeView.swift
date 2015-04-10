@@ -26,10 +26,10 @@ class CircleBadgeView: UIView {
   override func layoutSubviews() {}
   
   var imageCircleContent: UIImage?
-  var drawCircleContent: ((CGRect)->Void)?
+  var drawCircleContent: (CGRect -> Void)?
   
   override func drawRect(rect: CGRect) {
-    let circlePath = UIBezierPath(ovalInRect: bounds.rectByInsetting(dx: 1, dy: 1))
+    let circlePath = UIBezierPath(ovalInRect: bounds.rectByInsetting(dx: 0.5, dy: 0.5))
     UIColor.whiteColor().set()
     circlePath.stroke()
     

@@ -22,7 +22,7 @@ class InstructionStepView: UIView {
     if let string = badgeString {
       badge.drawCircleContent = {(rect:CGRect) in
         let style = NSParagraphStyle.defaultParagraphStyle().mutableCopy() as! NSMutableParagraphStyle
-        style.alignment = NSTextAlignment.Center
+        style.alignment = .Center
         
         let attributedString = NSAttributedString(
           string: string,

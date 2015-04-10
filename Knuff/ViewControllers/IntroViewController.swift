@@ -45,21 +45,21 @@ class IntroViewController: UIViewController {
 
     let image: UIImage
     
-    if (self.traitCollection.horizontalSizeClass == .Compact) {
+    if (traitCollection.horizontalSizeClass == .Compact) {
       image = UIImage.drawableImage(CGSize(width: 1, height: 59),
-        draw: {
+        draw: { size in
           UIColor(hex: 0x6DB0F8, alpha: 0.4).set()
           UIRectFill(CGRect(x: 0, y: 0, width: 1, height: 1/UIScreen.mainScreen().scale))
       })
     } else {
       image = UIImage.drawableImage(CGSize(width: 248, height: 50),
-        draw: {
+        draw: { size in
           let c = UIGraphicsGetCurrentContext()
           let rect = CGRect(
             x: 0.5,
             y: 0.5,
-            width: Double(CGBitmapContextGetWidth(c)-1),
-            height: Double(CGBitmapContextGetHeight(c)-1)
+            width: size.width - 1.0,
+            height: size.height - 1.0
           )
           UIColor(hex: 0x6DB0F8).set()
           UIBezierPath(roundedRect: rect, cornerRadius: 6).stroke()
@@ -103,7 +103,7 @@ class IntroViewController: UIViewController {
       y: illustrationView!.frame.maxY + 20
     )
     
-    if (self.traitCollection.horizontalSizeClass == .Compact) {
+    if (traitCollection.horizontalSizeClass == .Compact) {
       registerButton!.frame = CGRect(
         x: 0,
         y: view.bounds.height-registerButton!.bounds.height,

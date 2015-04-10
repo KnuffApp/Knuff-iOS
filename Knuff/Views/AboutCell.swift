@@ -22,6 +22,8 @@ class AboutCell: UITableViewCell {
     selectedView.backgroundColor = UIColor(white: 1, alpha: 0.1)
     
     selectedBackgroundView = selectedView
+    
+    accessoryType = .DisclosureIndicator
   }
 
   required init(coder aDecoder: NSCoder) {

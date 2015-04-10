@@ -10,10 +10,10 @@ import UIKit
 
 extension UIImage {
 
-  class func drawableImage(size: CGSize, draw: Void -> Void) -> UIImage {
+  class func drawableImage(size: CGSize, draw: CGSize -> Void) -> UIImage {
     UIGraphicsBeginImageContextWithOptions(size, false, UIScreen.mainScreen().scale)
     
-    draw()
+    draw(size)
     
     let image = UIGraphicsGetImageFromCurrentImageContext()
     
