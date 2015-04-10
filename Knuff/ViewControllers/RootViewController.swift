@@ -95,18 +95,6 @@ class RootViewController: UIViewController {
     return UIStatusBarStyle.LightContent
   }
   
-  override func shouldAutorotate() -> Bool {
-    return true
-  }
-  
-  override func supportedInterfaceOrientations() -> Int {
-    if (self.traitCollection.horizontalSizeClass == UIUserInterfaceSizeClass.Compact) {
-      return Int(UIInterfaceOrientationMask.Portrait.rawValue)
-    } else {
-      return Int(UIInterfaceOrientationMask.All.rawValue)
-    }
-  }
-  
   // MARK: -
   
   func setContentViewController(viewController: UIViewController?, animated: Bool) {
