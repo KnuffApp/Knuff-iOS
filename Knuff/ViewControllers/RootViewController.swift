@@ -112,7 +112,7 @@ class RootViewController: UIViewController {
   
   // or forward it to contentViewController
   override func preferredStatusBarStyle() -> UIStatusBarStyle {
-    return UIStatusBarStyle.LightContent
+    return .LightContent
   }
   
   override func viewDidLayoutSubviews() {
@@ -204,7 +204,7 @@ class RootViewController: UIViewController {
   func registerForRemoteNotifications() {
     NSUserDefaults.standardUserDefaults().setBool(true, forKey: RootViewControllerDisplayedIntro)
     
-    let settings = UIUserNotificationSettings(forTypes: UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound, categories: nil);
+    let settings = UIUserNotificationSettings(forTypes: .Alert | .Badge | .Sound, categories: nil);
     
     let application = UIApplication.sharedApplication()
     
@@ -217,15 +217,9 @@ class RootViewController: UIViewController {
   func appDidBecomeActive() {
     let application = UIApplication.sharedApplication()
     
-    if (application.isRegisteredForRemoteNotifications()) {
-      println("Registered")
-    } else {
-      println("Not Registered")
-    }
-    
     let displayedIntro = NSUserDefaults.standardUserDefaults().boolForKey(RootViewControllerDisplayedIntro)
     
-    if (displayedIntro) {
+    if (displayedIntro || application.isRegisteredForRemoteNotifications()) {
       registerForRemoteNotifications()
     }
   }
