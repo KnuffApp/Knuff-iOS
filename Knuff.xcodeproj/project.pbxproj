@@ -12,6 +12,7 @@
 		F414D1941AC494A0000E951E /* CircleBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F414D1931AC494A0000E951E /* CircleBadgeView.swift */; };
 		F41C717A1AC22E6C00F98113 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F41C71781AC22E6C00F98113 /* Crashlytics.framework */; };
 		F41C717B1AC22E6C00F98113 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F41C71791AC22E6C00F98113 /* Fabric.framework */; };
+		F429149A1AD93D83001971BB /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42914991AD93D83001971BB /* GradientView.swift */; };
 		F4412D521ACEA45C00E667F9 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4412D511ACEA45C00E667F9 /* RootViewController.swift */; };
 		F4412D551ACEA9E700E667F9 /* ServiceAdvertiser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4412D541ACEA9E700E667F9 /* ServiceAdvertiser.swift */; };
 		F446CA4C1AD2BF4100082BE1 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F446CA4B1AD2BF4100082BE1 /* AboutViewController.swift */; };
@@ -56,6 +57,7 @@
 		F414D1931AC494A0000E951E /* CircleBadgeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleBadgeView.swift; sourceTree = "<group>"; };
 		F41C71781AC22E6C00F98113 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
 		F41C71791AC22E6C00F98113 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
+		F42914991AD93D83001971BB /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		F4412D511ACEA45C00E667F9 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		F4412D541ACEA9E700E667F9 /* ServiceAdvertiser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceAdvertiser.swift; sourceTree = "<group>"; };
 		F446CA4B1AD2BF4100082BE1 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				F446CA4D1AD2C5FA00082BE1 /* AboutCell.swift */,
 				F446CA4F1AD3D7FE00082BE1 /* AboutTableHeaderView.swift */,
 				F457C5E31AD45BE500472891 /* AboutTableFooterView.swift */,
+				F42914991AD93D83001971BB /* GradientView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -440,6 +443,7 @@
 				F4FF1CB41AC9E20600F08C9C /* IntroViewController.swift in Sources */,
 				F4BFB25C1AC4304000D7086A /* PushIllustrationView.swift in Sources */,
 				F45B93B51AC943EA00DC98BF /* InfoCloseButton.swift in Sources */,
+				F429149A1AD93D83001971BB /* GradientView.swift in Sources */,
 				F446CA4C1AD2BF4100082BE1 /* AboutViewController.swift in Sources */,
 				F414D1941AC494A0000E951E /* CircleBadgeView.swift in Sources */,
 				F4EEE9E31AB8A1410049CD6C /* AppDelegate.swift in Sources */,
