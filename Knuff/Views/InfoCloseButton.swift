@@ -15,57 +15,60 @@ enum InfoCloseButtonState {
 }
 
 class InfoCloseButton: UIButton {
-  var buttonState: InfoCloseButtonState = InfoCloseButtonState.Info {
+  var buttonState: InfoCloseButtonState = .Info {
     didSet {
     
-      if (buttonState == InfoCloseButtonState.Close) {
-       
-        let infoI1 = UIImageView(image: UIImage(named: "InfoI"))
-        let infoI2 = UIImageView(image: UIImage(named: "InfoI"))
-        
-        infoI1.frame = imageView!.frame
-        infoI2.frame = imageView!.frame
-        
-        addSubview(infoI1)
-        addSubview(infoI2)
-        
-        setImage(nil, forState: UIControlState.Normal)
-        
-        let infoI1RotateAni = POPSpringAnimation(propertyNamed: kPOPLayerRotation)
-        infoI1RotateAni.toValue = M_PI/4
-        infoI1RotateAni.completionBlock = {(animation:POPAnimation!, completion:Bool) in
+      if (buttonState == .Close) {
+        setImage(UIImage(named: "CloseCross"), forState: .Normal)
 
-          let infoI1AlphaAni = POPSpringAnimation(propertyNamed: kPOPViewAlpha)
-          infoI1AlphaAni.toValue = 0
-          infoI1RotateAni.completionBlock = {(animation:POPAnimation!, completion:Bool) in
-            infoI1.removeFromSuperview()
-            infoI2.removeFromSuperview()
-          }
-
-          let infoI2AlphaAni = POPSpringAnimation(propertyNamed: kPOPViewAlpha)
-          infoI2AlphaAni.toValue = 0
-
-          infoI1.pop_addAnimation(infoI1AlphaAni, forKey: "alpha")
-          infoI2.pop_addAnimation(infoI2AlphaAni, forKey: "alpha")
-          
-          self.setImage(UIImage(named: "CloseCross"), forState: UIControlState.Normal)
-//          self.imageView?.alpha = 0
+//        let infoI1 = UIImageView(image: UIImage(named: "InfoI"))
+//        let infoI2 = UIImageView(image: UIImage(named: "InfoI"))
+//        
+//        infoI1.frame = imageView!.frame
+//        infoI2.frame = imageView!.frame
+//        
+//        addSubview(infoI1)
+//        addSubview(infoI2)
+//        
+//        setImage(nil, forState: UIControlState.Normal)
+//        
+//        let infoI1RotateAni = POPSpringAnimation(propertyNamed: kPOPLayerRotation)
+//        infoI1RotateAni.toValue = M_PI/4
+//        infoI1RotateAni.completionBlock = {(animation:POPAnimation!, completion:Bool) in
 //
-//          let imageViewAlphaAni = POPSpringAnimation(propertyNamed: kPOPViewAlpha)
-//          imageViewAlphaAni.toValue = 1
+//          let infoI1AlphaAni = POPSpringAnimation(propertyNamed: kPOPViewAlpha)
+//          infoI1AlphaAni.toValue = 0
+//          infoI1RotateAni.completionBlock = {(animation:POPAnimation!, completion:Bool) in
+//            infoI1.removeFromSuperview()
+//            infoI2.removeFromSuperview()
+//          }
 //
-//          self.imageView?.pop_addAnimation(imageViewAlphaAni, forKey: "alpha")
-        }
-
-        let infoI2RotateAni = POPSpringAnimation(propertyNamed: kPOPLayerRotation)
-        infoI2RotateAni.toValue = -M_PI/4
-        
-        
-        infoI1.layer.pop_addAnimation(infoI1RotateAni, forKey: "rotate")
-        infoI2.layer.pop_addAnimation(infoI2RotateAni, forKey: "rotate")
+//          let infoI2AlphaAni = POPSpringAnimation(propertyNamed: kPOPViewAlpha)
+//          infoI2AlphaAni.toValue = 0
+//
+//          infoI1.pop_addAnimation(infoI1AlphaAni, forKey: "alpha")
+//          infoI2.pop_addAnimation(infoI2AlphaAni, forKey: "alpha")
+//          
+//          self.setImage(UIImage(named: "CloseCross"), forState: UIControlState.Normal)
+////          self.imageView?.alpha = 0
+////
+////          let imageViewAlphaAni = POPSpringAnimation(propertyNamed: kPOPViewAlpha)
+////          imageViewAlphaAni.toValue = 1
+////
+////          self.imageView?.pop_addAnimation(imageViewAlphaAni, forKey: "alpha")
+//        }
+//
+//        let infoI2RotateAni = POPSpringAnimation(propertyNamed: kPOPLayerRotation)
+//        infoI2RotateAni.toValue = -M_PI/4
+//        
+//        
+//        infoI1.layer.pop_addAnimation(infoI1RotateAni, forKey: "rotate")
+//        infoI2.layer.pop_addAnimation(infoI2RotateAni, forKey: "rotate")
       } else {
-        self.setImage(UIImage(named: "InfoI"), forState: UIControlState.Normal)
+        setImage(UIImage(named: "InfoI"), forState: .Normal)
       }
+      
+      imageView?.layer.addAnimation(CATransition(), forKey: nil)
     }
   }
   
@@ -101,10 +104,10 @@ class InfoCloseButton: UIButton {
   
   
   func toggle(sender: InfoCloseButton) -> Void {
-    if (buttonState == InfoCloseButtonState.Info) {
-      buttonState = InfoCloseButtonState.Close
+    if (buttonState == .Info) {
+      buttonState = .Close
     } else {
-      buttonState = InfoCloseButtonState.Info
+      buttonState = .Info
     }
   }
 }
