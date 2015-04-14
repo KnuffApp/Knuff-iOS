@@ -28,6 +28,7 @@
 		F461CD3D1AD7CF850054AE3F /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F461CD3C1AD7CF850054AE3F /* UIImageExtensions.swift */; };
 		F4742B921AC4DAF10004A353 /* InstructionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4742B911AC4DAF10004A353 /* InstructionsView.swift */; };
 		F4BFB25C1AC4304000D7086A /* PushIllustrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BFB25B1AC4304000D7086A /* PushIllustrationView.swift */; };
+		F4E20B741ADD3BB90097709A /* DeviceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E20B731ADD3BB90097709A /* DeviceView.swift */; };
 		F4EEE9E31AB8A1410049CD6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EEE9E21AB8A1410049CD6C /* AppDelegate.swift */; };
 		F4EEE9EA1AB8A1410049CD6C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4EEE9E91AB8A1410049CD6C /* Images.xcassets */; };
 		F4EEE9ED1AB8A1410049CD6C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4EEE9EB1AB8A1410049CD6C /* LaunchScreen.xib */; };
@@ -80,6 +81,7 @@
 		F461CD3C1AD7CF850054AE3F /* UIImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
 		F4742B911AC4DAF10004A353 /* InstructionsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructionsView.swift; sourceTree = "<group>"; };
 		F4BFB25B1AC4304000D7086A /* PushIllustrationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushIllustrationView.swift; sourceTree = "<group>"; };
+		F4E20B731ADD3BB90097709A /* DeviceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceView.swift; sourceTree = "<group>"; };
 		F4EEE9DD1AB8A1410049CD6C /* Knuff.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Knuff.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4EEE9E11AB8A1410049CD6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F4EEE9E21AB8A1410049CD6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 				F446CA4F1AD3D7FE00082BE1 /* AboutTableHeaderView.swift */,
 				F457C5E31AD45BE500472891 /* AboutTableFooterView.swift */,
 				F42914991AD93D83001971BB /* GradientView.swift */,
+				F4E20B731ADD3BB90097709A /* DeviceView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -438,6 +441,7 @@
 				F446CA501AD3D7FE00082BE1 /* AboutTableHeaderView.swift in Sources */,
 				F4412D551ACEA9E700E667F9 /* ServiceAdvertiser.swift in Sources */,
 				F4742B921AC4DAF10004A353 /* InstructionsView.swift in Sources */,
+				F4E20B741ADD3BB90097709A /* DeviceView.swift in Sources */,
 				F4F8C2421AC4767E0089834E /* UIColorExtensions.swift in Sources */,
 				F461CD3D1AD7CF850054AE3F /* UIImageExtensions.swift in Sources */,
 				F4FF1CB41AC9E20600F08C9C /* IntroViewController.swift in Sources */,

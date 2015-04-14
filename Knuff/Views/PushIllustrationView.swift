@@ -11,11 +11,13 @@ import pop
 
 class PushIllustrationView: UIView {
   
-  let mac, device, bubble, arrow1, arrow2, arrow3 : UIImageView
+  let device: DeviceView
+  let mac, bubble, arrow1, arrow2, arrow3 : UIImageView
   
   override init(frame: CGRect) {
+
     mac = UIImageView(image: UIImage(named: "Mac"))
-    device = UIImageView(image: UIImage(named: "Phone"))
+    device = DeviceView()
     bubble = UIImageView(image: UIImage(named: "Bubble"))
     arrow1 = UIImageView(image: UIImage(named: "Arrow1"))
     arrow2 = UIImageView(image: UIImage(named: "Arrow2"))
@@ -23,11 +25,19 @@ class PushIllustrationView: UIView {
 
     super.init(frame: frame)
     
-    device.frame = CGRectMake(175, 14, device.frame.width, device.frame.height)
-    bubble.frame = CGRectMake(209, 0, bubble.frame.width, bubble.frame.height)
-    arrow1.frame = CGRectMake(150, 34, arrow1.frame.width, arrow1.frame.height)
-    arrow2.frame = CGRectMake(156, 31, arrow2.frame.width, arrow2.frame.height)
-    arrow3.frame = CGRectMake(163, 28, arrow3.frame.width, arrow3.frame.height)
+    let phone = (UIDevice.currentDevice().userInterfaceIdiom == .Phone)
+    
+    device.frame.origin = CGPoint(
+      x: 175,
+      y: phone ? 14 : 2
+    )
+    bubble.frame.origin = CGPoint(
+      x: phone ? 209 : 229,
+      y: phone ? 0 : -12
+    )
+    arrow1.frame.origin = CGPoint(x: 150, y: 34)
+    arrow2.frame.origin = CGPoint(x: 156, y: 31)
+    arrow3.frame.origin = CGPoint(x: 163, y: 28)
     
     addSubview(mac)
     addSubview(device)
@@ -51,12 +61,13 @@ class PushIllustrationView: UIView {
       arrow2.pop_removeAllAnimations()
       arrow3.pop_removeAllAnimations()
       bubble.pop_removeAllAnimations()
+      device.screenshotView.pop_removeAllAnimations()
     }
   }
 
   override func sizeThatFits(size: CGSize) -> CGSize {
     return CGSize(
-      width: 233,// dont use self.bubble.frame.maxX, we have scaled the bubble and therefore messed with its frame
+      width: self.device.frame.maxX,
       height: self.mac.frame.maxY
     )
   }
@@ -66,6 +77,7 @@ class PushIllustrationView: UIView {
     animate(arrow2, delay: delay + 0.1)
     animate(arrow3, delay: delay + 0.2)
     animate(bubble, delay: delay + 0.6)
+    animateScreenshot(delay + 0.6)
   }
   
   func animate(view: UIView, delay:CFTimeInterval) {
@@ -114,4 +126,25 @@ class PushIllustrationView: UIView {
     view.pop_addAnimation(scaleAni, forKey: "scale")
   }
   
+  func animateScreenshot(delay: CFTimeInterval) {
+    let visibleTime: CFTimeInterval = 2;
+    let hiddenTime: CFTimeInterval = 1;
+    
+    device.screenshotView.alpha = 0
+    device.screenshotView.pop_removeAllAnimations()
+    
+    var alphaAni = POPSpringAnimation(propertyNamed: kPOPViewAlpha)
+    alphaAni.toValue = 1
+    alphaAni.beginTime = delay + CACurrentMediaTime()
+    
+    alphaAni.completionBlock = { (animation:POPAnimation!, completion:Bool) in
+      alphaAni = POPSpringAnimation(propertyNamed: kPOPViewAlpha)
+      alphaAni.toValue = 0
+      alphaAni.beginTime = CACurrentMediaTime() + visibleTime
+
+      self.device.screenshotView.pop_addAnimation(alphaAni, forKey: nil)
+    }
+    
+    device.screenshotView.pop_addAnimation(alphaAni, forKey: nil)
+  }
 }

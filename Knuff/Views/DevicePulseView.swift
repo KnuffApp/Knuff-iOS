@@ -15,7 +15,7 @@ class DevicePulseView: UIView {
   let pulseView: PulseView
   
   init(state: PulseViewState) {
-    let phone = (UIDevice.currentDevice().userInterfaceIdiom == UIUserInterfaceIdiom.Phone)
+    let phone = (UIDevice.currentDevice().userInterfaceIdiom == .Phone)
     deviceImageView = UIImageView(image: UIImage(named: phone ? "Phone" : "Pad"))
     pulseView = PulseView(state: state)
     
