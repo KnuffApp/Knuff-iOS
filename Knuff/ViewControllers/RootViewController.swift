@@ -9,8 +9,6 @@
 import UIKit
 import pop
 
-let RootViewControllerDisplayedIntro = "RootViewControllerDisplayedIntro"
-
 enum RootViewControllerState {
   case Intro
   case Success
@@ -54,27 +52,6 @@ class RootViewController: UIViewController {
   var aboutViewController: AboutViewController?
   var infoCloseButton: InfoCloseButton?
   
-  convenience init() {
-    self.init(nibName: nil, bundle: nil)
-  }
-  
-  override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
-    super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    
-    NSUserDefaults.standardUserDefaults().setBool(false, forKey: RootViewControllerDisplayedIntro)
-    
-    NSNotificationCenter.defaultCenter().addObserver(
-      self,
-      selector: "appDidBecomeActive",
-      name: UIApplicationDidBecomeActiveNotification,
-      object: nil
-    )
-  }
-
-  required init(coder aDecoder: NSCoder) {
-      fatalError("init(coder:) has not been implemented")
-  }
-  
   override func viewDidLoad() {
     view.backgroundColor = UIColor(hex: 0x1F3141)
     
@@ -93,7 +70,7 @@ class RootViewController: UIViewController {
     view.addSubview(infoCloseButton!)
 
     
-    let displayedIntro = NSUserDefaults.standardUserDefaults().boolForKey(RootViewControllerDisplayedIntro)
+    let displayedIntro = NSUserDefaults.standardUserDefaults().boolForKey(DisplayedIntro)
     let application = UIApplication.sharedApplication()
     
     if (state == nil) {
@@ -199,30 +176,8 @@ class RootViewController: UIViewController {
     aboutViewController?.view.pop_addAnimation(alphaAnimation, forKey: nil)
   }
   
-  // MARK: -
-  
-  func registerForRemoteNotifications() {
-    NSUserDefaults.standardUserDefaults().setBool(true, forKey: RootViewControllerDisplayedIntro)
-    
-    let settings = UIUserNotificationSettings(forTypes: .Alert | .Badge | .Sound, categories: nil);
-    
-    let application = UIApplication.sharedApplication()
-    
-    application.registerUserNotificationSettings(settings)
-    application.registerForRemoteNotifications();
-  }
   
   // MARK: -
-  
-  func appDidBecomeActive() {
-    let application = UIApplication.sharedApplication()
-    
-    let displayedIntro = NSUserDefaults.standardUserDefaults().boolForKey(RootViewControllerDisplayedIntro)
-    
-    if (displayedIntro || application.isRegisteredForRemoteNotifications()) {
-      registerForRemoteNotifications()
-    }
-  }
   
   func appDidRegisterForRemoteNotificationsWithDeviceToken(deviceToken: NSData) {
     serviceAdvertiser.setDeviceToken(deviceToken)
