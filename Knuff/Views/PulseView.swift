@@ -57,21 +57,38 @@ class PulseView: UIView {
   
   func startAnimations() {
     if (state == PulseViewState.Success) {
-      animateSuccess(0)
-      animateSuccess(0.4)
+      firstPulseCircleView = CircleView(frame: CGRect.zeroRect)
+      firstPulseCircleView!.center = badgeView.center
+      firstPulseCircleView!.contentMode = UIViewContentMode.Redraw
+      insertSubview(firstPulseCircleView!, belowSubview: badgeView)
+      
+      secondPulseCircleView = CircleView(frame: CGRect.zeroRect)
+      secondPulseCircleView!.center = badgeView.center
+      secondPulseCircleView!.contentMode = UIViewContentMode.Redraw
+      insertSubview(secondPulseCircleView!, belowSubview: badgeView)
+      
+      startAnimateSuccess()
     } else {
       animateFailure()
     }
   }
   
-  func animateSuccess(delay: CFTimeInterval) {
+  
+  var firstPulseCircleView, secondPulseCircleView: CircleView?
+
+  func startAnimateSuccess() {
+    // Reset
+    firstPulseCircleView!.bounds = CGRect(x: 0, y: 0, width: 24, height: 24)
+    firstPulseCircleView!.alpha = 1
     
-    let pulseView = CircleView(frame: CGRectMake(0, 0, 24, 24))
-    pulseView.center = badgeView.center
-    pulseView.contentMode = UIViewContentMode.Redraw
+    secondPulseCircleView!.bounds = CGRect(x: 0, y: 0, width: 24, height: 24)
+    secondPulseCircleView!.alpha = 1
     
-    insertSubview(pulseView, belowSubview: badgeView)
-    
+    animateSuccess(firstPulseCircleView!, delay: 0)
+    animateSuccess(secondPulseCircleView!, delay: 0.4)
+  }
+  
+  func animateSuccess(view: UIView, delay: CFTimeInterval) {
     // Bounds
     var animation = POPBasicAnimation(propertyNamed: kPOPViewBounds)
     animation.duration = 2
@@ -81,12 +98,12 @@ class PulseView: UIView {
     animation.timingFunction = CAMediaTimingFunction(controlPoints: 0.2, 0.49, 0.37, 0.9)
     
     animation.completionBlock = {(animation:POPAnimation!, completion:Bool) in
-      pulseView.removeFromSuperview()
-      
-      self.animateSuccess(0)
+      if (view == self.secondPulseCircleView) {
+        self.startAnimateSuccess()
+      }
     }
     
-    pulseView.pop_addAnimation(animation, forKey: "bounds")
+    view.pop_addAnimation(animation, forKey: "bounds")
     
     // Alpha
     animation = POPBasicAnimation(propertyNamed: kPOPViewAlpha)
@@ -95,7 +112,7 @@ class PulseView: UIView {
     animation.beginTime = CACurrentMediaTime() + delay
     animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
     
-    pulseView.pop_addAnimation(animation, forKey: "alpha")
+    view.pop_addAnimation(animation, forKey: "alpha")
   }
   
   
