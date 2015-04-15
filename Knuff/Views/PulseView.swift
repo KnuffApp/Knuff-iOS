@@ -46,10 +46,6 @@ class PulseView: UIView {
     }
   }
   
-  override func intrinsicContentSize() -> CGSize {
-    return sizeThatFits(bounds.size);
-  }
-  
   override func layoutSubviews() {
     badgeView.center = CGPointMake(
       self.bounds.midX,

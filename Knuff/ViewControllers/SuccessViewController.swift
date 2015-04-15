@@ -58,15 +58,17 @@ class SuccessViewController: UIViewController {
       x: round((view.bounds.width/2) - (titleLabel!.bounds.width/2)),
       y: topLayoutGuide.length + 50
     )
-    
-    pulseView!.frame.origin = CGPoint(
-      x: round((view.bounds.width/2) - (pulseView!.bounds.width/2)),
-      y: titleLabel!.frame.maxY + 16
-    )
-    
+  
     checkView!.frame.origin = CGPoint(
       x: round((view.bounds.width/2) - (checkView!.bounds.width/2)),
-      y: pulseView!.frame.maxY + 20
+      y: round((view.bounds.height - checkView!.bounds.height) * 0.6)
+    )
+    
+    let height = checkView!.frame.minY - titleLabel!.frame.maxY
+
+    pulseView!.frame.origin = CGPoint(
+      x: round((view.bounds.width/2) - (pulseView!.bounds.width/2)),
+      y: titleLabel!.frame.maxY + round(height/2 - (pulseView!.bounds.height/2))
     )
     
     infoLabel!.frame.origin = CGPoint(

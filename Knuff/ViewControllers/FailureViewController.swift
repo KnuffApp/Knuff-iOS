@@ -60,14 +60,16 @@ class FailureViewController: UIViewController {
       y: topLayoutGuide.length + 50
     )
     
-    pulseView!.frame.origin = CGPoint(
-      x: round((view.bounds.width/2) - (pulseView!.bounds.width/2)),
-      y: titleLabel!.frame.maxY + 16
-    )
-    
     infoTitleLabel!.frame.origin = CGPoint(
       x: round((view.bounds.width/2) - (infoTitleLabel!.bounds.width/2)),
-      y: pulseView!.frame.maxY + 20
+      y: round((view.bounds.height - infoTitleLabel!.bounds.height) * 0.6)
+    )
+    
+    let height = infoTitleLabel!.frame.minY - titleLabel!.frame.maxY
+    
+    pulseView!.frame.origin = CGPoint(
+      x: round((view.bounds.width/2) - (pulseView!.bounds.width/2)),
+      y: titleLabel!.frame.maxY + round(height/2 - (pulseView!.bounds.height/2))
     )
     
     infoLabel!.frame.origin = CGPoint(

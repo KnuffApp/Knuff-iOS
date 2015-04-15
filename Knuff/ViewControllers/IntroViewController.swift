@@ -83,6 +83,9 @@ class IntroViewController: UIViewController {
   override func viewDidLayoutSubviews() {
     super.viewDidLayoutSubviews()
     
+    let compactWidth = (traitCollection.horizontalSizeClass == .Compact)
+    
+    
     titleLabel!.frame.origin = CGPoint(
       x: round((view.bounds.width/2) - (titleLabel!.bounds.width/2)),
       y: topLayoutGuide.length + 50
@@ -92,18 +95,20 @@ class IntroViewController: UIViewController {
       x: round((view.bounds.width/2) - (subtitleLabel!.bounds.width/2)),
       y: titleLabel!.frame.maxY + 16
     )
+
+    instructionsView!.frame.origin = CGPoint(
+      x: round((view.bounds.width/2) - (instructionsView!.bounds.width/2)),
+      y: round((view.bounds.height - instructionsView!.bounds.height) * 0.7)
+    )
+    
+    let height = instructionsView!.frame.minY - subtitleLabel!.frame.maxY
     
     illustrationView!.frame.origin = CGPoint(
       x: round((view.bounds.width/2) - (illustrationView!.bounds.width/2)),
-      y: subtitleLabel!.frame.maxY + 20
+      y: subtitleLabel!.frame.maxY + round(height/2 - (illustrationView!.bounds.height/2))
     )
     
-    instructionsView!.frame.origin = CGPoint(
-      x: round((view.bounds.width/2) - (instructionsView!.bounds.width/2)),
-      y: illustrationView!.frame.maxY + 20
-    )
-    
-    if (traitCollection.horizontalSizeClass == .Compact) {
+    if (compactWidth) {
       registerButton!.frame = CGRect(
         x: 0,
         y: view.bounds.height-registerButton!.bounds.height,
@@ -120,8 +125,8 @@ class IntroViewController: UIViewController {
   
   
   func register() {
-    if let vc = self.parentViewController as? RootViewController {      
-      vc.registerForRemoteNotifications()
+    if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+      delegate.registerUserNotifications()
     }
   }
 }
