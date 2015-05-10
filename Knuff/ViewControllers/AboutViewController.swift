@@ -20,14 +20,6 @@ class AboutViewController: UIViewController, UITableViewDataSource, UITableViewD
   override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
     tableContent = [
       [
-        "title": "Knuff Composer in Mac App Store",
-        "link": "http://madebybowtie.com",
-      ],
-      [
-        "title": "Download Knuff Composer from Github",
-        "link": "http://github.com/madebybowtie",
-      ],
-      [
         "title": "Visit the developer website",
         "link": "http://madebybowtie.com",
       ],
