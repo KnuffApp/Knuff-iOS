@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import pop
 
 class PushIllustrationView: UIView {
   

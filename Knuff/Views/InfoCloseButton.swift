@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import pop
 
 enum InfoCloseButtonState {
   case Info

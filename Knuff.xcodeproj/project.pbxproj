@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		847154F79DE9982816A66A61 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF2B1DECE65383A831E0D5FD /* libPods.a */; };
 		F414D1901AC48740000E951E /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F44BBAA71AC410BE00D23829 /* OpenSans-Light.ttf */; };
 		F414D1921AC491C9000E951E /* InstructionStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F414D1911AC491C9000E951E /* InstructionStepView.swift */; };
 		F414D1941AC494A0000E951E /* CircleBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F414D1931AC494A0000E951E /* CircleBadgeView.swift */; };
@@ -38,7 +39,6 @@
 		F4FF1CB41AC9E20600F08C9C /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FF1CB31AC9E20600F08C9C /* IntroViewController.swift */; };
 		F4FF1CB81AC9FD5500F08C9C /* SuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FF1CB71AC9FD5500F08C9C /* SuccessViewController.swift */; };
 		F4FF1CBA1AC9FD6100F08C9C /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FF1CB91AC9FD6100F08C9C /* CircleView.swift */; };
-		F7EF7B517A05892383229DE9 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2699F1175BD5FDBE7B777462 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +52,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2699F1175BD5FDBE7B777462 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5C4FBD9CBEB4F4B48BDAC8E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		F414D1911AC491C9000E951E /* InstructionStepView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructionStepView.swift; sourceTree = "<group>"; };
 		F414D1931AC494A0000E951E /* CircleBadgeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleBadgeView.swift; sourceTree = "<group>"; };
@@ -82,6 +81,7 @@
 		F4742B911AC4DAF10004A353 /* InstructionsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructionsView.swift; sourceTree = "<group>"; };
 		F4BFB25B1AC4304000D7086A /* PushIllustrationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushIllustrationView.swift; sourceTree = "<group>"; };
 		F4E20B731ADD3BB90097709A /* DeviceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceView.swift; sourceTree = "<group>"; };
+		F4EE15181AFF65DD00F86C2A /* Bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bridge.h; sourceTree = "<group>"; };
 		F4EEE9DD1AB8A1410049CD6C /* Knuff.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Knuff.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4EEE9E11AB8A1410049CD6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F4EEE9E21AB8A1410049CD6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +96,7 @@
 		F4FF1CB71AC9FD5500F08C9C /* SuccessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessViewController.swift; sourceTree = "<group>"; };
 		F4FF1CB91AC9FD6100F08C9C /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		FBF1A6CB1AFBB85C93E276CB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		FF2B1DECE65383A831E0D5FD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,7 +106,7 @@
 			files = (
 				F41C717A1AC22E6C00F98113 /* Crashlytics.framework in Frameworks */,
 				F41C717B1AC22E6C00F98113 /* Fabric.framework in Frameworks */,
-				F7EF7B517A05892383229DE9 /* Pods.framework in Frameworks */,
+				847154F79DE9982816A66A61 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,7 +132,7 @@
 		9DA18F79DF83872BC84B9BBB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2699F1175BD5FDBE7B777462 /* Pods.framework */,
+				FF2B1DECE65383A831E0D5FD /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -223,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				F4EEE9E11AB8A1410049CD6C /* Info.plist */,
+				F4EE15181AFF65DD00F86C2A /* Bridge.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -277,7 +279,6 @@
 				F4EEE9DA1AB8A1410049CD6C /* Frameworks */,
 				F4EEE9DB1AB8A1410049CD6C /* Resources */,
 				F41C71771AC22E0900F98113 /* Fabric */,
-				24D1766BF0F6EC0F89D501EE /* Embed Pods Frameworks */,
 				EAB4488966B17BBF88AE1361 /* Copy Pods Resources */,
 			);
 			buildRules = (
@@ -369,21 +370,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		24D1766BF0F6EC0F89D501EE /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		81BEE1BA368D8B6B01404424 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -579,6 +565,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEFINES_MODULE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -586,6 +573,7 @@
 				INFOPLIST_FILE = Knuff/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = Knuff/Bridge.h;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -595,7 +583,8 @@
 			baseConfigurationReference = C5C4FBD9CBEB4F4B48BDAC8E /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Bowtie AB (N2ML8MSSRH)";
+				DEFINES_MODULE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -603,6 +592,8 @@
 				INFOPLIST_FILE = Knuff/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "7072ed3d-7869-449f-b881-a6c2264aaafe";
+				SWIFT_OBJC_BRIDGING_HEADER = Knuff/Bridge.h;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

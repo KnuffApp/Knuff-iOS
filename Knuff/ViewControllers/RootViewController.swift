@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import pop
 
 enum RootViewControllerState {
   case Intro
