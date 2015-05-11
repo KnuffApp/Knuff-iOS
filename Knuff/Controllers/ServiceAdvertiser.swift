@@ -44,8 +44,8 @@ class ServiceAdvertiser: NSObject, MCNearbyServiceAdvertiserDelegate{
       
       serviceAdvertiser = MCNearbyServiceAdvertiser(
         peer: peerID,
-        discoveryInfo: ["token": tokenString, "type": "iOS"],
-        serviceType: "apns-pusher"
+        discoveryInfo: ["token": tokenString],
+        serviceType: "knuff"
       )
       
       serviceAdvertiser?.delegate = self
