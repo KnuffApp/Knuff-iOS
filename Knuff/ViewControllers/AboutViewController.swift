@@ -25,7 +25,7 @@ class AboutViewController: UIViewController, UITableViewDataSource, UITableViewD
       ],
       [
         "title": "View source on Github",
-        "link": "http://github.com/madebybowtie",
+        "link": "http://github.com/knuffapp",
       ]
     ]
     
