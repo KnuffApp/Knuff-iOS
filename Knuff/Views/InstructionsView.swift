@@ -15,7 +15,7 @@ class InstructionsView: UIView {
   
   override init(frame: CGRect) {
     steps1View = InstructionStepView(
-      title: "Download the OSX Knuff composer app.",
+      title: "Download the OS X Knuff app.",
       badgeString: "1"
     )
     steps2View = InstructionStepView(
