@@ -26,6 +26,8 @@
 		F45E5D271ACC83E900011212 /* PulseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45E5D261ACC83E900011212 /* PulseView.swift */; };
 		F461CD3D1AD7CF850054AE3F /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F461CD3C1AD7CF850054AE3F /* UIImageExtensions.swift */; };
 		F4742B921AC4DAF10004A353 /* InstructionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4742B911AC4DAF10004A353 /* InstructionsView.swift */; };
+		F48350241C45A372006AEA88 /* KnuffSnapshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48350231C45A372006AEA88 /* KnuffSnapshots.swift */; };
+		F483502C1C45A3AC006AEA88 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F483502B1C45A3AC006AEA88 /* SnapshotHelper.swift */; };
 		F4BFB25C1AC4304000D7086A /* PushIllustrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BFB25B1AC4304000D7086A /* PushIllustrationView.swift */; };
 		F4E20B741ADD3BB90097709A /* DeviceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E20B731ADD3BB90097709A /* DeviceView.swift */; };
 		F4EEE9E31AB8A1410049CD6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EEE9E21AB8A1410049CD6C /* AppDelegate.swift */; };
@@ -37,6 +39,16 @@
 		F4FF1CB81AC9FD5500F08C9C /* SuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FF1CB71AC9FD5500F08C9C /* SuccessViewController.swift */; };
 		F4FF1CBA1AC9FD6100F08C9C /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FF1CB91AC9FD6100F08C9C /* CircleView.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F48350261C45A372006AEA88 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F4EEE9D51AB8A1410049CD6C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F4EEE9DC1AB8A1410049CD6C;
+			remoteInfo = Knuff;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		C5C4FBD9CBEB4F4B48BDAC8E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -64,6 +76,10 @@
 		F45E5D261ACC83E900011212 /* PulseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PulseView.swift; sourceTree = "<group>"; };
 		F461CD3C1AD7CF850054AE3F /* UIImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
 		F4742B911AC4DAF10004A353 /* InstructionsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructionsView.swift; sourceTree = "<group>"; };
+		F48350211C45A372006AEA88 /* KnuffSnapshots.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KnuffSnapshots.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F48350231C45A372006AEA88 /* KnuffSnapshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnuffSnapshots.swift; sourceTree = "<group>"; };
+		F48350251C45A372006AEA88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F483502B1C45A3AC006AEA88 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		F4BFB25B1AC4304000D7086A /* PushIllustrationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushIllustrationView.swift; sourceTree = "<group>"; };
 		F4E20B731ADD3BB90097709A /* DeviceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceView.swift; sourceTree = "<group>"; };
 		F4EE15181AFF65DD00F86C2A /* Bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bridge.h; sourceTree = "<group>"; };
@@ -72,8 +88,6 @@
 		F4EEE9E21AB8A1410049CD6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4EEE9E91AB8A1410049CD6C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F4EEE9EC1AB8A1410049CD6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		F4EEE9F71AB8A1410049CD6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F4EEE9F81AB8A1410049CD6C /* KnuffTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnuffTests.swift; sourceTree = "<group>"; };
 		F4F8C2411AC4767E0089834E /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		F4FB342B1ACAB206002B83BB /* DevicePulseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DevicePulseView.swift; sourceTree = "<group>"; };
 		F4FF1CB31AC9E20600F08C9C /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
@@ -84,6 +98,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		F483501E1C45A372006AEA88 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F4EEE9DA1AB8A1410049CD6C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -137,6 +158,16 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		F48350221C45A372006AEA88 /* KnuffSnapshots */ = {
+			isa = PBXGroup;
+			children = (
+				F483502B1C45A3AC006AEA88 /* SnapshotHelper.swift */,
+				F48350231C45A372006AEA88 /* KnuffSnapshots.swift */,
+				F48350251C45A372006AEA88 /* Info.plist */,
+			);
+			path = KnuffSnapshots;
+			sourceTree = "<group>";
+		};
 		F4BFB25A1AC4301D00D7086A /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -161,7 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				F4EEE9DF1AB8A1410049CD6C /* Knuff */,
-				F4EEE9F51AB8A1410049CD6C /* KnuffTests */,
+				F48350221C45A372006AEA88 /* KnuffSnapshots */,
 				F4EEE9DE1AB8A1410049CD6C /* Products */,
 				6EE1303F61816FC0C005462B /* Pods */,
 				9DA18F79DF83872BC84B9BBB /* Frameworks */,
@@ -172,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				F4EEE9DD1AB8A1410049CD6C /* Knuff.app */,
+				F48350211C45A372006AEA88 /* KnuffSnapshots.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -201,23 +233,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		F4EEE9F51AB8A1410049CD6C /* KnuffTests */ = {
-			isa = PBXGroup;
-			children = (
-				F4EEE9F81AB8A1410049CD6C /* KnuffTests.swift */,
-				F4EEE9F61AB8A1410049CD6C /* Supporting Files */,
-			);
-			path = KnuffTests;
-			sourceTree = "<group>";
-		};
-		F4EEE9F61AB8A1410049CD6C /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				F4EEE9F71AB8A1410049CD6C /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		F4F8C2401AC476590089834E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -242,6 +257,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		F48350201C45A372006AEA88 /* KnuffSnapshots */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F48350281C45A372006AEA88 /* Build configuration list for PBXNativeTarget "KnuffSnapshots" */;
+			buildPhases = (
+				F483501D1C45A372006AEA88 /* Sources */,
+				F483501E1C45A372006AEA88 /* Frameworks */,
+				F483501F1C45A372006AEA88 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F48350271C45A372006AEA88 /* PBXTargetDependency */,
+			);
+			name = KnuffSnapshots;
+			productName = KnuffSnapshots;
+			productReference = F48350211C45A372006AEA88 /* KnuffSnapshots.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		F4EEE9DC1AB8A1410049CD6C /* Knuff */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F4EEE9FC1AB8A1410049CD6C /* Build configuration list for PBXNativeTarget "Knuff" */;
@@ -273,6 +306,10 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = Bowtie;
 				TargetAttributes = {
+					F48350201C45A372006AEA88 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = F4EEE9DC1AB8A1410049CD6C;
+					};
 					F4EEE9DC1AB8A1410049CD6C = {
 						CreatedOnToolsVersion = 6.3;
 						DevelopmentTeam = N2ML8MSSRH;
@@ -301,11 +338,19 @@
 			projectRoot = "";
 			targets = (
 				F4EEE9DC1AB8A1410049CD6C /* Knuff */,
+				F48350201C45A372006AEA88 /* KnuffSnapshots */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		F483501F1C45A372006AEA88 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F4EEE9DB1AB8A1410049CD6C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -370,6 +415,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		F483501D1C45A372006AEA88 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F48350241C45A372006AEA88 /* KnuffSnapshots.swift in Sources */,
+				F483502C1C45A3AC006AEA88 /* SnapshotHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F4EEE9D91AB8A1410049CD6C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -401,6 +455,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		F48350271C45A372006AEA88 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F4EEE9DC1AB8A1410049CD6C /* Knuff */;
+			targetProxy = F48350261C45A372006AEA88 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		F4EEE9EB1AB8A1410049CD6C /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
@@ -413,6 +475,32 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		F48350291C45A372006AEA88 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = KnuffSnapshots/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.madebybowtie.KnuffSnapshots;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Knuff;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		F483502A1C45A372006AEA88 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = KnuffSnapshots/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.madebybowtie.KnuffSnapshots;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Knuff;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
 		F4EEE9FA1AB8A1410049CD6C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -546,6 +634,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		F48350281C45A372006AEA88 /* Build configuration list for PBXNativeTarget "KnuffSnapshots" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F48350291C45A372006AEA88 /* Debug */,
+				F483502A1C45A372006AEA88 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		F4EEE9D81AB8A1410049CD6C /* Build configuration list for PBXProject "Knuff" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
