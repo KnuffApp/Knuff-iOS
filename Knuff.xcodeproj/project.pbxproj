@@ -31,23 +31,12 @@
 		F4EEE9E31AB8A1410049CD6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EEE9E21AB8A1410049CD6C /* AppDelegate.swift */; };
 		F4EEE9EA1AB8A1410049CD6C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4EEE9E91AB8A1410049CD6C /* Images.xcassets */; };
 		F4EEE9ED1AB8A1410049CD6C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4EEE9EB1AB8A1410049CD6C /* LaunchScreen.xib */; };
-		F4EEE9F91AB8A1410049CD6C /* KnuffTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EEE9F81AB8A1410049CD6C /* KnuffTests.swift */; };
 		F4F8C2421AC4767E0089834E /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F8C2411AC4767E0089834E /* UIColorExtensions.swift */; };
 		F4FB342C1ACAB206002B83BB /* DevicePulseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FB342B1ACAB206002B83BB /* DevicePulseView.swift */; };
 		F4FF1CB41AC9E20600F08C9C /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FF1CB31AC9E20600F08C9C /* IntroViewController.swift */; };
 		F4FF1CB81AC9FD5500F08C9C /* SuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FF1CB71AC9FD5500F08C9C /* SuccessViewController.swift */; };
 		F4FF1CBA1AC9FD6100F08C9C /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FF1CB91AC9FD6100F08C9C /* CircleView.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		F4EEE9F31AB8A1410049CD6C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F4EEE9D51AB8A1410049CD6C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F4EEE9DC1AB8A1410049CD6C;
-			remoteInfo = Knuff;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		C5C4FBD9CBEB4F4B48BDAC8E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -83,7 +72,6 @@
 		F4EEE9E21AB8A1410049CD6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4EEE9E91AB8A1410049CD6C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F4EEE9EC1AB8A1410049CD6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		F4EEE9F21AB8A1410049CD6C /* KnuffTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KnuffTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4EEE9F71AB8A1410049CD6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F4EEE9F81AB8A1410049CD6C /* KnuffTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnuffTests.swift; sourceTree = "<group>"; };
 		F4F8C2411AC4767E0089834E /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
@@ -101,13 +89,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				847154F79DE9982816A66A61 /* libPods.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F4EEE9EF1AB8A1410049CD6C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,7 +172,6 @@
 			isa = PBXGroup;
 			children = (
 				F4EEE9DD1AB8A1410049CD6C /* Knuff.app */,
-				F4EEE9F21AB8A1410049CD6C /* KnuffTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -282,24 +262,6 @@
 			productReference = F4EEE9DD1AB8A1410049CD6C /* Knuff.app */;
 			productType = "com.apple.product-type.application";
 		};
-		F4EEE9F11AB8A1410049CD6C /* KnuffTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F4EEE9FF1AB8A1410049CD6C /* Build configuration list for PBXNativeTarget "KnuffTests" */;
-			buildPhases = (
-				F4EEE9EE1AB8A1410049CD6C /* Sources */,
-				F4EEE9EF1AB8A1410049CD6C /* Frameworks */,
-				F4EEE9F01AB8A1410049CD6C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				F4EEE9F41AB8A1410049CD6C /* PBXTargetDependency */,
-			);
-			name = KnuffTests;
-			productName = KnuffTests;
-			productReference = F4EEE9F21AB8A1410049CD6C /* KnuffTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -323,10 +285,6 @@
 							};
 						};
 					};
-					F4EEE9F11AB8A1410049CD6C = {
-						CreatedOnToolsVersion = 6.3;
-						TestTargetID = F4EEE9DC1AB8A1410049CD6C;
-					};
 				};
 			};
 			buildConfigurationList = F4EEE9D81AB8A1410049CD6C /* Build configuration list for PBXProject "Knuff" */;
@@ -343,7 +301,6 @@
 			projectRoot = "";
 			targets = (
 				F4EEE9DC1AB8A1410049CD6C /* Knuff */,
-				F4EEE9F11AB8A1410049CD6C /* KnuffTests */,
 			);
 		};
 /* End PBXProject section */
@@ -359,13 +316,6 @@
 				F44BBAAE1AC4126400D23829 /* OpenSans-Regular.ttf in Resources */,
 				F4EEE9ED1AB8A1410049CD6C /* LaunchScreen.xib in Resources */,
 				F4EEE9EA1AB8A1410049CD6C /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F4EEE9F01AB8A1410049CD6C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,23 +399,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F4EEE9EE1AB8A1410049CD6C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F4EEE9F91AB8A1410049CD6C /* KnuffTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		F4EEE9F41AB8A1410049CD6C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F4EEE9DC1AB8A1410049CD6C /* Knuff */;
-			targetProxy = F4EEE9F31AB8A1410049CD6C /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		F4EEE9EB1AB8A1410049CD6C /* LaunchScreen.xib */ = {
@@ -609,42 +543,6 @@
 			};
 			name = Release;
 		};
-		F4EEEA001AB8A1410049CD6C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = KnuffTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.madebybowtie.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Knuff.app/Knuff";
-			};
-			name = Debug;
-		};
-		F4EEEA011AB8A1410049CD6C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = KnuffTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.madebybowtie.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Knuff.app/Knuff";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -662,15 +560,6 @@
 			buildConfigurations = (
 				F4EEE9FD1AB8A1410049CD6C /* Debug */,
 				F4EEE9FE1AB8A1410049CD6C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F4EEE9FF1AB8A1410049CD6C /* Build configuration list for PBXNativeTarget "KnuffTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F4EEEA001AB8A1410049CD6C /* Debug */,
-				F4EEEA011AB8A1410049CD6C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
