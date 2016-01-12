@@ -45,7 +45,7 @@ class InstructionsView: UIView {
   
   override func sizeThatFits(size: CGSize) -> CGSize {
     return CGSize(
-      width: max(steps1View.bounds.width, steps1View.bounds.width, steps1View.bounds.width),
+      width: max(steps1View.bounds.width, steps2View.bounds.width, steps3View.bounds.width),
       height: steps1View.bounds.height + 20 + steps1View.bounds.height + 20 + steps1View.bounds.height
     )
   }
