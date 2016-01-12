@@ -54,7 +54,6 @@ class IntroViewController: UIViewController {
     } else {
       image = UIImage.drawableImage(CGSize(width: 248, height: 50),
         draw: { size in
-          let c = UIGraphicsGetCurrentContext()
           let rect = CGRect(
             x: 0.5,
             y: 0.5,

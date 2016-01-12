@@ -32,14 +32,14 @@ class AboutViewController: UIViewController, UITableViewDataSource, UITableViewD
     super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
   }
 
-  required init(coder aDecoder: NSCoder) {
+  required init?(coder aDecoder: NSCoder) {
       fatalError("init(coder:) has not been implemented")
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    tableView = UITableView(frame: .zeroRect, style: .Grouped)
+    tableView = UITableView(frame: .zero, style: .Grouped)
     tableView?.delegate = self
     tableView?.dataSource = self
     tableView?.registerClass(AboutCell.self, forCellReuseIdentifier: "lol")

@@ -35,7 +35,7 @@ class InstructionStepView: UIView {
         
         let size = attributedString.size()
         
-        attributedString.drawInRect(rect.rectByInsetting(
+        attributedString.drawInRect(rect.insetBy(
           dx: 0,
           dy: floor(rect.height-size.height)/2)
         )
@@ -57,7 +57,7 @@ class InstructionStepView: UIView {
     addSubview(badge)
   }
 
-  required init(coder aDecoder: NSCoder) {
+  required init?(coder aDecoder: NSCoder) {
       fatalError("init(coder:) has not been implemented")
   }
   

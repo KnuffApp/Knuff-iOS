@@ -32,7 +32,7 @@ class PulseView: UIView {
     addSubview(badgeDetailsView)
   }
   
-  required init(coder aDecoder: NSCoder) {
+  required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
   
@@ -56,12 +56,12 @@ class PulseView: UIView {
   
   func startAnimations() {
     if (state == PulseViewState.Success) {
-      firstPulseCircleView = CircleView(frame: CGRect.zeroRect)
+      firstPulseCircleView = CircleView(frame: CGRect.zero)
       firstPulseCircleView!.center = badgeView.center
       firstPulseCircleView!.contentMode = UIViewContentMode.Redraw
       insertSubview(firstPulseCircleView!, belowSubview: badgeView)
       
-      secondPulseCircleView = CircleView(frame: CGRect.zeroRect)
+      secondPulseCircleView = CircleView(frame: CGRect.zero)
       secondPulseCircleView!.center = badgeView.center
       secondPulseCircleView!.contentMode = UIViewContentMode.Redraw
       insertSubview(secondPulseCircleView!, belowSubview: badgeView)

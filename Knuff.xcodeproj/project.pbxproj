@@ -11,8 +11,6 @@
 		F414D1901AC48740000E951E /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F44BBAA71AC410BE00D23829 /* OpenSans-Light.ttf */; };
 		F414D1921AC491C9000E951E /* InstructionStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F414D1911AC491C9000E951E /* InstructionStepView.swift */; };
 		F414D1941AC494A0000E951E /* CircleBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F414D1931AC494A0000E951E /* CircleBadgeView.swift */; };
-		F41C717A1AC22E6C00F98113 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F41C71781AC22E6C00F98113 /* Crashlytics.framework */; };
-		F41C717B1AC22E6C00F98113 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F41C71791AC22E6C00F98113 /* Fabric.framework */; };
 		F429149A1AD93D83001971BB /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42914991AD93D83001971BB /* GradientView.swift */; };
 		F4412D521ACEA45C00E667F9 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4412D511ACEA45C00E667F9 /* RootViewController.swift */; };
 		F4412D551ACEA9E700E667F9 /* ServiceAdvertiser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4412D541ACEA9E700E667F9 /* ServiceAdvertiser.swift */; };
@@ -55,8 +53,6 @@
 		C5C4FBD9CBEB4F4B48BDAC8E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		F414D1911AC491C9000E951E /* InstructionStepView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructionStepView.swift; sourceTree = "<group>"; };
 		F414D1931AC494A0000E951E /* CircleBadgeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleBadgeView.swift; sourceTree = "<group>"; };
-		F41C71781AC22E6C00F98113 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
-		F41C71791AC22E6C00F98113 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
 		F42914991AD93D83001971BB /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		F4412D511ACEA45C00E667F9 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		F4412D541ACEA9E700E667F9 /* ServiceAdvertiser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceAdvertiser.swift; sourceTree = "<group>"; };
@@ -104,8 +100,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F41C717A1AC22E6C00F98113 /* Crashlytics.framework in Frameworks */,
-				F41C717B1AC22E6C00F98113 /* Fabric.framework in Frameworks */,
 				847154F79DE9982816A66A61 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -210,8 +204,6 @@
 				F4F8C2401AC476590089834E /* Extensions */,
 				F4BFB25A1AC4301D00D7086A /* Views */,
 				F44BBAA11AC410A500D23829 /* Fonts */,
-				F41C71781AC22E6C00F98113 /* Crashlytics.framework */,
-				F41C71791AC22E6C00F98113 /* Fabric.framework */,
 				F4EEE9E21AB8A1410049CD6C /* AppDelegate.swift */,
 				F4EEE9E91AB8A1410049CD6C /* Images.xcassets */,
 				F4EEE9EB1AB8A1410049CD6C /* LaunchScreen.xib */,
@@ -278,8 +270,8 @@
 				F4EEE9D91AB8A1410049CD6C /* Sources */,
 				F4EEE9DA1AB8A1410049CD6C /* Frameworks */,
 				F4EEE9DB1AB8A1410049CD6C /* Resources */,
-				F41C71771AC22E0900F98113 /* Fabric */,
 				EAB4488966B17BBF88AE1361 /* Copy Pods Resources */,
+				7EBF763027FD56DE6B48EB83 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -314,12 +306,22 @@
 		F4EEE9D51AB8A1410049CD6C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastSwiftMigration = 0720;
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = Bowtie;
 				TargetAttributes = {
 					F4EEE9DC1AB8A1410049CD6C = {
 						CreatedOnToolsVersion = 6.3;
 						DevelopmentTeam = N2ML8MSSRH;
+						SystemCapabilities = {
+							com.apple.GameCenter = {
+								enabled = 0;
+							};
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
+						};
 					};
 					F4EEE9F11AB8A1410049CD6C = {
 						CreatedOnToolsVersion = 6.3;
@@ -370,6 +372,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		7EBF763027FD56DE6B48EB83 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		81BEE1BA368D8B6B01404424 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -399,20 +416,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
-		};
-		F41C71771AC22E0900F98113 /* Fabric */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = Fabric;
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if [[ \"${CONFIGURATION}\" == *Release* ]]; then\n./Fabric.framework/run a944252ee77026be3648fe128dd36d4038925030 84cbc9fe10648575ebfe5cd5c815eeec6b6e3d27336836f293fa8a5ddd72b2c0\nelse\necho \"Not running Fabric for ${CONFIGURATION}\"\nfi";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -497,6 +500,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -565,14 +569,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Knuff/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.madebybowtie.Knuff-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = Knuff/Bridge.h;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -583,16 +591,19 @@
 			baseConfigurationReference = C5C4FBD9CBEB4F4B48BDAC8E /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Bowtie AB (N2ML8MSSRH)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Knuff/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.madebybowtie.Knuff-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "7072ed3d-7869-449f-b881-a6c2264aaafe";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = Knuff/Bridge.h;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -612,6 +623,7 @@
 				);
 				INFOPLIST_FILE = KnuffTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.madebybowtie.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Knuff.app/Knuff";
 			};
@@ -627,6 +639,7 @@
 				);
 				INFOPLIST_FILE = KnuffTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.madebybowtie.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Knuff.app/Knuff";
 			};

@@ -56,9 +56,9 @@ class ServiceAdvertiser: NSObject, MCNearbyServiceAdvertiserDelegate{
   
   // MARK: - MCNearbyServiceAdvertiserDelegate
   
-  func advertiser(advertiser: MCNearbyServiceAdvertiser!, didNotStartAdvertisingPeer error: NSError!) {}
+  func advertiser(advertiser: MCNearbyServiceAdvertiser, didNotStartAdvertisingPeer error: NSError) {}
   
-  func advertiser(advertiser: MCNearbyServiceAdvertiser!, didReceiveInvitationFromPeer peerID: MCPeerID!, withContext context: NSData!, invitationHandler: ((Bool, MCSession!) -> Void)!) {
-    invitationHandler(false, nil)
+  func advertiser(advertiser: MCNearbyServiceAdvertiser, didReceiveInvitationFromPeer peerID: MCPeerID, withContext context: NSData?, invitationHandler: ((Bool, MCSession) -> Void)) {
+    invitationHandler(false, MCSession())
   }
 }

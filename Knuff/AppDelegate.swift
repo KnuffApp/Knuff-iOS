@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import Fabric
-import Crashlytics
 
 let DisplayedIntro = "DisplayedIntro"
 
@@ -20,8 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     window = UIWindow(frame: UIScreen.mainScreen().bounds)
     window?.rootViewController = RootViewController()
-    
-    Fabric.with([Crashlytics()])
     
     window?.makeKeyAndVisible()
     
@@ -63,7 +59,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func registerUserNotifications() {
     NSUserDefaults.standardUserDefaults().setBool(true, forKey: DisplayedIntro)
     
-    let settings = UIUserNotificationSettings(forTypes: .Alert | .Badge | .Sound, categories: nil);
+    let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil);
     let application = UIApplication.sharedApplication()
     application.registerUserNotificationSettings(settings)
   }

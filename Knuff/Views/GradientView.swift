@@ -14,7 +14,7 @@ class GradientView: UIView {
     opaque = false
   }
 
-  required init(coder aDecoder: NSCoder) {
+  required init?(coder aDecoder: NSCoder) {
       fatalError("init(coder:) has not been implemented")
   }
   
@@ -30,7 +30,7 @@ class GradientView: UIView {
       gradient,
       CGPoint(x: 0, y: 0),
       CGPoint(x: 0, y: bounds.height),
-      0
+      []
     )
   }
 }

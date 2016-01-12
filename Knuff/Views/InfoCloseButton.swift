@@ -75,7 +75,6 @@ class InfoCloseButton: UIButton {
     super.init(frame: frame)
     
     let image = UIImage.drawableImage(CGSize(width: 24, height: 24), draw: { size in
-      let c = UIGraphicsGetCurrentContext()
       let rect = CGRect(
         x: 0.5,
         y: 0.5,
@@ -93,7 +92,7 @@ class InfoCloseButton: UIButton {
     addTarget(self, action: "toggle:", forControlEvents: UIControlEvents.TouchUpInside)
   }
 
-  required init(coder aDecoder: NSCoder) {
+  required init?(coder aDecoder: NSCoder) {
       fatalError("init(coder:) has not been implemented")
   }
   

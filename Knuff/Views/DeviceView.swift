@@ -17,7 +17,7 @@ class DeviceView: UIImageView {
     self.init(image: UIImage(named: phone ? "Phone" : "Pad"))
   }
   
-  override init(image: UIImage!) {
+  override init(image: UIImage?) {
     let phone = (UIDevice.currentDevice().userInterfaceIdiom == .Phone)
 
     screenshotView = UIImageView(image: UIImage(named: phone ? "Phone Push" : "Pad Push"))
@@ -33,7 +33,7 @@ class DeviceView: UIImageView {
 //    screenshotView.addSubview(screenshotClockView)
   }
 
-  required init(coder aDecoder: NSCoder) {
+  required init?(coder aDecoder: NSCoder) {
       fatalError("init(coder:) has not been implemented")
   }
   

@@ -46,7 +46,7 @@ class PushIllustrationView: UIView {
     addSubview(arrow3)
   }
   
-  required init(coder aDecoder: NSCoder) {
+  required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
   
@@ -127,7 +127,6 @@ class PushIllustrationView: UIView {
   
   func animateScreenshot(delay: CFTimeInterval) {
     let visibleTime: CFTimeInterval = 2;
-    let hiddenTime: CFTimeInterval = 1;
     
     device.screenshotView.alpha = 0
     device.screenshotView.pop_removeAllAnimations()

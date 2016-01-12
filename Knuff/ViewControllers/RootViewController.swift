@@ -21,8 +21,6 @@ enum RootViewControllerState {
       return SuccessViewController()
     case .Failure:
       return FailureViewController()
-    default:
-      return nil
     }
   }
 }
@@ -55,7 +53,7 @@ class RootViewController: UIViewController {
     view.backgroundColor = UIColor(hex: 0x1F3141)
     
     contentContainerView = UIView(frame: view.bounds)
-    contentContainerView!.autoresizingMask = .FlexibleHeight | .FlexibleWidth
+    contentContainerView!.autoresizingMask = [.FlexibleHeight, .FlexibleWidth]
     view.addSubview(contentContainerView!)
     
     
@@ -114,7 +112,7 @@ class RootViewController: UIViewController {
     if let vc = contentViewController {
       addChildViewController(vc)
       vc.view.frame = contentContainerView!.bounds
-      vc.view.autoresizingMask = .FlexibleHeight | .FlexibleWidth
+      vc.view.autoresizingMask = [.FlexibleHeight, .FlexibleWidth]
       contentContainerView!.addSubview(vc.view)
       vc.didMoveToParentViewController(self)
     }
@@ -148,7 +146,7 @@ class RootViewController: UIViewController {
       addChildViewController(vc)
 
       vc.view.frame = view.bounds
-      vc.view.autoresizingMask = .FlexibleHeight | .FlexibleWidth
+      vc.view.autoresizingMask = [.FlexibleHeight, .FlexibleWidth]
       
       // Initial state
       vc.view.alpha = 0

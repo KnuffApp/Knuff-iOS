@@ -15,12 +15,12 @@ class CircleView: UIView {
     opaque = false
   }
   
-  required init(coder aDecoder: NSCoder) {
+  required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
   
   override func drawRect(rect: CGRect) {
-    let circlePath = UIBezierPath(ovalInRect: bounds.rectByInsetting(dx: 1, dy: 1))
+    let circlePath = UIBezierPath(ovalInRect: bounds.insetBy(dx: 1, dy: 1))
     UIColor(hex: 0x6DB0F8).set()
     circlePath.stroke()
   }
