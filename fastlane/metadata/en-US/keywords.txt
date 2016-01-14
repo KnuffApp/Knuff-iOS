@@ -1,1 +1,1 @@
-APNS,APNS Pusher,push,APN,notification,xcode
+APNs,APNs Pusher,push,APN,notification,xcode,push notification,test
