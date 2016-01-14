@@ -613,7 +613,7 @@
 			baseConfigurationReference = C5C4FBD9CBEB4F4B48BDAC8E /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Bowtie AB (N2ML8MSSRH)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -625,7 +625,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.madebybowtie.Knuff-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "83cf3a7a-df33-490e-9b6a-e9b03557c8cf";
 				SWIFT_OBJC_BRIDGING_HEADER = Knuff/Bridge.h;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -641,6 +641,7 @@
 				F483502A1C45A372006AEA88 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F4EEE9D81AB8A1410049CD6C /* Build configuration list for PBXProject "Knuff" */ = {
 			isa = XCConfigurationList;
