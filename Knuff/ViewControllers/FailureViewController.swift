@@ -37,7 +37,7 @@ class FailureViewController: UIViewController {
     view.addSubview(infoTitleLabel!)
     
     infoLabel = UILabel()
-    infoLabel!.text = "To recieve push notifications from your computer you need to allow Knuff to recieve them. Allow notifications:\n\nSettings → Notifications → Knuff"
+    infoLabel!.text = "To receive push notifications from your computer you need to allow Knuff to receive them. Allow notifications:\n\nSettings → Notifications → Knuff"
     infoLabel!.font = UIFont(name: "OpenSans-Light", size: 12)
     infoLabel!.textColor = UIColor(white: 1, alpha: 1)
     infoLabel!.textAlignment = NSTextAlignment.Center

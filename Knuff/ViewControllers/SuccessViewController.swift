@@ -36,7 +36,7 @@ class SuccessViewController: UIViewController {
     
     infoLabel = UILabel()
     let deviceName = UIDevice.currentDevice().name
-    infoLabel!.text = "To recieve push notifications from your computer just select \"\(deviceName)\" in the device list and tap the home button."
+    infoLabel!.text = "To receive push notifications from your computer just select \"\(deviceName)\" in the device list and tap the home button."
     infoLabel!.font = UIFont(name: "OpenSans-Light", size: 12)
     infoLabel!.textColor = UIColor(white: 1, alpha: 1)
     infoLabel!.textAlignment = .Center
