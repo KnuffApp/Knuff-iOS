@@ -134,7 +134,9 @@ class RootViewController: UIViewController {
       scaleAnimation.toValue = NSValue(CGSize: CGSize(width: 0.75, height: 0.75))
       
       alphaAnimation.toValue = 0
+      infoCloseButton?.enabled = false
       alphaAnimation.completionBlock = {(animation:POPAnimation!, completion:Bool) in
+        self.infoCloseButton?.enabled = true
         vc.view.removeFromSuperview()
         vc.removeFromParentViewController()
         
@@ -160,7 +162,9 @@ class RootViewController: UIViewController {
       scaleAnimation.toValue = NSValue(CGSize: CGSize(width: 1, height: 1))
       
       alphaAnimation.toValue = 1
+      infoCloseButton?.enabled = false
       alphaAnimation.completionBlock = {(animation:POPAnimation!, completion:Bool) in
+        self.infoCloseButton?.enabled = true
         vc.didMoveToParentViewController(self)
       }
       
