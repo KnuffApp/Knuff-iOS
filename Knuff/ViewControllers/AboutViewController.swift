@@ -17,7 +17,7 @@ class AboutViewController: UIViewController, UITableViewDataSource, UITableViewD
     self.init(nibName: nil, bundle: nil)
   }
   
-  override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+  override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
     tableContent = [
       [
         "title": "Visit the developer website",
@@ -39,35 +39,35 @@ class AboutViewController: UIViewController, UITableViewDataSource, UITableViewD
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    tableView = UITableView(frame: .zero, style: .Grouped)
+    tableView = UITableView(frame: .zero, style: .grouped)
     tableView?.delegate = self
     tableView?.dataSource = self
-    tableView?.registerClass(AboutCell.self, forCellReuseIdentifier: "lol")
+    tableView?.register(AboutCell.self, forCellReuseIdentifier: "lol")
     
     tableView?.separatorColor = UIColor(hex: 0xF7F9FC, alpha: 0.2)
-    tableView?.backgroundColor = UIColor.clearColor()
+    tableView?.backgroundColor = UIColor.clear
     
     tableView?.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
     
-    let headerView = AboutTableHeaderView(frame: CGRectZero)
+    let headerView = AboutTableHeaderView(frame: CGRect.zero)
     headerView.sizeToFit()
     tableView?.tableHeaderView = headerView
 
-    let footerView = AboutTableFooterView(frame: CGRectZero)
+    let footerView = AboutTableFooterView(frame: CGRect.zero)
     footerView.sizeToFit()
     tableView?.tableFooterView = footerView
     
     view.addSubview(tableView!)
     
     overlayView = GradientView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 30))
-    overlayView?.autoresizingMask = .FlexibleWidth
+    overlayView?.autoresizingMask = .flexibleWidth
     view.addSubview(overlayView!)
   }
   
   override func viewDidLayoutSubviews() {
     super.viewDidLayoutSubviews()
     
-    if (traitCollection.horizontalSizeClass == .Compact) {
+    if (traitCollection.horizontalSizeClass == .compact) {
       tableView?.frame = view.bounds
     } else {
       tableView?.frame = CGRect(
@@ -81,25 +81,25 @@ class AboutViewController: UIViewController, UITableViewDataSource, UITableViewD
   
   // MARK: - UITableViewDataSource
   
-  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return tableContent.count
   }
   
-  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier("lol", forIndexPath: indexPath) as! AboutCell
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "lol", for: indexPath) as! AboutCell
     
-    cell.textLabel?.text = tableContent[indexPath.row]["title"]
+    cell.textLabel?.text = tableContent[(indexPath as NSIndexPath).row]["title"]
     
     return cell
   }
   
   // MARK: - UITableViewDelegate
  
-  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    let link = tableContent[indexPath.row]["link"]
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let link = tableContent[(indexPath as NSIndexPath).row]["link"]
     
-    UIApplication.sharedApplication().openURL(NSURL(string: link!)!)
+    UIApplication.shared.openURL(URL(string: link!)!)
     
-    tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    tableView.deselectRow(at: indexPath, animated: true)
   }
 }

@@ -24,7 +24,7 @@ class AboutTableFooterView: UIView {
     fatalError("init(coder:) has not been implemented")
   }
   
-  override func sizeThatFits(size: CGSize) -> CGSize {
+  override func sizeThatFits(_ size: CGSize) -> CGSize {
     return CGSize(
       width: logoImageView.bounds.width,
       height: 20 + logoImageView.bounds.width + 20

@@ -32,8 +32,8 @@ class AboutTableHeaderView: UIView {
     descriptionLabel.font = UIFont(name: "OpenSans-Light", size: 12)
     descriptionLabel.textColor = UIColor(hex: 0xF7F9FC)
     descriptionLabel.numberOfLines = 0
-    descriptionLabel.bounds.size = descriptionLabel.sizeThatFits(CGSize(width: 300, height: CGFloat.max))
-    descriptionLabel.textAlignment = .Center
+    descriptionLabel.bounds.size = descriptionLabel.sizeThatFits(CGSize(width: 300, height: CGFloat.greatestFiniteMagnitude))
+    descriptionLabel.textAlignment = .center
     
     addSubview(descriptionLabel)
   }
@@ -42,7 +42,7 @@ class AboutTableHeaderView: UIView {
     fatalError("init(coder:) has not been implemented")
   }
 
-  override func sizeThatFits(size: CGSize) -> CGSize {
+  override func sizeThatFits(_ size: CGSize) -> CGSize {
     return CGSize(
       width: max(logoImageView.bounds.width, titleLabel.bounds.width, descriptionLabel.bounds.width),
       height: 20 + logoImageView.bounds.height + 20 + titleLabel.bounds.height + 20 + descriptionLabel.bounds.height + 20

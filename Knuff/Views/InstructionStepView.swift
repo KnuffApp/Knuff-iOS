@@ -14,20 +14,20 @@ class InstructionStepView: UIView {
   let badge: CircleBadgeView
   
   convenience init(title: String, badgeString: String?) {
-    self.init(frame: CGRectZero)
+    self.init(frame: CGRect.zero)
 
     label.text = title
     label.sizeToFit()
 
     if let string = badgeString {
       badge.drawCircleContent = {(rect:CGRect) in
-        let style = NSParagraphStyle.defaultParagraphStyle().mutableCopy() as! NSMutableParagraphStyle
-        style.alignment = .Center
+        let style = NSParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
+        style.alignment = .center
         
         let attributedString = NSAttributedString(
           string: string,
           attributes: [
-            NSForegroundColorAttributeName: UIColor.whiteColor(),
+            NSForegroundColorAttributeName: UIColor.white,
             NSParagraphStyleAttributeName: style,
             NSFontAttributeName: UIFont(name: "OpenSans", size: 12)!,
           ]
@@ -35,7 +35,7 @@ class InstructionStepView: UIView {
         
         let size = attributedString.size()
         
-        attributedString.drawInRect(rect.insetBy(
+        attributedString.draw(in: rect.insetBy(
           dx: 0,
           dy: floor(rect.height-size.height)/2)
         )
@@ -45,7 +45,7 @@ class InstructionStepView: UIView {
   
   override init(frame: CGRect) {
     label = UILabel()
-    badge = CircleBadgeView(frame: CGRectZero)
+    badge = CircleBadgeView(frame: CGRect.zero)
     
     super.init(frame: frame)
     
@@ -61,7 +61,7 @@ class InstructionStepView: UIView {
       fatalError("init(coder:) has not been implemented")
   }
   
-  override func sizeThatFits(size: CGSize) -> CGSize {
+  override func sizeThatFits(_ size: CGSize) -> CGSize {
     return CGSize(
       width: badge.bounds.width + 10 + label.bounds.width,
       height: badge.bounds.height

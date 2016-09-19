@@ -11,26 +11,26 @@ import UIKit
 class GradientView: UIView {
   override init(frame: CGRect) {
     super.init(frame: frame)
-    opaque = false
+    isOpaque = false
   }
 
   required init?(coder aDecoder: NSCoder) {
       fatalError("init(coder:) has not been implemented")
   }
   
-  override func drawRect(rect: CGRect) {
-    let gradient = CGGradientCreateWithColors(
-      CGColorSpaceCreateDeviceRGB(),
-      [UIColor(hex: 0x1F3141).CGColor, UIColor(hex: 0x1F3141, alpha: 0).CGColor],
-      [0, 1]
+  override func draw(_ rect: CGRect) {
+    let gradient = CGGradient(
+      colorsSpace: CGColorSpaceCreateDeviceRGB(),
+      colors: [UIColor(hex: 0x1F3141).cgColor, UIColor(hex: 0x1F3141, alpha: 0).cgColor] as CFArray,
+      locations: [0, 1]
     )
     
-    CGContextDrawLinearGradient(
-      UIGraphicsGetCurrentContext(),
-      gradient,
-      CGPoint(x: 0, y: 0),
-      CGPoint(x: 0, y: bounds.height),
-      []
+    guard let context = UIGraphicsGetCurrentContext(), let g = gradient else { return }
+    
+    context.drawLinearGradient(g,
+      start: CGPoint(x: 0, y: 0),
+      end: CGPoint(x: 0, y: bounds.height),
+      options: []
     )
   }
 }

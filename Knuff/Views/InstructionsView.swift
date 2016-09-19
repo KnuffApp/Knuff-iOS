@@ -43,7 +43,7 @@ class InstructionsView: UIView {
       fatalError("init(coder:) has not been implemented")
   }
   
-  override func sizeThatFits(size: CGSize) -> CGSize {
+  override func sizeThatFits(_ size: CGSize) -> CGSize {
     return CGSize(
       width: max(steps1View.bounds.width, steps2View.bounds.width, steps3View.bounds.width),
       height: steps1View.bounds.height + 20 + steps1View.bounds.height + 20 + steps1View.bounds.height

@@ -9,16 +9,16 @@
 import UIKit
 
 enum InfoCloseButtonState {
-  case Info
-  case Close
+  case info
+  case close
 }
 
 class InfoCloseButton: UIButton {
-  var buttonState: InfoCloseButtonState = .Info {
+  var buttonState: InfoCloseButtonState = .info {
     didSet {
     
-      if (buttonState == .Close) {
-        setImage(UIImage(named: "CloseCross"), forState: .Normal)
+      if (buttonState == .close) {
+        setImage(UIImage(named: "CloseCross"), for: UIControlState())
 
 //        let infoI1 = UIImageView(image: UIImage(named: "InfoI"))
 //        let infoI2 = UIImageView(image: UIImage(named: "InfoI"))
@@ -64,10 +64,10 @@ class InfoCloseButton: UIButton {
 //        infoI1.layer.pop_addAnimation(infoI1RotateAni, forKey: "rotate")
 //        infoI2.layer.pop_addAnimation(infoI2RotateAni, forKey: "rotate")
       } else {
-        setImage(UIImage(named: "InfoI"), forState: .Normal)
+        setImage(UIImage(named: "InfoI"), for: UIControlState())
       }
       
-      imageView?.layer.addAnimation(CATransition(), forKey: nil)
+      imageView?.layer.add(CATransition(), forKey: nil)
     }
   }
   
@@ -83,29 +83,29 @@ class InfoCloseButton: UIButton {
       )
       
       UIColor(hex: 0x6DB0F8).set()
-      UIBezierPath(ovalInRect: rect).stroke()
+      UIBezierPath(ovalIn: rect).stroke()
     })
     
-    setBackgroundImage(image, forState: .Normal)
-    setImage(UIImage(named: "InfoI"), forState: .Normal)
+    setBackgroundImage(image, for: UIControlState())
+    setImage(UIImage(named: "InfoI"), for: UIControlState())
     
-    addTarget(self, action: "toggle:", forControlEvents: UIControlEvents.TouchUpInside)
+    addTarget(self, action: #selector(InfoCloseButton.toggle(_:)), for: UIControlEvents.touchUpInside)
   }
 
   required init?(coder aDecoder: NSCoder) {
       fatalError("init(coder:) has not been implemented")
   }
   
-  override func pointInside(point: CGPoint, withEvent event: UIEvent?) -> Bool {
-    return CGRectContainsPoint(UIEdgeInsetsInsetRect(bounds, UIEdgeInsetsMake(-20, -20, -20, -20)), point)
+  override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
+    return UIEdgeInsetsInsetRect(bounds, UIEdgeInsetsMake(-20, -20, -20, -20)).contains(point)
   }
   
   
-  func toggle(sender: InfoCloseButton) -> Void {
-    if (buttonState == .Info) {
-      buttonState = .Close
+  func toggle(_ sender: InfoCloseButton) -> Void {
+    if (buttonState == .info) {
+      buttonState = .close
     } else {
-      buttonState = .Info
+      buttonState = .info
     }
   }
 }

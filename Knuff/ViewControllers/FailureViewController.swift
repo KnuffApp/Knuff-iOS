@@ -25,7 +25,7 @@ class FailureViewController: UIViewController {
     titleLabel!.sizeToFit()
     view.addSubview(titleLabel!)
     
-    pulseView = DevicePulseView(state: PulseViewState.Failure)
+    pulseView = DevicePulseView(state: PulseViewState.failure)
     pulseView!.sizeToFit()
     view.addSubview(pulseView!)
     
@@ -40,13 +40,13 @@ class FailureViewController: UIViewController {
     infoLabel!.text = "To receive push notifications from your computer you need to allow Knuff to receive them. Allow notifications:\n\nSettings → Notifications → Knuff"
     infoLabel!.font = UIFont(name: "OpenSans-Light", size: 12)
     infoLabel!.textColor = UIColor(white: 1, alpha: 1)
-    infoLabel!.textAlignment = NSTextAlignment.Center
+    infoLabel!.textAlignment = NSTextAlignment.center
     infoLabel!.numberOfLines = 0
-    infoLabel!.bounds.size = infoLabel!.sizeThatFits(CGSize(width: 300, height: CGFloat.max))
+    infoLabel!.bounds.size = infoLabel!.sizeThatFits(CGSize(width: 300, height: CGFloat.greatestFiniteMagnitude))
     view.addSubview(infoLabel!)
   }
   
-  override func viewDidAppear(animated: Bool) {
+  override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     
     pulseView!.pulseView.startAnimations()

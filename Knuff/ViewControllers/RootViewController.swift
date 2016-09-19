@@ -7,19 +7,20 @@
 //
 
 import UIKit
+import pop
 
 enum RootViewControllerState {
-  case Intro
-  case Success
-  case Failure
+  case intro
+  case success
+  case failure
   
   func viewController() -> UIViewController? {
     switch self {
-    case .Intro:
+    case .intro:
       return IntroViewController()
-    case .Success:
+    case .success:
       return SuccessViewController()
-    case .Failure:
+    case .failure:
       return FailureViewController()
     }
   }
@@ -31,7 +32,7 @@ class RootViewController: UIViewController {
   var state: RootViewControllerState? {
     didSet {
       if (state != oldValue) {
-        if (isViewLoaded()) {
+        if (isViewLoaded) {
           
           // Animate
           if (contentViewController != nil) {}
@@ -53,40 +54,40 @@ class RootViewController: UIViewController {
     view.backgroundColor = UIColor(hex: 0x1F3141)
     
     contentContainerView = UIView(frame: view.bounds)
-    contentContainerView!.autoresizingMask = [.FlexibleHeight, .FlexibleWidth]
+    contentContainerView!.autoresizingMask = [.flexibleHeight, .flexibleWidth]
     view.addSubview(contentContainerView!)
     
     
-    infoCloseButton = InfoCloseButton(frame: CGRectZero)
+    infoCloseButton = InfoCloseButton(frame: CGRect.zero)
     infoCloseButton!.addTarget(
       self,
-      action: "toggleAbout",
-      forControlEvents: .TouchUpInside
+      action: #selector(RootViewController.toggleAbout),
+      for: .touchUpInside
     )
     infoCloseButton!.sizeToFit()
     view.addSubview(infoCloseButton!)
 
     
-    let displayedIntro = NSUserDefaults.standardUserDefaults().boolForKey(DisplayedIntro)
-    let application = UIApplication.sharedApplication()
+    let displayedIntro = UserDefaults.standard.bool(forKey: DisplayedIntro)
+    let application = UIApplication.shared
     
     if (state == nil) {
-      if (!displayedIntro && !application.isRegisteredForRemoteNotifications()) {
-        state = .Intro
+      if (!displayedIntro && !application.isRegisteredForRemoteNotifications) {
+        state = .intro
       }
-      else if (application.isRegisteredForRemoteNotifications()) {
-        state = .Success
+      else if (application.isRegisteredForRemoteNotifications) {
+        state = .success
       }
       else {
-        state = .Failure
+        state = .failure
       }
     }
     
   }
   
   // or forward it to contentViewController
-  override func preferredStatusBarStyle() -> UIStatusBarStyle {
-    return .LightContent
+  override var preferredStatusBarStyle : UIStatusBarStyle {
+    return .lightContent
   }
   
   override func viewDidLayoutSubviews() {
@@ -100,9 +101,9 @@ class RootViewController: UIViewController {
   
   // MARK: -
   
-  func setContentViewController(viewController: UIViewController?, animated: Bool) {
+  func setContentViewController(_ viewController: UIViewController?, animated: Bool) {
     if let vc = contentViewController {
-      vc.willMoveToParentViewController(nil)
+      vc.willMove(toParentViewController: nil)
       vc.view.removeFromSuperview()
       vc.removeFromParentViewController()
     }
@@ -112,9 +113,9 @@ class RootViewController: UIViewController {
     if let vc = contentViewController {
       addChildViewController(vc)
       vc.view.frame = contentContainerView!.bounds
-      vc.view.autoresizingMask = [.FlexibleHeight, .FlexibleWidth]
+      vc.view.autoresizingMask = [.flexibleHeight, .flexibleWidth]
       contentContainerView!.addSubview(vc.view)
-      vc.didMoveToParentViewController(self)
+      vc.didMove(toParentViewController: self)
     }
   }
   
@@ -125,18 +126,21 @@ class RootViewController: UIViewController {
     let scaleAnimation = POPSpringAnimation(propertyNamed: kPOPViewScaleXY)
     
     if let vc = aboutViewController {
-      vc.willMoveToParentViewController(nil)
+      vc.willMove(toParentViewController: nil)
       
-      translateAnimation.toValue = 0
+      translateAnimation?.toValue = 0
       
-      contentAlphaAnimation.toValue = 1
+      contentAlphaAnimation?.toValue = 1
 
-      scaleAnimation.toValue = NSValue(CGSize: CGSize(width: 0.75, height: 0.75))
+      scaleAnimation?.toValue = NSValue(cgSize: CGSize(width: 0.75, height: 0.75))
       
-      alphaAnimation.toValue = 0
-      infoCloseButton?.enabled = false
-      alphaAnimation.completionBlock = {(animation:POPAnimation!, completion:Bool) in
-        self.infoCloseButton?.enabled = true
+      alphaAnimation?.toValue = 0
+      
+      infoCloseButton?.isEnabled = false
+      alphaAnimation?.completionBlock = {(animation:POPAnimation?, completion:Bool) in
+        
+        self.infoCloseButton?.isEnabled = true
+      
         vc.view.removeFromSuperview()
         vc.removeFromParentViewController()
         
@@ -148,45 +152,48 @@ class RootViewController: UIViewController {
       addChildViewController(vc)
 
       vc.view.frame = view.bounds
-      vc.view.autoresizingMask = [.FlexibleHeight, .FlexibleWidth]
+      vc.view.autoresizingMask = [.flexibleHeight, .flexibleWidth]
       
       // Initial state
       vc.view.alpha = 0
-      vc.view.transform = CGAffineTransformMakeScale(0.75, 0.75)
+      vc.view.transform = CGAffineTransform(scaleX: 0.75, y: 0.75)
             view.insertSubview(vc.view, belowSubview: contentContainerView!)
       
-      translateAnimation.toValue = -view.bounds.height
+      translateAnimation?.toValue = -view.bounds.height
       
-      contentAlphaAnimation.toValue = 0
+      contentAlphaAnimation?.toValue = 0
       
-      scaleAnimation.toValue = NSValue(CGSize: CGSize(width: 1, height: 1))
+      scaleAnimation?.toValue = NSValue(cgSize: CGSize(width: 1, height: 1))
       
-      alphaAnimation.toValue = 1
-      infoCloseButton?.enabled = false
-      alphaAnimation.completionBlock = {(animation:POPAnimation!, completion:Bool) in
-        self.infoCloseButton?.enabled = true
-        vc.didMoveToParentViewController(self)
+      alphaAnimation?.toValue = 1
+      
+      infoCloseButton?.isEnabled = false
+      alphaAnimation?.completionBlock = {(animation:POPAnimation?, completion:Bool) in
+      
+        self.infoCloseButton?.isEnabled = true
+        
+        vc.didMove(toParentViewController: self)
       }
       
       aboutViewController = vc
     }
     
-    contentContainerView!.layer.pop_addAnimation(translateAnimation, forKey: nil)
-    contentContainerView!.pop_addAnimation(contentAlphaAnimation, forKey: nil)
-    aboutViewController?.view.pop_addAnimation(scaleAnimation, forKey: nil)
-    aboutViewController?.view.pop_addAnimation(alphaAnimation, forKey: nil)
+    contentContainerView!.layer.pop_add(translateAnimation, forKey: nil)
+    contentContainerView!.pop_add(contentAlphaAnimation, forKey: nil)
+    aboutViewController?.view.pop_add(scaleAnimation, forKey: nil)
+    aboutViewController?.view.pop_add(alphaAnimation, forKey: nil)
   }
   
   
   // MARK: -
   
-  func appDidRegisterForRemoteNotificationsWithDeviceToken(deviceToken: NSData) {
+  func appDidRegisterForRemoteNotificationsWithDeviceToken(_ deviceToken: Data) {
     serviceAdvertiser.setDeviceToken(deviceToken)
-    state = .Success
+    state = .success
   }
   
-  func appDidFailToRegisterForRemoteNotificationsWithError(error: NSError) {
+  func appDidFailToRegisterForRemoteNotificationsWithError(_ error: NSError) {
     serviceAdvertiser.setDeviceToken(nil)
-    state = .Failure
+    state = .failure
   }
 }

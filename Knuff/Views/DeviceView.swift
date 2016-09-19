@@ -13,12 +13,12 @@ class DeviceView: UIImageView {
   let screenshotClockView: UILabel
   
   convenience init() {
-    let phone = (UIDevice.currentDevice().userInterfaceIdiom == .Phone)
+    let phone = (UIDevice.current.userInterfaceIdiom == .phone)
     self.init(image: UIImage(named: phone ? "Phone" : "Pad"))
   }
   
   override init(image: UIImage?) {
-    let phone = (UIDevice.currentDevice().userInterfaceIdiom == .Phone)
+    let phone = (UIDevice.current.userInterfaceIdiom == .phone)
 
     screenshotView = UIImageView(image: UIImage(named: phone ? "Phone Push" : "Pad Push"))
     screenshotClockView = UILabel()
@@ -40,7 +40,7 @@ class DeviceView: UIImageView {
   override func layoutSubviews() {
     super.layoutSubviews()
 
-    let phone = (UIDevice.currentDevice().userInterfaceIdiom == .Phone)
+    let phone = (UIDevice.current.userInterfaceIdiom == .phone)
     
     screenshotView.frame.origin = CGPoint(
       x: phone ? 22:23,

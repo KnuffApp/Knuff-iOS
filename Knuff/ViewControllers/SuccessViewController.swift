@@ -25,7 +25,7 @@ class SuccessViewController: UIViewController {
     titleLabel!.sizeToFit()
     view.addSubview(titleLabel!)
     
-    pulseView = DevicePulseView(state: PulseViewState.Success)
+    pulseView = DevicePulseView(state: PulseViewState.success)
     pulseView!.sizeToFit()
     view.addSubview(pulseView!)
     
@@ -35,17 +35,19 @@ class SuccessViewController: UIViewController {
     view.addSubview(checkView!)
     
     infoLabel = UILabel()
-    let deviceName = UIDevice.currentDevice().name
-    infoLabel!.text = "To receive push notifications from your computer just select \"\(deviceName)\" in the device list and tap the home button."
+
+    let deviceName = UIDevice.current.name
+    infoLabel!.text = "To recieve push notifications from your computer just select \"\(deviceName)\" in the device list and tap the home button."
+    
     infoLabel!.font = UIFont(name: "OpenSans-Light", size: 12)
     infoLabel!.textColor = UIColor(white: 1, alpha: 1)
-    infoLabel!.textAlignment = .Center
+    infoLabel!.textAlignment = .center
     infoLabel!.numberOfLines = 0
-    infoLabel!.bounds.size = infoLabel!.sizeThatFits(CGSize(width: 300, height: CGFloat.max))
+    infoLabel!.bounds.size = infoLabel!.sizeThatFits(CGSize(width: 300, height: CGFloat.greatestFiniteMagnitude))
     view.addSubview(infoLabel!)
   }
   
-  override func viewDidAppear(animated: Bool) {
+  override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     
     pulseView!.pulseView.startAnimations()

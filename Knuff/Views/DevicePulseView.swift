@@ -14,11 +14,11 @@ class DevicePulseView: UIView {
   let pulseView: PulseView
   
   init(state: PulseViewState) {
-    let phone = (UIDevice.currentDevice().userInterfaceIdiom == .Phone)
+    let phone = (UIDevice.current.userInterfaceIdiom == .phone)
     deviceImageView = UIImageView(image: UIImage(named: phone ? "Phone" : "Pad"))
     pulseView = PulseView(state: state)
     
-    super.init(frame: CGRectZero)
+    super.init(frame: CGRect.zero)
     
     addSubview(deviceImageView)
     
@@ -30,22 +30,22 @@ class DevicePulseView: UIView {
     fatalError("init(coder:) has not been implemented")
   }
   
-  override func sizeThatFits(size: CGSize) -> CGSize {
-    return CGSizeMake(
-      deviceImageView.bounds.width + (((pulseView.bounds.width / 2) - 18) * 2),// (pulse - badge inset) * 2
-      deviceImageView.bounds.height + (pulseView.bounds.width / 2)
+  override func sizeThatFits(_ size: CGSize) -> CGSize {
+    return CGSize(
+      width: deviceImageView.bounds.width + (((pulseView.bounds.width / 2) - 18) * 2),// (pulse - badge inset) * 2
+      height: deviceImageView.bounds.height + (pulseView.bounds.width / 2)
     )
   }
   
   override func layoutSubviews() {
-    deviceImageView.center = CGPointMake(
-      self.bounds.midX,
-      self.bounds.height - deviceImageView.bounds.midY
+    deviceImageView.center = CGPoint(
+      x: self.bounds.midX,
+      y: self.bounds.height - deviceImageView.bounds.midY
     )
 
-    pulseView.center = CGPointMake(
-      deviceImageView.frame.maxX  - 18,
-      deviceImageView.frame.minY
+    pulseView.center = CGPoint(
+      x: deviceImageView.frame.maxX  - 18,
+      y: deviceImageView.frame.minY
     )
   }
 }

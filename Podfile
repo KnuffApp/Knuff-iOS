@@ -1,6 +1,9 @@
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '8.0'
+platform :ios, '10.0'
 
-pod 'pop', '~> 1.0'
+target 'Knuff' do
+	use_frameworks!
+	pod 'pop', '~> 1.0'
+end
 
 inhibit_all_warnings!

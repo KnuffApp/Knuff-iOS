@@ -33,23 +33,23 @@ class IntroViewController: UIViewController {
     subtitleLabel!.sizeToFit()
     view.addSubview(subtitleLabel!)
 
-    illustrationView = PushIllustrationView(frame: CGRectZero)
+    illustrationView = PushIllustrationView(frame: CGRect.zero)
     illustrationView!.sizeToFit()
     view.addSubview(illustrationView!)
 
     
-    instructionsView = InstructionsView(frame: CGRectZero)
+    instructionsView = InstructionsView(frame: CGRect.zero)
     instructionsView!.sizeToFit()
     view.addSubview(instructionsView!)
     
 
     let image: UIImage
     
-    if (traitCollection.horizontalSizeClass == .Compact) {
+    if (traitCollection.horizontalSizeClass == .compact) {
       image = UIImage.drawableImage(CGSize(width: 1, height: 59),
         draw: { size in
           UIColor(hex: 0x6DB0F8, alpha: 0.4).set()
-          UIRectFill(CGRect(x: 0, y: 0, width: 1, height: 1/UIScreen.mainScreen().scale))
+          UIRectFill(CGRect(x: 0, y: 0, width: 1, height: 1/UIScreen.main.scale))
       })
     } else {
       image = UIImage.drawableImage(CGSize(width: 248, height: 50),
@@ -66,14 +66,14 @@ class IntroViewController: UIViewController {
     }
     
     registerButton = UIButton()
-    registerButton!.setTitle("GET STARTED", forState: .Normal)
-    registerButton!.setBackgroundImage(image, forState: .Normal)
+    registerButton!.setTitle("GET STARTED", for: UIControlState())
+    registerButton!.setBackgroundImage(image, for: UIControlState())
     registerButton!.titleLabel?.font = UIFont(name: "OpenSans-Semibold", size: 12)
-    registerButton!.setTitleColor(UIColor(hex: 0x6DB0F8), forState: .Normal)
+    registerButton!.setTitleColor(UIColor(hex: 0x6DB0F8), for: UIControlState())
     registerButton!.addTarget(
       self,
-      action: "register",
-      forControlEvents: .TouchUpInside
+      action: #selector(IntroViewController.register),
+      for: .touchUpInside
     )
     registerButton!.sizeToFit()
     view.addSubview(registerButton!)
@@ -82,7 +82,7 @@ class IntroViewController: UIViewController {
   override func viewDidLayoutSubviews() {
     super.viewDidLayoutSubviews()
     
-    let compactWidth = (traitCollection.horizontalSizeClass == .Compact)
+    let compactWidth = (traitCollection.horizontalSizeClass == .compact)
     
     
     titleLabel!.frame.origin = CGPoint(
@@ -124,7 +124,7 @@ class IntroViewController: UIViewController {
   
   
   func register() {
-    if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+    if let delegate = UIApplication.shared.delegate as? AppDelegate {
       delegate.registerUserNotifications()
     }
   }

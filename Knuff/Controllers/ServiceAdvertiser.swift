@@ -9,18 +9,18 @@
 import Foundation
 import MultipeerConnectivity
 
-class ServiceAdvertiser: NSObject, MCNearbyServiceAdvertiserDelegate{
+class ServiceAdvertiser: NSObject {
 
   var serviceAdvertiser: MCNearbyServiceAdvertiser?
   var deviceTokenString: String?
   
-  func setDeviceToken(deviceToken: NSData?) {
+  func setDeviceToken(_ deviceToken: Data?) {
     if let token = deviceToken {
-      let tokenChars = UnsafePointer<CChar>(token.bytes)
+      let tokenChars = (token as NSData).bytes.bindMemory(to: CChar.self, capacity: token.count)
       
       var tokenString = ""
       
-      for var i = 0; i < token.length; i++ {
+      for i in 0 ..< token.count {
         tokenString += String(format: "%02.2hhx", arguments: [tokenChars[i]])
       }
       
@@ -40,7 +40,7 @@ class ServiceAdvertiser: NSObject, MCNearbyServiceAdvertiserDelegate{
     
     
     if let tokenString = deviceTokenString {
-      let peerID = MCPeerID(displayName: UIDevice.currentDevice().name)
+      let peerID = MCPeerID(displayName: UIDevice.current.name)
       
       serviceAdvertiser = MCNearbyServiceAdvertiser(
         peer: peerID,
@@ -52,13 +52,16 @@ class ServiceAdvertiser: NSObject, MCNearbyServiceAdvertiserDelegate{
       
       serviceAdvertiser?.startAdvertisingPeer();
     }
+  }  
+}
+
+extension ServiceAdvertiser: MCNearbyServiceAdvertiserDelegate {
+  
+  func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didNotStartAdvertisingPeer error: Error) {
+    
   }
   
-  // MARK: - MCNearbyServiceAdvertiserDelegate
-  
-  func advertiser(advertiser: MCNearbyServiceAdvertiser, didNotStartAdvertisingPeer error: NSError) {}
-  
-  func advertiser(advertiser: MCNearbyServiceAdvertiser, didReceiveInvitationFromPeer peerID: MCPeerID, withContext context: NSData?, invitationHandler: ((Bool, MCSession) -> Void)) {
+  func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didReceiveInvitationFromPeer peerID: MCPeerID, withContext context: Data?, invitationHandler: @escaping (Bool, MCSession?) -> Void) {
     invitationHandler(false, MCSession())
   }
 }

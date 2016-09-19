@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import pop
 
 enum PulseViewState {
-  case Success
-  case Failure
+  case success
+  case failure
 }
 
 class PulseView: UIView {
@@ -24,9 +25,9 @@ class PulseView: UIView {
     self.state = state
     
     badgeView = UIImageView(image: UIImage(named: "BlueBadge"))
-    badgeDetailsView = UIImageView(image: UIImage(named: (state == PulseViewState.Success) ? "Check" : "Cross"))
+    badgeDetailsView = UIImageView(image: UIImage(named: (state == PulseViewState.success) ? "Check" : "Cross"))
     
-    super.init(frame: CGRectZero)
+    super.init(frame: CGRect.zero)
     
     addSubview(badgeView)
     addSubview(badgeDetailsView)
@@ -36,34 +37,34 @@ class PulseView: UIView {
     fatalError("init(coder:) has not been implemented")
   }
   
-  override func sizeThatFits(size: CGSize) -> CGSize {
-    if (state == PulseViewState.Success) {
-      return CGSizeMake(100, 100)
+  override func sizeThatFits(_ size: CGSize) -> CGSize {
+    if (state == PulseViewState.success) {
+      return CGSize(width: 100, height: 100)
     } else {
       // FailurePulseOuter
-      return  CGSizeMake(64, 64)
+      return  CGSize(width: 64, height: 64)
     }
   }
   
   override func layoutSubviews() {
-    badgeView.center = CGPointMake(
-      self.bounds.midX,
-      self.bounds.midY
+    badgeView.center = CGPoint(
+      x: self.bounds.midX,
+      y: self.bounds.midY
     )
     
     badgeDetailsView.center = badgeView.center
   }
   
   func startAnimations() {
-    if (state == PulseViewState.Success) {
+    if (state == PulseViewState.success) {
       firstPulseCircleView = CircleView(frame: CGRect.zero)
       firstPulseCircleView!.center = badgeView.center
-      firstPulseCircleView!.contentMode = UIViewContentMode.Redraw
+      firstPulseCircleView!.contentMode = UIViewContentMode.redraw
       insertSubview(firstPulseCircleView!, belowSubview: badgeView)
       
       secondPulseCircleView = CircleView(frame: CGRect.zero)
       secondPulseCircleView!.center = badgeView.center
-      secondPulseCircleView!.contentMode = UIViewContentMode.Redraw
+      secondPulseCircleView!.contentMode = UIViewContentMode.redraw
       insertSubview(secondPulseCircleView!, belowSubview: badgeView)
       
       startAnimateSuccess()
@@ -87,31 +88,31 @@ class PulseView: UIView {
     animateSuccess(secondPulseCircleView!, delay: 0.4)
   }
   
-  func animateSuccess(view: UIView, delay: CFTimeInterval) {
+  func animateSuccess(_ view: UIView, delay: CFTimeInterval) {
     // Bounds
     var animation = POPBasicAnimation(propertyNamed: kPOPViewBounds)
-    animation.duration = 2
-    animation.toValue = NSValue(CGRect: CGRectMake(0, 0, 100, 100))
-    animation.beginTime = CACurrentMediaTime() + delay
+    animation?.duration = 2
+    animation?.toValue = NSValue(cgRect: CGRect(x: 0, y: 0, width: 100, height: 100))
+    animation?.beginTime = CACurrentMediaTime() + delay
     
-    animation.timingFunction = CAMediaTimingFunction(controlPoints: 0.2, 0.49, 0.37, 0.9)
+    animation?.timingFunction = CAMediaTimingFunction(controlPoints: 0.2, 0.49, 0.37, 0.9)
     
-    animation.completionBlock = {(animation:POPAnimation!, completion:Bool) in
+    animation?.completionBlock = {(animation:POPAnimation?, completion:Bool) in
       if (view == self.secondPulseCircleView) {
         self.startAnimateSuccess()
       }
     }
     
-    view.pop_addAnimation(animation, forKey: "bounds")
+    view.pop_add(animation, forKey: "bounds")
     
     // Alpha
     animation = POPBasicAnimation(propertyNamed: kPOPViewAlpha)
-    animation.duration = 2
-    animation.toValue = 0
-    animation.beginTime = CACurrentMediaTime() + delay
-    animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+    animation?.duration = 2
+    animation?.toValue = 0
+    animation?.beginTime = CACurrentMediaTime() + delay
+    animation?.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
     
-    view.pop_addAnimation(animation, forKey: "alpha")
+    view.pop_add(animation, forKey: "alpha")
   }
   
   
@@ -131,19 +132,19 @@ class PulseView: UIView {
     addSubview(failureCircleOuterView!)
     
     var animation = POPBasicAnimation(propertyNamed: kPOPLayerRotation)
-    animation.duration = 1.5
-    animation.toValue = -(M_PI * 2)
-    animation.repeatForever = true
-    animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+    animation?.duration = 1.5
+    animation?.toValue = -(M_PI * 2)
+    animation?.repeatForever = true
+    animation?.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
     
-    failureCircleInnerView?.layer.pop_addAnimation(animation, forKey: nil)
+    failureCircleInnerView?.layer.pop_add(animation, forKey: nil)
     
     animation = POPBasicAnimation(propertyNamed: kPOPLayerRotation)
-    animation.duration = 1.2
-    animation.toValue = M_PI * 2
-    animation.repeatForever = true
-    animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+    animation?.duration = 1.2
+    animation?.toValue = M_PI * 2
+    animation?.repeatForever = true
+    animation?.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
     
-    failureCircleOuterView?.layer.pop_addAnimation(animation, forKey: nil)
+    failureCircleOuterView?.layer.pop_add(animation, forKey: nil)
   }
 }

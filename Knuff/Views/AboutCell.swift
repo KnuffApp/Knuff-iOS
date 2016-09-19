@@ -23,7 +23,7 @@ class AboutCell: UITableViewCell {
     
     selectedBackgroundView = selectedView
     
-    accessoryType = .DisclosureIndicator
+    accessoryType = .disclosureIndicator
   }
 
   required init?(coder aDecoder: NSCoder) {

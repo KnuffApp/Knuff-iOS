@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import pop
 
 class PushIllustrationView: UIView {
   
@@ -24,7 +25,7 @@ class PushIllustrationView: UIView {
 
     super.init(frame: frame)
     
-    let phone = (UIDevice.currentDevice().userInterfaceIdiom == .Phone)
+    let phone = (UIDevice.current.userInterfaceIdiom == .phone)
     
     device.frame.origin = CGPoint(
       x: 175,
@@ -64,14 +65,14 @@ class PushIllustrationView: UIView {
     }
   }
 
-  override func sizeThatFits(size: CGSize) -> CGSize {
+  override func sizeThatFits(_ size: CGSize) -> CGSize {
     return CGSize(
       width: self.device.frame.maxX,
       height: self.mac.frame.maxY
     )
   }
   
-  func startAnimations(delay:CFTimeInterval) {
+  func startAnimations(_ delay:CFTimeInterval) {
     animate(arrow1, delay: delay)
     animate(arrow2, delay: delay + 0.1)
     animate(arrow3, delay: delay + 0.2)
@@ -79,70 +80,70 @@ class PushIllustrationView: UIView {
     animateScreenshot(delay + 0.6)
   }
   
-  func animate(view: UIView, delay:CFTimeInterval) {
+  func animate(_ view: UIView, delay:CFTimeInterval) {
     let visibleTime: CFTimeInterval = 2;
     let hiddenTime: CFTimeInterval = 1;
     
     view.alpha = 0
-    view.transform = CGAffineTransformMakeScale(0.8, 0.8)
+    view.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
     view.pop_removeAllAnimations()
     
     // Appear
     var alphaAni = POPSpringAnimation(propertyNamed: kPOPViewAlpha)
-    alphaAni.toValue = 1
-    alphaAni.beginTime = delay + CACurrentMediaTime()
+    alphaAni?.toValue = 1
+    alphaAni?.beginTime = delay + CACurrentMediaTime()
     
     var scaleAni = POPSpringAnimation(propertyNamed: kPOPViewScaleXY)
-    scaleAni.toValue = NSValue(CGPoint: CGPointMake(1, 1))
-    scaleAni.beginTime = delay + CACurrentMediaTime()
-    scaleAni.springBounciness = 15;
+    scaleAni?.toValue = NSValue(cgPoint: CGPoint(x: 1, y: 1))
+    scaleAni?.beginTime = delay + CACurrentMediaTime()
+    scaleAni?.springBounciness = 15;
     
     
-    alphaAni.completionBlock = { (animation:POPAnimation!, completion:Bool) in
+    alphaAni?.completionBlock = { (animation:POPAnimation?, completion:Bool) in
       
       // Dissapear
       alphaAni = POPSpringAnimation(propertyNamed: kPOPViewAlpha)
-      alphaAni.toValue = 0
-      alphaAni.beginTime = CACurrentMediaTime() + visibleTime
+      alphaAni?.toValue = 0
+      alphaAni?.beginTime = CACurrentMediaTime() + visibleTime
     
       scaleAni = POPSpringAnimation(propertyNamed: kPOPViewScaleXY)
-      scaleAni.toValue = NSValue(CGPoint: CGPointMake(0.8, 0.8))
-      scaleAni.beginTime = CACurrentMediaTime() + visibleTime
-      scaleAni.springBounciness = 15;
+      scaleAni?.toValue = NSValue(cgPoint: CGPoint(x: 0.8, y: 0.8))
+      scaleAni?.beginTime = CACurrentMediaTime() + visibleTime
+      scaleAni?.springBounciness = 15;
 
-      view.pop_addAnimation(alphaAni, forKey: "alpha")
-      view.pop_addAnimation(scaleAni, forKey: "scale")
+      view.pop_add(alphaAni, forKey: "alpha")
+      view.pop_add(scaleAni, forKey: "scale")
       
       // Restart, kind of ugly, but they get out of sync if we dont restart them at the same time
       if (view == self.bubble) {
-        alphaAni.completionBlock = { (animation:POPAnimation!, completion:Bool) in
+        alphaAni?.completionBlock = { (animation:POPAnimation?, completion:Bool) in
           self.startAnimations(hiddenTime)
         }
       }
     }
     
-    view.pop_addAnimation(alphaAni, forKey: "alpha")
-    view.pop_addAnimation(scaleAni, forKey: "scale")
+    view.pop_add(alphaAni, forKey: "alpha")
+    view.pop_add(scaleAni, forKey: "scale")
   }
   
-  func animateScreenshot(delay: CFTimeInterval) {
+  func animateScreenshot(_ delay: CFTimeInterval) {
     let visibleTime: CFTimeInterval = 2;
     
     device.screenshotView.alpha = 0
     device.screenshotView.pop_removeAllAnimations()
     
     var alphaAni = POPSpringAnimation(propertyNamed: kPOPViewAlpha)
-    alphaAni.toValue = 1
-    alphaAni.beginTime = delay + CACurrentMediaTime()
+    alphaAni?.toValue = 1
+    alphaAni?.beginTime = delay + CACurrentMediaTime()
     
-    alphaAni.completionBlock = { (animation:POPAnimation!, completion:Bool) in
+    alphaAni?.completionBlock = { (animation:POPAnimation?, completion:Bool) in
       alphaAni = POPSpringAnimation(propertyNamed: kPOPViewAlpha)
-      alphaAni.toValue = 0
-      alphaAni.beginTime = CACurrentMediaTime() + visibleTime
+      alphaAni?.toValue = 0
+      alphaAni?.beginTime = CACurrentMediaTime() + visibleTime
 
-      self.device.screenshotView.pop_addAnimation(alphaAni, forKey: nil)
+      self.device.screenshotView.pop_add(alphaAni, forKey: nil)
     }
     
-    device.screenshotView.pop_addAnimation(alphaAni, forKey: nil)
+    device.screenshotView.pop_add(alphaAni, forKey: nil)
   }
 }

@@ -10,8 +10,8 @@ import UIKit
 
 extension UIImage {
 
-  class func drawableImage(size: CGSize, draw: CGSize -> Void) -> UIImage {
-    UIGraphicsBeginImageContextWithOptions(size, false, UIScreen.mainScreen().scale)
+  class func drawableImage(_ size: CGSize, draw: (CGSize) -> Void) -> UIImage {
+    UIGraphicsBeginImageContextWithOptions(size, false, UIScreen.main.scale)
     
     draw(size)
     
@@ -19,6 +19,6 @@ extension UIImage {
     
     UIGraphicsEndImageContext()
     
-    return image
+    return image!
   }
 }

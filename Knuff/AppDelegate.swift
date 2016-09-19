@@ -14,9 +14,9 @@ let DisplayedIntro = "DisplayedIntro"
 class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
 
-  func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     
-    window = UIWindow(frame: UIScreen.mainScreen().bounds)
+    window = UIWindow(frame: UIScreen.main.bounds)
     window?.rootViewController = RootViewController()
     
     window?.makeKeyAndVisible()
@@ -24,43 +24,43 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     return true
   }
   
-  func applicationDidBecomeActive(application: UIApplication) {
-    let displayedIntro = NSUserDefaults.standardUserDefaults().boolForKey(DisplayedIntro)
+  func applicationDidBecomeActive(_ application: UIApplication) {
+    let displayedIntro = UserDefaults.standard.bool(forKey: DisplayedIntro)
     
-    if (displayedIntro && !application.isRegisteredForRemoteNotifications()) {
+    if (displayedIntro && !application.isRegisteredForRemoteNotifications) {
       registerUserNotifications()
-    } else if (application.isRegisteredForRemoteNotifications()) {
+    } else if (application.isRegisteredForRemoteNotifications) {
       application.registerForRemoteNotifications()
     }
   }
   
-  func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+  func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
     
   }
   
-  func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings) {
+  func application(_ application: UIApplication, didRegister notificationSettings: UIUserNotificationSettings) {
     application.registerForRemoteNotifications()
   }
   
-  func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+  func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
     if let vc = self.window?.rootViewController as? RootViewController {
       vc.appDidRegisterForRemoteNotificationsWithDeviceToken(deviceToken)
     }
   }
   
-  func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+  func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
     if let vc = self.window?.rootViewController as? RootViewController {
-      vc.appDidFailToRegisterForRemoteNotificationsWithError(error)
+      vc.appDidFailToRegisterForRemoteNotificationsWithError(error as NSError)
     }
   }
   
   // MARK: -
   
   func registerUserNotifications() {
-    NSUserDefaults.standardUserDefaults().setBool(true, forKey: DisplayedIntro)
+    UserDefaults.standard.set(true, forKey: DisplayedIntro)
     
-    let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil);
-    let application = UIApplication.sharedApplication()
+    let settings = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil);
+    let application = UIApplication.shared
     application.registerUserNotificationSettings(settings)
   }
 }
