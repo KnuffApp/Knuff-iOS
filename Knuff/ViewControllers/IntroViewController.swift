@@ -66,10 +66,10 @@ class IntroViewController: UIViewController {
     }
     
     registerButton = UIButton()
-    registerButton!.setTitle("GET STARTED", for: UIControlState())
-    registerButton!.setBackgroundImage(image, for: UIControlState())
+    registerButton!.setTitle("GET STARTED", for: .normal)
+    registerButton!.setBackgroundImage(image, for: .normal)
     registerButton!.titleLabel?.font = UIFont(name: "OpenSans-Semibold", size: 12)
-    registerButton!.setTitleColor(UIColor(hex: 0x6DB0F8), for: UIControlState())
+    registerButton!.setTitleColor(UIColor(hex: 0x6DB0F8), for: .normal)
     registerButton!.addTarget(
       self,
       action: #selector(IntroViewController.register),

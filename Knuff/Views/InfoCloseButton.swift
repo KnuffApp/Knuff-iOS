@@ -18,7 +18,7 @@ class InfoCloseButton: UIButton {
     didSet {
     
       if (buttonState == .close) {
-        setImage(UIImage(named: "CloseCross"), for: UIControlState())
+        setImage(UIImage(named: "CloseCross"), for: .normal)
 
 //        let infoI1 = UIImageView(image: UIImage(named: "InfoI"))
 //        let infoI2 = UIImageView(image: UIImage(named: "InfoI"))
@@ -64,7 +64,7 @@ class InfoCloseButton: UIButton {
 //        infoI1.layer.pop_addAnimation(infoI1RotateAni, forKey: "rotate")
 //        infoI2.layer.pop_addAnimation(infoI2RotateAni, forKey: "rotate")
       } else {
-        setImage(UIImage(named: "InfoI"), for: UIControlState())
+        setImage(UIImage(named: "InfoI"), for: .normal)
       }
       
       imageView?.layer.add(CATransition(), forKey: nil)
@@ -86,8 +86,8 @@ class InfoCloseButton: UIButton {
       UIBezierPath(ovalIn: rect).stroke()
     })
     
-    setBackgroundImage(image, for: UIControlState())
-    setImage(UIImage(named: "InfoI"), for: UIControlState())
+    setBackgroundImage(image, for: .normal)
+    setImage(UIImage(named: "InfoI"), for: .normal)
     
     addTarget(self, action: #selector(InfoCloseButton.toggle(_:)), for: UIControlEvents.touchUpInside)
   }
