@@ -40,7 +40,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
   
   func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
-    
+    if let vc = self.window?.rootViewController as? RootViewController {
+        vc.appDidReceiveRemoteNotification(userInfo)
+    }
   }
   
   func application(_ application: UIApplication, didRegister notificationSettings: UIUserNotificationSettings) {

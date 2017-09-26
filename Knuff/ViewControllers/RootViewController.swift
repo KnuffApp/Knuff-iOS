@@ -196,4 +196,12 @@ class RootViewController: UIViewController {
     serviceAdvertiser.setDeviceToken(nil)
     state = .failure
   }
+  
+  func appDidReceiveRemoteNotification(_ userInfo: [AnyHashable: Any]) {
+    
+    
+    //let body = userInfo["apn"] as Dictionary<String: Any>["alert"] as? String
+    
+    
+  }
 }
