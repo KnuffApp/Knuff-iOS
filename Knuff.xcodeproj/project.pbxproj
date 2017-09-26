@@ -11,6 +11,8 @@
 		F414D1901AC48740000E951E /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F44BBAA71AC410BE00D23829 /* OpenSans-Light.ttf */; };
 		F414D1921AC491C9000E951E /* InstructionStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F414D1911AC491C9000E951E /* InstructionStepView.swift */; };
 		F414D1941AC494A0000E951E /* CircleBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F414D1931AC494A0000E951E /* CircleBadgeView.swift */; };
+		F41FE2241D908DF000442AF7 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F41FE2221D908DF000442AF7 /* Fabric.framework */; };
+		F41FE2251D908DF000442AF7 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F41FE2231D908DF000442AF7 /* Crashlytics.framework */; };
 		F429149A1AD93D83001971BB /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42914991AD93D83001971BB /* GradientView.swift */; };
 		F4412D521ACEA45C00E667F9 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4412D511ACEA45C00E667F9 /* RootViewController.swift */; };
 		F4412D551ACEA9E700E667F9 /* ServiceAdvertiser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4412D541ACEA9E700E667F9 /* ServiceAdvertiser.swift */; };
@@ -57,6 +59,8 @@
 		E178A8B3E8C69F6C25EF7B75 /* Pods-Knuff.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Knuff.release.xcconfig"; path = "Pods/Target Support Files/Pods-Knuff/Pods-Knuff.release.xcconfig"; sourceTree = "<group>"; };
 		F414D1911AC491C9000E951E /* InstructionStepView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructionStepView.swift; sourceTree = "<group>"; };
 		F414D1931AC494A0000E951E /* CircleBadgeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleBadgeView.swift; sourceTree = "<group>"; };
+		F41FE2221D908DF000442AF7 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		F41FE2231D908DF000442AF7 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		F42914991AD93D83001971BB /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		F4412D511ACEA45C00E667F9 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		F4412D541ACEA9E700E667F9 /* ServiceAdvertiser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceAdvertiser.swift; sourceTree = "<group>"; };
@@ -112,6 +116,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				45777346143F3B284145BC4B /* Pods_Knuff.framework in Frameworks */,
+				F41FE2251D908DF000442AF7 /* Crashlytics.framework in Frameworks */,
+				F41FE2241D908DF000442AF7 /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,6 +136,8 @@
 		9DB5FF18B58D5F5FF3926481 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F41FE2221D908DF000442AF7 /* Fabric.framework */,
+				F41FE2231D908DF000442AF7 /* Crashlytics.framework */,
 				CB2E221755652753D9C41852 /* Pods_Knuff.framework */,
 			);
 			name = Frameworks;
@@ -288,6 +296,7 @@
 				F4EEE9DB1AB8A1410049CD6C /* Resources */,
 				AA79F46A7FC7C7A4784B23DD /* [CP] Embed Pods Frameworks */,
 				1F0F787079C8738461F89FE1 /* [CP] Copy Pods Resources */,
+				F41FE2211D908DC000442AF7 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -403,6 +412,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Knuff/Pods-Knuff-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		F41FE2211D908DC000442AF7 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run a944252ee77026be3648fe128dd36d4038925030 84cbc9fe10648575ebfe5cd5c815eeec6b6e3d27336836f293fa8a5ddd72b2c0";
 		};
 		F69F4DC1B34EB62EFE5DCCA2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

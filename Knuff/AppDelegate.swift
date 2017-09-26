@@ -8,6 +8,9 @@
 
 import UIKit
 
+import Fabric
+import Crashlytics
+
 let DisplayedIntro = "DisplayedIntro"
 
 @UIApplicationMain
@@ -20,6 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     window?.rootViewController = RootViewController()
     
     window?.makeKeyAndVisible()
+    
+    Fabric.with([Crashlytics.self])
     
     return true
   }
