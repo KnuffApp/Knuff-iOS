@@ -133,7 +133,7 @@ class PulseView: UIView {
     
     var animation = POPBasicAnimation(propertyNamed: kPOPLayerRotation)
     animation?.duration = 1.5
-    animation?.toValue = -(M_PI * 2)
+    animation?.toValue = -(Double.pi * 2)
     animation?.repeatForever = true
     animation?.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
     
@@ -141,7 +141,7 @@ class PulseView: UIView {
     
     animation = POPBasicAnimation(propertyNamed: kPOPLayerRotation)
     animation?.duration = 1.2
-    animation?.toValue = M_PI * 2
+    animation?.toValue = Double.pi * 2
     animation?.repeatForever = true
     animation?.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
     

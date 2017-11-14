@@ -110,7 +110,7 @@ class IntroViewController: UIViewController {
     if (compactWidth) {
       registerButton!.frame = CGRect(
         x: 0,
-        y: view.bounds.height-registerButton!.bounds.height,
+        y: view.bounds.height-registerButton!.bounds.height-bottomLayoutGuide.length,
         width: view.bounds.width,
         height: registerButton!.bounds.height
       )
@@ -123,7 +123,7 @@ class IntroViewController: UIViewController {
   }
   
   
-  func register() {
+  @objc func register() {
     if let delegate = UIApplication.shared.delegate as? AppDelegate {
       delegate.registerUserNotifications()
     }

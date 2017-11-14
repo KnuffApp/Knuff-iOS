@@ -21,7 +21,7 @@ class AboutViewController: UIViewController, UITableViewDataSource, UITableViewD
     tableContent = [
       [
         "title": "Visit the developer website",
-        "link": "http://madebybowtie.com",
+        "link": "http://http://bowtie.se",
       ],
       [
         "title": "View source on Github",
@@ -42,26 +42,27 @@ class AboutViewController: UIViewController, UITableViewDataSource, UITableViewD
     tableView = UITableView(frame: .zero, style: .grouped)
     tableView?.delegate = self
     tableView?.dataSource = self
-    tableView?.register(AboutCell.self, forCellReuseIdentifier: "lol")
+    tableView?.register(AboutCell.self, forCellReuseIdentifier: String(describing: AboutCell.self))
     
     tableView?.separatorColor = UIColor(hex: 0xF7F9FC, alpha: 0.2)
     tableView?.backgroundColor = UIColor.clear
     
-    tableView?.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
-    
-    let headerView = AboutTableHeaderView(frame: CGRect.zero)
+    let headerView = AboutTableHeaderView(frame: .zero)
     headerView.sizeToFit()
     tableView?.tableHeaderView = headerView
 
-    let footerView = AboutTableFooterView(frame: CGRect.zero)
+    let footerView = AboutTableFooterView(frame: .zero)
     footerView.sizeToFit()
     tableView?.tableFooterView = footerView
     
     view.addSubview(tableView!)
     
-    overlayView = GradientView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 30))
-    overlayView?.autoresizingMask = .flexibleWidth
+    overlayView = GradientView(frame: .zero)
     view.addSubview(overlayView!)
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
   }
   
   override func viewDidLayoutSubviews() {
@@ -77,6 +78,8 @@ class AboutViewController: UIViewController, UITableViewDataSource, UITableViewD
         height: view.bounds.height
       )
     }
+    
+    overlayView?.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: topLayoutGuide.length + 10)
   }
   
   // MARK: - UITableViewDataSource
@@ -86,7 +89,7 @@ class AboutViewController: UIViewController, UITableViewDataSource, UITableViewD
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "lol", for: indexPath) as! AboutCell
+    let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: AboutCell.self), for: indexPath) as! AboutCell
     
     cell.textLabel?.text = tableContent[(indexPath as NSIndexPath).row]["title"]
     

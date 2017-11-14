@@ -27,9 +27,9 @@ class InstructionStepView: UIView {
         let attributedString = NSAttributedString(
           string: string,
           attributes: [
-            NSForegroundColorAttributeName: UIColor.white,
-            NSParagraphStyleAttributeName: style,
-            NSFontAttributeName: UIFont(name: "OpenSans", size: 12)!,
+            NSAttributedStringKey.foregroundColor: UIColor.white,
+            NSAttributedStringKey.paragraphStyle: style,
+            NSAttributedStringKey.font: UIFont(name: "OpenSans", size: 12)!,
           ]
         )
         

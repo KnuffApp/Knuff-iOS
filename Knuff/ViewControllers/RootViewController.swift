@@ -119,7 +119,7 @@ class RootViewController: UIViewController {
     }
   }
   
-  func toggleAbout() {
+  @objc func toggleAbout() {
     let translateAnimation = POPSpringAnimation(propertyNamed: kPOPLayerTranslationY)
     let contentAlphaAnimation = POPSpringAnimation(propertyNamed: kPOPViewAlpha)
     let alphaAnimation = POPSpringAnimation(propertyNamed: kPOPViewAlpha)

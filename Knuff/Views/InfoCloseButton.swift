@@ -101,7 +101,7 @@ class InfoCloseButton: UIButton {
   }
   
   
-  func toggle(_ sender: InfoCloseButton) -> Void {
+  @objc func toggle(_ sender: InfoCloseButton) -> Void {
     if (buttonState == .info) {
       buttonState = .close
     } else {
