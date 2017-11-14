@@ -129,11 +129,9 @@ class RootViewController: UIViewController {
       vc.willMove(toParentViewController: nil)
       
       translateAnimation?.toValue = 0
-      
       contentAlphaAnimation?.toValue = 1
 
       scaleAnimation?.toValue = NSValue(cgSize: CGSize(width: 0.75, height: 0.75))
-      
       alphaAnimation?.toValue = 0
       
       infoCloseButton?.isEnabled = false
@@ -153,18 +151,20 @@ class RootViewController: UIViewController {
 
       vc.view.frame = view.bounds
       vc.view.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+
+      view.insertSubview(vc.view, belowSubview: contentContainerView!)
+      
+      view.setNeedsLayout()
+      view.layoutIfNeeded()
       
       // Initial state
       vc.view.alpha = 0
       vc.view.transform = CGAffineTransform(scaleX: 0.75, y: 0.75)
-            view.insertSubview(vc.view, belowSubview: contentContainerView!)
       
       translateAnimation?.toValue = -view.bounds.height
-      
       contentAlphaAnimation?.toValue = 0
       
       scaleAnimation?.toValue = NSValue(cgSize: CGSize(width: 1, height: 1))
-      
       alphaAnimation?.toValue = 1
       
       infoCloseButton?.isEnabled = false
