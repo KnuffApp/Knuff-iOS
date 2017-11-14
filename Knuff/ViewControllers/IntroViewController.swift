@@ -117,7 +117,7 @@ class IntroViewController: UIViewController {
     } else {
       registerButton!.frame.origin = CGPoint(
         x: round((view.bounds.width/2) - (registerButton!.bounds.width/2)),
-        y: instructionsView!.frame.maxY + 20
+        y: instructionsView!.frame.maxY + 40
       )
     }
   }
