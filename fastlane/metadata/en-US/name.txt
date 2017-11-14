@@ -1,1 +1,1 @@
-Knuff - The APNs Debug Tool
+Knuff

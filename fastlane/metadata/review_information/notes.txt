@@ -1,0 +1,10 @@
+This app is a companion app to the Knuff Mac app.
+We tried to submit that to the Mac App Store a while ago but they required a demo account, even if it is a standalone app as well.
+Therefore we are now trying to submit this app so the peoples that reviewing the mac app can use this as demo.
+
+To test this iOS app you need the mac one, that one can be downloaded from GitHub: https://github.com/KnuffApp/Knuff/releases (OS X El Capitan is required)
+iOS: Start the app, register for remote notifications by taping "GET STARTED"
+OS X:
+1: Switch to "Knuff iOS App"
+2: Make sure to be on the same WiFi, select your phone in the list when clicked "Devices"-button, you will then get a token
+3: Press "Push", it might take a few seconds for the first push message to get to the phone, note that you have to have the iOS app in the background while pushing to get a visible notification
