@@ -14,6 +14,7 @@ class FailureViewController: UIViewController {
   var pulseView: DevicePulseView?
   var infoTitleLabel: UILabel?
   var infoLabel: UILabel?
+  var settingsButton: Button?
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -37,13 +38,24 @@ class FailureViewController: UIViewController {
     view.addSubview(infoTitleLabel!)
     
     infoLabel = UILabel()
-    infoLabel!.text = "To receive push notifications from your computer you need to allow Knuff to receive them. Allow notifications:\n\nSettings → Notifications → Knuff"
+    infoLabel!.text = "To receive push notifications from your computer you need to allow Knuff to receive them."
     infoLabel!.font = UIFont(name: "OpenSans-Light", size: 12)
     infoLabel!.textColor = UIColor(white: 1, alpha: 1)
     infoLabel!.textAlignment = NSTextAlignment.center
     infoLabel!.numberOfLines = 0
     infoLabel!.bounds.size = infoLabel!.sizeThatFits(CGSize(width: 300, height: CGFloat.greatestFiniteMagnitude))
     view.addSubview(infoLabel!)
+    
+    settingsButton = Button(type: .system)
+    settingsButton!.setTitle("OPEN SETTINGS", for: .normal)
+    settingsButton!.titleLabel?.font = UIFont(name: "OpenSans-Semibold", size: 12)
+    settingsButton!.setTitleColor(UIColor(hex: 0x6DB0F8), for: .normal)
+    settingsButton!.addTarget(
+      self,
+      action: #selector(FailureViewController.settings),
+      for: .touchUpInside
+    )
+    view.addSubview(settingsButton!)
   }
   
   override func viewDidAppear(_ animated: Bool) {
@@ -54,6 +66,8 @@ class FailureViewController: UIViewController {
   
   override func viewDidLayoutSubviews() {
     super.viewDidLayoutSubviews()
+    
+    let compactWidth = (traitCollection.horizontalSizeClass == .compact)
     
     titleLabel!.frame.origin = CGPoint(
       x: round((view.bounds.width/2) - (titleLabel!.bounds.width/2)),
@@ -76,5 +90,26 @@ class FailureViewController: UIViewController {
       x: round((view.bounds.width/2) - (infoLabel!.bounds.width/2)),
       y: infoTitleLabel!.frame.maxY + 20
     )
+    
+    settingsButton!.sizeToFit()
+    if (compactWidth) {
+      settingsButton!.frame = CGRect(
+        x: 0,
+        y: view.bounds.height-settingsButton!.bounds.height-bottomLayoutGuide.length,
+        width: view.bounds.width,
+        height: settingsButton!.bounds.height
+      )
+    } else {
+      settingsButton!.frame.origin = CGPoint(
+        x: round((view.bounds.width/2) - (settingsButton!.bounds.width/2)),
+        y: infoLabel!.frame.maxY + 40
+      )
+    }
+  }
+  
+  @objc func settings() {
+    if let url = URL(string:UIApplicationOpenSettingsURLString) {
+      UIApplication.shared.openURL(url)
+    }
   }
 }

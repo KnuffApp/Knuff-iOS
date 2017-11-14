@@ -31,6 +31,7 @@
 		F4742B921AC4DAF10004A353 /* InstructionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4742B911AC4DAF10004A353 /* InstructionsView.swift */; };
 		F48350241C45A372006AEA88 /* KnuffSnapshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48350231C45A372006AEA88 /* KnuffSnapshots.swift */; };
 		F483502C1C45A3AC006AEA88 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F483502B1C45A3AC006AEA88 /* SnapshotHelper.swift */; };
+		F4B080351FBB1488007D24CB /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B080341FBB1488007D24CB /* Button.swift */; };
 		F4BFB25C1AC4304000D7086A /* PushIllustrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BFB25B1AC4304000D7086A /* PushIllustrationView.swift */; };
 		F4E20B741ADD3BB90097709A /* DeviceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E20B731ADD3BB90097709A /* DeviceView.swift */; };
 		F4EEE9E31AB8A1410049CD6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EEE9E21AB8A1410049CD6C /* AppDelegate.swift */; };
@@ -82,6 +83,7 @@
 		F48350231C45A372006AEA88 /* KnuffSnapshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnuffSnapshots.swift; sourceTree = "<group>"; };
 		F48350251C45A372006AEA88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F483502B1C45A3AC006AEA88 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
+		F4B080341FBB1488007D24CB /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		F4BFB25B1AC4304000D7086A /* PushIllustrationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushIllustrationView.swift; sourceTree = "<group>"; };
 		F4E20B731ADD3BB90097709A /* DeviceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceView.swift; sourceTree = "<group>"; };
 		F4EE15181AFF65DD00F86C2A /* Bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bridge.h; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				F457C5E31AD45BE500472891 /* AboutTableFooterView.swift */,
 				F42914991AD93D83001971BB /* GradientView.swift */,
 				F4E20B731ADD3BB90097709A /* DeviceView.swift */,
+				F4B080341FBB1488007D24CB /* Button.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -451,6 +454,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F457C5E41AD45BE500472891 /* AboutTableFooterView.swift in Sources */,
+				F4B080351FBB1488007D24CB /* Button.swift in Sources */,
 				F414D1921AC491C9000E951E /* InstructionStepView.swift in Sources */,
 				F4412D521ACEA45C00E667F9 /* RootViewController.swift in Sources */,
 				F446CA501AD3D7FE00082BE1 /* AboutTableHeaderView.swift in Sources */,

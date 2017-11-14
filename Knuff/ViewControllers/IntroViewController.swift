@@ -33,41 +33,17 @@ class IntroViewController: UIViewController {
     subtitleLabel!.sizeToFit()
     view.addSubview(subtitleLabel!)
 
-    illustrationView = PushIllustrationView(frame: CGRect.zero)
+    illustrationView = PushIllustrationView(frame: .zero)
     illustrationView!.sizeToFit()
     view.addSubview(illustrationView!)
 
     
-    instructionsView = InstructionsView(frame: CGRect.zero)
+    instructionsView = InstructionsView(frame: .zero)
     instructionsView!.sizeToFit()
     view.addSubview(instructionsView!)
     
-
-    let image: UIImage
-    
-    if (traitCollection.horizontalSizeClass == .compact) {
-      image = UIImage.drawableImage(CGSize(width: 1, height: 59),
-        draw: { size in
-          UIColor(hex: 0x6DB0F8, alpha: 0.4).set()
-          UIRectFill(CGRect(x: 0, y: 0, width: 1, height: 1/UIScreen.main.scale))
-      })
-    } else {
-      image = UIImage.drawableImage(CGSize(width: 248, height: 50),
-        draw: { size in
-          let rect = CGRect(
-            x: 0.5,
-            y: 0.5,
-            width: size.width - 1.0,
-            height: size.height - 1.0
-          )
-          UIColor(hex: 0x6DB0F8).set()
-          UIBezierPath(roundedRect: rect, cornerRadius: 6).stroke()
-      })
-    }
-    
-    registerButton = UIButton()
+    registerButton = Button(type: .system)
     registerButton!.setTitle("GET STARTED", for: .normal)
-    registerButton!.setBackgroundImage(image, for: .normal)
     registerButton!.titleLabel?.font = UIFont(name: "OpenSans-Semibold", size: 12)
     registerButton!.setTitleColor(UIColor(hex: 0x6DB0F8), for: .normal)
     registerButton!.addTarget(
@@ -75,7 +51,6 @@ class IntroViewController: UIViewController {
       action: #selector(IntroViewController.register),
       for: .touchUpInside
     )
-    registerButton!.sizeToFit()
     view.addSubview(registerButton!)
   }
   
@@ -83,7 +58,6 @@ class IntroViewController: UIViewController {
     super.viewDidLayoutSubviews()
     
     let compactWidth = (traitCollection.horizontalSizeClass == .compact)
-    
     
     titleLabel!.frame.origin = CGPoint(
       x: round((view.bounds.width/2) - (titleLabel!.bounds.width/2)),
@@ -107,6 +81,7 @@ class IntroViewController: UIViewController {
       y: subtitleLabel!.frame.maxY + round(height/2 - (illustrationView!.bounds.height/2))
     )
     
+    registerButton!.sizeToFit()
     if (compactWidth) {
       registerButton!.frame = CGRect(
         x: 0,
@@ -121,7 +96,6 @@ class IntroViewController: UIViewController {
       )
     }
   }
-  
   
   @objc func register() {
     if let delegate = UIApplication.shared.delegate as? AppDelegate {
